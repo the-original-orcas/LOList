@@ -1,6 +1,6 @@
 #LOList 
 ---
-LOList is a web app that displays a curated list of popular comedians and allows users to follow their favorites and recieve notifications for any upcoming shows near them.
+LOList is a web app that displays a curated list of popular comedians, allows it's users to follow their favorite ones and recieve notifications for any upcoming shows nearby.
 
 [LOList.io] - coming soon
 
