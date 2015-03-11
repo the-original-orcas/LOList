@@ -43,10 +43,7 @@ User:
 - [ ] can sign up via Facebook OAuth
 - [ ] can sign in securely
 - [ ] should recieve an email when tickets are made available
-<!--- [ ] other user stories
-- [ ] other user stories
-- [ ] other user stories
--->
+
 ## Wireframe
 image of wireframe will go here
 
