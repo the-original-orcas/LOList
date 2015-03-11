@@ -5,7 +5,7 @@ LOList is a web app that displays a curated list of popular comedians and allows
 [LOList.io] - coming soon
 
 ##Research TBD
-Listed in order of priority
+Listed in order of priority - not everything is required so let's discuss this Thursday morning 
 
 #####David
 - [ ] FB OAuth
