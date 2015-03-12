@@ -1,30 +1,63 @@
-<h1>Landing#index</h1>
-<p>Find me in app/views/landing/index.html.erb</p>
+<div id="landing-banner" class="valign-wrapper">
+		<h1 class="valign center-align">LOList</h1>
+		<h5 class="valign center-align">Never experience comedy-related FOMO ever again.</h5>
+</div>
 
+<div class="divider"></div>
 <!-- Expanding cards? -->
+
 <!-- sign up -->
-FB oauth button
-<div class="row">
-<form action="/user" method="POST">
-<div class="input-field col s6">
-<input type="text" name="user[email]" placeholder="Email">
+<div class='container'>
+	<div class="row">
+
+		<form class='col s6' action="/user" method="POST">
+		<h4>Sign Up</h4>
+			<p>FB oauth button</p>
+			
+			<div class="input-field col s12">
+			<input type="text" name="user[email]" placeholder="Email"></input>
+			</div>
+
+			<div class="input-field col s12">
+			<input type="password" name="user[password]" placeholder="Password"></input>
+			</div>
+
+			<div class="input-field col s12">
+			<input type="password" name="user[password_confirmation]" placeholder="Confirm Password"></input>
+			</div>
+
+			<button class="waves-effect waves-light btn" type="submit" name="action">Sign Up</button>
+
+		</form>
+	
+
+<!-- login  -->
+
+		<form class='col s6' action="/user" method="POST">
+		<h4>Existing Users, Login</h4>
+			<div class="input-field col s12">
+			<input type="text" name="user[email]" placeholder="Email"></input>
+			</div>
+
+			<div class="input-field col s12">
+			<input type="password" name="user[password]" placeholder="Password"></input>
+			</div>
+
+			<button class="waves-effect waves-light btn" type="submit" name="action">Login</button>
+
+		</form>
+	</div>
 </div>
-<div class="input-field col s6">
-<input type="password" name="user[password]" placeholder="Password">
-</div>
-<div class="input-field col s6">
-<input type="password" name="user[password_confirmation]" placeholder="Confirm Password">
-</div>
-</div>
 
+<footer class="page-footer">
+  <div class="footer-copyright">
+	  <div class="container">
+	  2015 LOList
+	  <a class="grey-text text-lighten-4 right" href="#!">About</a>
+	  </div>
+	</div>
+</footer>
 
-
-<input type="submit"><input>
-
-</form>
-
-<!-- sign in  -->
-Sign in form 
 
 
 
