@@ -3,9 +3,9 @@
 one:
   name: MyText
   image: MyString
-  youtube_link: MyString
+  youtube_url: MyString
 
 two:
   name: MyText
   image: MyString
-  youtube_link: MyString
+  youtube_url: MyString
