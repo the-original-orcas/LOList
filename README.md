@@ -49,7 +49,7 @@ image of wireframe will go here
 
 ## ERD
 <!-- ![image of Erd] -->
-image of ERD will go here
+![erd]
 
 <!-- future to do items -->
 TODO:
@@ -57,5 +57,5 @@ TODO:
 
 
 
-
+[erd]: ./erd.jpg =600x
 [LOList.io]: http://lolist.io
