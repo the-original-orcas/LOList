@@ -49,7 +49,7 @@ image of wireframe will go here
 
 ## ERD
 <!-- ![image of Erd] -->
-![erd](/erd.jpg|height=600x|align=center)
+<img src="./erd.jpg" height="400" align="center" />
 
 <!-- future to do items -->
 TODO:
