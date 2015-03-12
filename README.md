@@ -8,10 +8,9 @@ LOList is a web app that displays a curated list of popular comedians, allows it
 Listed in order of priority - not everything is required so let's discuss this Thursday morning 
 
 #####David
-- [ ] FB OAuth
-- [ ] FB API
-- [ ] YouTube API
-- [ ] Web Scraping - Nokogiri (or notify all of better option if known)
+- [x] FB OAuth - App registered - (reminder: DO NOT PUSH KEYS TO GH!)
+- [ ] FB API - App registered
+- [x] YouTube API - App registered
 - [ ] Email generation - [SendGrid](https://sendgrid.com/) 
 
 #####Sol
@@ -22,17 +21,12 @@ Listed in order of priority - not everything is required so let's discuss this T
 - [ ] Email generation - [SendGrid](https://sendgrid.com/) 
 
 #####Dan
-- [ ] Data sources
+- [x] Data sources - using seatgeek api for sprint 1
 - [ ] Email generation - [SendGrid](https://sendgrid.com/) 
-- [ ] YouTube API
+- [ ] YouTube API 
 - [ ] Google Maps API
-- [ ] Materialize
+- [x] Materialize
 - [ ] Web Scraping - Nokogiri (or notify all of better option if known)
-
-#####Ashley
-- [ ] Data sources
-- [ ] Comedians
-
 
 ## Minimum Viable Product
 
@@ -49,13 +43,10 @@ image of wireframe will go here
 
 ## ERD
 <!-- ![image of Erd] -->
-image of ERD will go here
+<img src="./erd.jpg" height="400" align="center" />
 
 <!-- future to do items -->
 TODO:
 - [ ] User profile page?
-
-
-
 
 [LOList.io]: http://lolist.io
