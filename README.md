@@ -43,13 +43,10 @@ image of wireframe will go here
 
 ## ERD
 <!-- ![image of Erd] -->
-![erd]
+<img src="./erd.jpg" height="400" align="center" />
 
 <!-- future to do items -->
 TODO:
 - [ ] User profile page?
 
-
-
-[erd]: ./erd.jpg =600x
 [LOList.io]: http://lolist.io
