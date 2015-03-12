@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # geocoder gem to translate IP address to location info
 gem 'geocoder'
 
+# materialize sass
+gem 'materialize-sass'
 
 # LOGINS & SECURE PW
 # Use ActiveModel has_secure_password
@@ -41,6 +43,7 @@ group :development, :test do
 
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'binding_of_caller'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end

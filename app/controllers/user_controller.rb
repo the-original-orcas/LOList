@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+  
   def new
     @user = User.new
   end
@@ -10,7 +11,7 @@ class UserController < ApplicationController
     else
       redirect_to '/'
     end
-  end
+
 
   def edit
   end
