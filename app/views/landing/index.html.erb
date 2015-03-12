@@ -5,7 +5,7 @@
 <!-- sign up -->
 FB oauth button
 
-<%= form_for(@user) do |f| %>
+<%= form_for @user, url: new_user(@user), html: { method: :post } do |f| %>
 
 	<div>
 	  <%= f.label :user_name %><br>
