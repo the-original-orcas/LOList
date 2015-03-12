@@ -1,2 +1,29 @@
 <h1>User#new</h1>
-<p>Find me in app/views/user/new.html.erb</p>
+<p>Find me in app/views/landing/index.html.erb</p>
+
+<!-- Expanding cards? -->
+<!-- sign up -->
+FB oauth button
+
+<% form_for , url: {action: "create"} do |f| %>
+
+	<div>
+	  <%= f.label :email %><br>
+	  <%= f.email_field :email %>
+	</div>
+	<div>
+	  <%= f.label :password %><br>
+	  <%= f.password_field :password %>
+	</div>
+	<div>
+	  <%= f.label :password_confirmation %><br>
+	  <%= f.password_field :password_confirmation %>
+	<div>
+	  <%= f.submit %>
+	</div>
+	</div>
+
+<% end %>
+
+<!-- sign in  -->
+Sign in form 

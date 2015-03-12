@@ -4,30 +4,24 @@
 <!-- Expanding cards? -->
 <!-- sign up -->
 FB oauth button
+<div class="row">
+<form action="/user" method="POST">
+<div class="input-field col s6">
+<input type="text" name="user[email]" placeholder="Email">
+</div>
+<div class="input-field col s6">
+<input type="password" name="user[password]" placeholder="Password">
+</div>
+<div class="input-field col s6">
+<input type="password" name="user[password_confirmation]" placeholder="Confirm Password">
+</div>
+</div>
 
-<%= form_for @user, url: new_user(@user), html: { method: :post } do |f| %>
 
-	<div>
-	  <%= f.label :user_name %><br>
-	  <%= f.text_field :user_name %>
-	</div>
-	<div>
-	  <%= f.label :email %><br>
-	  <%= f.email_field :email %>
-	</div>
-	<div>
-	  <%= f.label :password %><br>
-	  <%= f.password_field :password %>
-	</div>
-	<div>
-	  <%= f.label :password_confirmation %><br>
-	  <%= f.password_field :password_confirmation %>
-	<div>
-	  <%= f.submit %>
-	</div>
-	</div>
 
-<% end %>
+<input type="submit"><input>
+
+</form>
 
 <!-- sign in  -->
 Sign in form 
