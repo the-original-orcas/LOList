@@ -24,6 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # geocoder gem to translate IP address to location info
 gem 'geocoder'
 
+# materialize sass
+gem 'materialize-sass'
 
 # LOGINS & SECURE PW
 # Use ActiveModel has_secure_password
