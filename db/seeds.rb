@@ -14,9 +14,11 @@ Comedian.create({
 	})
 
 Comedian.create({
-	name: 'Louie C.K.',
+	name: 'Louie CK',
 	image: 'http://coolmaterial.com/wp-content/uploads/2013/10/louis-ck-oh-my-god.jpg'
 	})
+
+
 
 Comedian.create({
 	name: 'Aziz Ansari',
