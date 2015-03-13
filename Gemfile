@@ -38,6 +38,9 @@ gem 'unicorn'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'rails_12factor', group: :production
+
+
 group :development, :test do
 
   gem 'pry-rails'
@@ -47,3 +50,5 @@ group :development, :test do
   gem 'spring'
 end
 
+
+ruby "2.1.2"
