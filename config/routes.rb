@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'landing#index'
 
+  authenticated :user do
+    root to: 'comedian#index', as: :authenticated_root
+  end
+
 
   resources :user
   resources :event
