@@ -8,12 +8,13 @@
 
 <!-- sign up -->
 <div class='container'>
+	<button class="waves-effect waves-light blue btn" type="submit" name="action">Log in with Facebook</button>
 	<div class="row">
 
-		<form class='col s6' action="/user" method="POST">
+		
 		<h4>Sign Up</h4>
-			<p>FB oauth button</p>
 			
+		<form class='col s6' action="/users" method="POST">	
 			<div class="input-field col s12">
 			<input type="text" name="user[email]" placeholder="Email"></input>
 			</div>
@@ -26,14 +27,14 @@
 			<input type="password" name="user[password_confirmation]" placeholder="Confirm Password"></input>
 			</div>
 
-			<button class="waves-effect waves-light btn" type="submit" name="action">Sign Up</button>
+			<button class="waves-effect waves-light blue btn" type="submit" name="action">Sign Up</button>
 
 		</form>
 	
 
 <!-- login  -->
 
-		<form class='col s6' action="/user" method="POST">
+		<form class='col s6' action="/users/sign_in" method="POST">
 		<h4>Existing Users, Login</h4>
 			<div class="input-field col s12">
 			<input type="text" name="user[email]" placeholder="Email"></input>
@@ -43,7 +44,7 @@
 			<input type="password" name="user[password]" placeholder="Password"></input>
 			</div>
 
-			<button class="waves-effect waves-light btn" type="submit" name="action">Login</button>
+			<button class="waves-effect waves-light blue btn" type="submit" name="action">Login</button>
 
 		</form>
 	</div>
