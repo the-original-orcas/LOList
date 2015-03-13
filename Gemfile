@@ -42,7 +42,6 @@ gem 'rails_12factor', group: :production
 
 
 group :development, :test do
-
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
