@@ -6,6 +6,6 @@ class ComedianController < ApplicationController
   end
 
   def index
-  	@comedians = Comedian.all()
+  	@comedians = Comedian.all
   end
 end
