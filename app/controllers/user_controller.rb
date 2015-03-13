@@ -1,12 +1,13 @@
 class UserController < ApplicationController
-  before_filter :authenticate_user!
+  
   def new
     @user = User.new
   end
 
   def create
+  	binding.pry
     if params[:password] == params[:confirm_password]
-      @user = User.create(params_user)
+      @user = User.create
       redirect_to events_index_path
     else
       redirect_to '/'
@@ -19,7 +20,4 @@ class UserController < ApplicationController
   def update
   end
 
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :course_id, :linked_in, :twitter, :facebook, :github,  :password, :email, :avatar)
-  end
 end
