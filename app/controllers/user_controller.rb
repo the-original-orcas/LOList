@@ -7,7 +7,7 @@ class UserController < ApplicationController
   def create
     if params[:password] == params[:confirm_password]
       @user = User.create(params_user)
-      redirect_to topics_path
+      redirect_to events_index_path
     else
       redirect_to '/'
     end
