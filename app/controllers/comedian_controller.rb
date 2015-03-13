@@ -8,5 +8,6 @@ class ComedianController < ApplicationController
 
   def index
   	@comedians = Comedian.all
+  	@user = current_user
   end
 end
