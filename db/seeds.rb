@@ -56,28 +56,39 @@ Comedian.create({
 	youtube_url: 'https://www.youtube.com/watch?v=W2zTQwWaPps'
 	})
 
-Comedian.create({
+c4 = Comedian.create({
 	name: 'John Oliver',
 	image: 'http://cdn.hitfix.com/photos/5496125/john-oliver-hbo_article_story_large.jpg',
 	youtube_url: 'https://www.youtube.com/watch?v=sEotafqxFI4'
 	})
 
-Comedian.create({
+c2 = Comedian.create({
 	name: 'Hannibal Burress',
 	image: 'http://media.chicagomag.com//images/cache/cache_7/cache_1/cache_1/C201404-Hannibal-Buress-preview-23742117.jpeg?ver=1415285056&aspectratio=0.75',
 	youtube_url: 'https://www.youtube.com/watch?v=W3O0XEdj4t8'
 	})
 
-Comedian.create({
+c3 = Comedian.create({
 	name: 'Dave Chappelle',
 	image: 'http://api.ning.com/files/7WaW*6Bsqz0AzPn7jpDmWx1vrNQcwojhJvf8wrE8-FihxMV5ix747HpcmA51YZWmTWpV2Govk1oY2bRHiRKsOjR9zG4PPdDX/119747432e1371518463818.jpg',
 	youtube_url: 'https://www.youtube.com/watch?v=LLWlBgj0uOc'
 	})
 
-Comedian.create({
+c1 = Comedian.create({
 	name: 'Amy Schumer',
 	image: 'http://cdn.thedailybeast.com/content/dailybeast/articles/2014/03/31/comedy-s-r-rated-queen-amy-schumer-is-raunchier-than-ever/jcr:content/image.img.2000.jpg/1396277014165.cached.jpg',
 	youtube_url: 'https://www.youtube.com/watch?v=YEXmu89_E8o'
 	})
 
-
+u1 = User.create({
+	email: 'dan@gmail.com',
+	password: '12312313'
+	})
+u2 = User.create({
+	email: 'sol@gmail.com',
+	password: '12312313'
+	})
+u1.comedians = [c1,c2,c3]
+u2.comedians = [c3,c4]
+u2.save
+u1.save
