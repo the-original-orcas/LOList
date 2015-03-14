@@ -8,6 +8,8 @@ class UserController < ApplicationController
     end
 
   def edit
+  	@comedians = Comedian.all
+  	@user = current_user
   end
 
   def update

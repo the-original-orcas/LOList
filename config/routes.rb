@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   
   authenticated :user do
     root to: 'comedian#index', as: :authenticated_root
+    resources :users do
+      put :follow, on: :member
+      put :unfollow, on: :member
+    end
   end
 
   root to: 'landing#index'
 
-  
   resources :event
   resources :comedian
 

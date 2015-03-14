@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   def unfollowComedian(current_user)
     comedian = Comedian.find(comedian_id)
-    self.comedians.where
+    self.comedians.where(comedian_id)
   end
 end
+
