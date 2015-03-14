@@ -9,5 +9,6 @@ class ComedianController < ApplicationController
   def index
   	@comedians = Comedian.all
   	@user = current_user
+  	@fbapi = ENV["FB_API"]
   end
 end

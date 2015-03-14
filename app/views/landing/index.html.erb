@@ -1,3 +1,5 @@
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+
 <div id="landing-banner" class="valign-wrapper">
 		<h1 class="valign center-align">LOList</h1>
 		<h5 class="valign center-align">Never experience comedy-related FOMO ever again.</h5>
@@ -10,7 +12,16 @@
 <div class='container'>
 	<button class="waves-effect waves-light blue btn" type="submit" name="action">Log in with Facebook</button>
 	<div class="row">
-
+<fb:login-button autologoutlink="true" onlogin="OnRequestPermission();">
+</fb:login-button>
+<script language="javascript" type="text/javascript">
+    FB.init({
+        appId: '<%= @fbapi %>',
+        status: true, 
+        cookie: true, 
+        xfbml: true
+    });    
+</script>
 		
 		<h4>Sign Up</h4>
 			
