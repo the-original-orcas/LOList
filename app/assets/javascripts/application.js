@@ -15,3 +15,29 @@
 //= require materialize-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+    $('.follow').on('click', function(event) {
+        $.ajax({
+            url: $(this).attr("comedian_id"),
+            dataType: 'json',
+            type: 'PUT',
+            success: function(data) {
+                console.log(data)
+
+            }
+        });
+    });
+
+    $('.following').on('click'), function(event) {
+    	$.ajax({
+    		url: $(this).attr("comedian_id"),
+    		dataType: 'json',
+    		type: 'DELETE',
+    	})
+
+    }
+});
+
+
+// toggle class to .following  & send delete request
