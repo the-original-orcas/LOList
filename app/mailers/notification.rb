@@ -8,7 +8,7 @@ class Notification < ApplicationMailer
 		@event.comedians.each do |comedian|
 			comedian.users.each do |user|  
 				mail( :to => user.email,	
-				:subject => "Your Comedian booked a show in your area!" )	
+				:subject => "One of your favorite comedians booked a show in your area!" )	
 			end  
 		end 
 	end
