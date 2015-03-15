@@ -18,9 +18,9 @@ function ShowMyName() {
 <div class='row'>
 <% @comedians.each do |comedian| %>
 <div class='col s4'>
-	<div class='card'>
-		<div class='card-image'>
-			<img src=<%= comedian.image %>>
+	<div class='card medium'>
+		<div class='card-image-div'>
+			<img class='card-image' src=<%= comedian.image %>>
 			<span class='card-title'> <%= comedian.name %> </span>
 		</div>
 		<div class="card-action">

@@ -68,7 +68,7 @@ c4 = Comedian.create({
 
 c2 = Comedian.create({
 	name: 'Hannibal Burress',
-	image: 'http://media.chicagomag.com//images/cache/cache_7/cache_1/cache_1/C201404-Hannibal-Buress-preview-23742117.jpeg?ver=1415285056&aspectratio=0.75',
+	image: 'https://consequenceofsound.files.wordpress.com/2014/10/hannibal-buress-2.jpg',
 	youtube_url: 'https://consequenceofsound.files.wordpress.com/2014/10/hannibal-buress-2.jpg'
 	})
 
