@@ -1,7 +1,9 @@
 <h1>edit <%=@user.email  %></h1>
 <p>Find me in app/views/user/edit.html.erb</p>
 
+<%= form_for @user, url: user_path(@user), html: { method: :put } do |f| %>
 <div class='row'>
+
 <% @comedians.each do |comedian| %>
 <div class='col s4'>
 	<div class='card'>
@@ -10,12 +12,20 @@
 			<span class='card-title'> <%= comedian.name %> </span>
 		</div>
 	<div class="card-action">
-
-    <a id='comedian-<%= comedian.id %>' href="#">Follow</a>
+	<p>
+    <input type="checkbox" name="comedian_id" id="test<%=comedian.id%>" value="<%= comedian.id %>" />
+    <label for="test<%=comedian.id%>"> <%= comedian.name  %>  </label>
+  </p>
     <a href="#" onclick="this.style.backgroundColor='#990000'">Checked = red</a>
     </div>
 	</div>
 </div>
 
 <% end %>
+<% f.hidden_field :authenticity_token, value: form_authenticity_token() %> 
+
+
+<%= f.submit 'Submit', class: 'btn blue' %>
 </div>
+
+<% end  %>

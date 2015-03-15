@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   def new
     @user = User.new
   end
@@ -13,20 +13,27 @@ class UserController < ApplicationController
     @events = Event.all
   end
 
-  def update
-    respond_to do |format|
-      if @user.update(post_params)
-        format.html { redirect_to @user, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+  def show
+    @user = current_user
   end
-  private
 
-  def set_user
-    @user = User.find(params[:id])
+  def update
+    # respond_to do |format|
+    #   if @user.update
+    #     format.html { redirect_to @user, notice: 'Post was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @user }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
+    @user = current_user
+    @user.update_attributes(user_params)
   end
+  
+  private
+  def user_params
+    params.require(:user).permit(:email, :password, :comedian_id => [])
+  end
+
 end

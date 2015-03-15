@@ -91,12 +91,12 @@ u1 = User.create({
 
 u2 = User.create({
 	email: 'sol@gmail.com',
-	password: '12312313'
+	password: '123123123'
 	})
 
 u3 = User.create({
 	email: 'davidedaniel@gmail.com',
-	password: '12312313'
+	password: '123123123'
 	})
 
 u3.comedians = [c1,c2,c3]
