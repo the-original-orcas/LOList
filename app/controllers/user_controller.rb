@@ -1,5 +1,6 @@
 class UserController < ApplicationController
-  before_action :authenticate_user!
+prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
+prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :show]
   def new
     @user = User.new
   end
@@ -15,7 +16,11 @@ class UserController < ApplicationController
 
   def show
     @user = current_user
+    if @user.comedians.count < 3
+      redirect_to '/user/'+current_user.id.to_s+'/edit'
+    end
   end
+
 
   def update
     # respond_to do |format|
@@ -27,13 +32,14 @@ class UserController < ApplicationController
     #     format.json { render json: @user.errors, status: :unprocessable_entity }
     #   end
     # end
-    @user = current_user
-    @user.update_attributes(user_params)
+    user = current_user
+    binding.pry
+    user.update_attributes
   end
   
-  private
-  def user_params
-    params.require(:user).permit(:email, :password, :comedian_id => [])
-  end
+  # private
+  # def user_params
+  #   params.require(:user).permit(:email, :password, :comedian_id => [])
+  # end
 
 end

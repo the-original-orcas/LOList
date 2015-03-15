@@ -13,7 +13,8 @@
 		</div>
 	<div class="card-action">
 	<p>
-    <input type="checkbox" name="comedian_id" id="test<%=comedian.id%>" value="<%= comedian.id %>" />
+	<%= f.check_box(:comedian_id, {:multiple => true }, comedian.id, html: {name: "comedian_id", id: "test<%=comedian.id%>"}, nil) %>
+
     <label for="test<%=comedian.id%>"> <%= comedian.name  %>  </label>
   </p>
     <a href="#" onclick="this.style.backgroundColor='#990000'">Checked = red</a>

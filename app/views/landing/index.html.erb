@@ -10,18 +10,10 @@
 
 <!-- sign up -->
 <div class='container'>
-	<button class="waves-effect waves-light blue btn" type="submit" name="action">Log in with Facebook</button>
+<%= button_to "Sign in with Facebook", omniauth_authorize_path(:facebook), class: "waves-effect waves-light blue btn" %>
 	<div class="row">
-<fb:login-button autologoutlink="true" onlogin="OnRequestPermission();">
-</fb:login-button>
-<script language="javascript" type="text/javascript">
-    FB.init({
-        appId: '<%= @fbapi %>',
-        status: true, 
-        cookie: true, 
-        xfbml: true
-    });    
-</script>
+
+	
 		
 		<h4>Sign Up</h4>
 			

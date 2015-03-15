@@ -23,6 +23,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # geocoder gem to translate IP address to location info
 gem 'geocoder'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # materialize sass
 gem 'materialize-sass'
