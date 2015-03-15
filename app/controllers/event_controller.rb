@@ -7,4 +7,8 @@ class EventController < ApplicationController
   def create
   	@event = Event.create
   end
+
+  def index
+  	@events = Event.all 
+  end
 end

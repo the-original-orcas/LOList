@@ -1,4 +1,4 @@
-<h1>User#edit</h1>
+<h1>edit <%=@user.email  %></h1>
 <p>Find me in app/views/user/edit.html.erb</p>
 
 <div class='row'>
@@ -9,17 +9,13 @@
 			<img src=<%= comedian.image %>>
 			<span class='card-title'> <%= comedian.name %> </span>
 		</div>
-		<div class="card-action">
-      <a id='comedian-<%= comedian.id %>' href="#">Follow</a>
+	<div class="card-action">
+
+    <a id='comedian-<%= comedian.id %>' href="#">Follow</a>
+    <a href="#" onclick="this.style.backgroundColor='#990000'">Checked = red</a>
     </div>
 	</div>
 </div>
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="250"
-  data-show-faces="true">
-</div>
+
 <% end %>
 </div>
-

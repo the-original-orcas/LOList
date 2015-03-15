@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Comedian.destroy_all
-Event.destroy_all
-User.destroy_all
+# Comedian.destroy_all
+# Event.destroy_all
+# User.destroy_all
 
-comedians = ["Kevin Hart", "Louis C.K.", "Aziz Ansari", "Jim Gaffigan", "Sarah Silverman", "Chelsea Peretti", "Nick Kroll", "Daniel Tosh", "John Oliver", "Hannibal Burress", "Dave Chappelle", "Amy Schumer"] 
+# comedians = ["Kevin Hart", "Louis C.K.", "Aziz Ansari", "Jim Gaffigan", "Sarah Silverman", "Chelsea Peretti", "Nick Kroll", "Daniel Tosh", "John Oliver", "Hannibal Burress", "Dave Chappelle", "Amy Schumer"] 
 
 Comedian.create({
 	name: 'Kevin Hart',
@@ -94,7 +94,12 @@ u2 = User.create({
 	password: '12312313'
 	})
 
-u1.comedians = [c1,c2,c3]
+u3 = User.create({
+	email: 'davidedaniel@gmail.com',
+	password: '12312313'
+	})
+
+u3.comedians = [c1,c2,c3]
 u2.comedians = [c3,c4]
 u2.save
 u1.save

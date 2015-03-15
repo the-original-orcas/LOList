@@ -1,7 +1,8 @@
 <h1>Comedian#index</h1>
-<p>hello</p>
+<p>hello @user.email</p>
 <p>Find me in app/views/comedian/index.html.erb</p>
-<%= link_to edit_user_path  %>
+
+<a href="/user/<%= @user.id  %>/edit">edit your prefs</a>
 <div id="fb-root"></div>
 <button name="my_full_name" onclick="ShowMyName()" value="My Name"></button>
 <script language="javascript" type="text/javascript">
@@ -10,7 +11,6 @@ function ShowMyName() {
                 function (response) {
                     alert('Name is ' + response.name);
                 });
-         
     }
 </script>
 
