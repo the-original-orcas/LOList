@@ -94,7 +94,13 @@ u2 = User.create({
 	password: '12312313'
 	})
 
-u1.comedians = [c1,c2,c3]
+u3 = User.create({
+	email: 'davidedaniel@gmail.com',
+	password: '12312313'
+	})
+
+# u1.comedians = [c1,c2,c3]
+u3.comedians = [c1,c2,c3]
 u2.comedians = [c3,c4]
 u2.save
 u1.save
