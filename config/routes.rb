@@ -3,28 +3,15 @@ Rails.application.routes.draw do
   #   registrations: 'registrations',
   # }
 
-devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'} 
+  devise_for :users, class_name: 'FormUser', :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
 
-  # authenticated :user do
-  #   root to: "user#show", :as => :authenticated_root
-  #   resource :user
-  # end
-
-
-  # unauthenticated do
-  #   root to: 'landing#index', :as => "unauthenticated"
-  # end
-
-
-  # resources :event
-
-  # resources :comedian
-
-authenticated :user do
+  authenticated :user do
     root to: 'user#show', as: :authenticated_root
+    resources :user
+  end
 
-    resources :user 
-
+  unauthenticated do
+    root to: 'landing#index', :as => "unauthenticated"
   end
 
   root to: 'landing#index'
@@ -33,3 +20,19 @@ authenticated :user do
   resources :comedian
 
 end
+
+
+# authenticated :user do
+#   root to: "user#show", :as => :authenticated_root
+#   resource :user
+# end
+
+
+# unauthenticated do
+#   root to: 'landing#index', :as => "unauthenticated"
+# end
+
+
+# resources :event
+
+# resources :comedian

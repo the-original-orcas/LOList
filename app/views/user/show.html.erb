@@ -1,25 +1,50 @@
-<h1>show <%=@user.email  %></h1>
+<h5>show <%=@user.email  %></h5>
 <p>Find me in app/views/user/show.html.erb</p>
 
 <a href="/user/<%= @user.id  %>/edit">edit your prefs</a>
-<div class='row'>
+
+
 <% @user.comedians.each do |comedian| %>
-<div class='col s4'>
-	<div class='card'>
-		<div class='card-image'>
-			<img src=<%= comedian.image %>>
-			<span class='card-title'> <%= comedian.name %> </span>
-		</div>
+<% comedian.sort_by(comedian.event.time)  %>
+<div class='col s12'>
+<div class="card faveComs">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src=<%= comedian.image %>>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-more-vert right"></i></span>
+
+          <% if @user.comedians.include?(comedian) %>
+          <p class = "mdi-navigation right"><a href="#">Unfollow</a></p>
+          	<% else  %>
+          <p><a href="#">Follow</a></p>
+          <% end  %>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
+		<p class="grey-text text-darken-4">Upcoming events:</p>
 		<% comedian.events.each do |event| %>
-		<p><%= event.venue  %></p>
+		<p>Where: <%= event.venue  %></p>
+		<p>When: <%= event.time  %></p>
 		<% end  %>
-	<div class="card-action">
 
-    <a id='comedian-<%= comedian.id %>' href="#">Follow</a>
-    <a href="#" onclick="this.style.backgroundColor='#990000'">Checked = red</a>
-    </div>
-	</div>
+        <div class="videoWrapper">
+        	<iframe src="<%= comedian.youtube_url %>" frameborder = "0"	width = "560",
+	height: "349";seamless></iframe>
+        </div>
+        </div>
+
+      </div>	
+
+
+
+
+
+
 </div>
-
 <% end %>
-</div>
+
+
+
+
+      

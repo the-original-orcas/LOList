@@ -38,9 +38,9 @@ prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :
     # user.update_attributes
   end
   
-  # private
-  # def user_params
-  #   params.require(:user).permit(:email, :password, :comedian_id => [])
-  # end
+  private
+  def current_user_params
+    params.require(:current_user).permit(:email, :password, :comedian_id => [])
+  end
 
 end
