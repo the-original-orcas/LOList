@@ -16,28 +16,8 @@
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-    $('.follow').on('click', function(event) {
-        $.ajax({
-            url: $(this).attr("comedian_id"),
-            dataType: 'json',
-            type: 'PUT',
-            success: function(data) {
-                console.log(data)
-
-            }
-        });
-    });
-
-    $('.following').on('click'), function(event) {
-    	$.ajax({
-    		url: $(this).attr("comedian_id"),
-    		dataType: 'json',
-    		type: 'DELETE',
-    	})
-
-    }
+$('.following').live('change', function() {
+  $(this).parents('form:first').submit();
 });
-
 
 // toggle class to .following  & send delete request

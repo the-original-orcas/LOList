@@ -1,4 +1,5 @@
 <h1>User#edit</h1>
+
 <p>Find me in app/views/user/edit.html.erb</p>
 <div class='row'>
 <% @comedians.each do |comedian| %>
@@ -9,9 +10,13 @@
 			<span class='card-title'> <%= comedian.name %> </span>
 		</div>
 		<div class="card-action">
-      <%= link_to edit_user_path(@user), remote: true do %>
-    <button>Edit</button>
-  <% end %>
+		<a href="#" onclick="this.style.backgroundColor='#990000'">Checked = red</a>
+
+    <%= form_for @user, :remote => true do |f| %>
+  <%= f.check_box 'checked', :class => 'following' %> 
+  <%= f.label :checked %>
+<% end %>
+
     </div>
 	</div>
 </div>
