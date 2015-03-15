@@ -1,0 +1,17 @@
+<h1>User#edit</h1>
+<p>Find me in app/views/user/edit.html.erb</p>
+<div class='row'>
+<% @comedians.each do |comedian| %>
+<div class='col s4'>
+	<div class='card'>
+		<div class='card-image'>
+			<img src=<%= comedian.image %>>
+			<span class='card-title'> <%= comedian.name %> </span>
+		</div>
+		<div class="card-action">
+      <a id='comedian-<%= comedian.id %>' href="#">Follow</a>
+    </div>
+	</div>
+</div>
+<% end %>
+</div>
