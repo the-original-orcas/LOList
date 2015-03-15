@@ -35,9 +35,6 @@ gem 'devise'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 gem 'rails_12factor', group: :production
 
 
@@ -45,7 +42,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   authenticated :user do
     root to: 'comedian#index', as: :authenticated_root
-    resources :users do
+    resources :user do
       put :follow, on: :member
       put :unfollow, on: :member
     end
