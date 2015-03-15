@@ -32,14 +32,14 @@ prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :
     #     format.json { render json: @user.errors, status: :unprocessable_entity }
     #   end
     # end
-    user = current_user
-    binding.pry
-    user.update_attributes
+    # user = current_user
+    # binding.pry
+    # user.update(comedian_id: :comedian_id)
   end
   
-  # private
-  # def user_params
-  #   params.require(:user).permit(:email, :password, :comedian_id => [])
-  # end
+  private
+  def current_user_params
+    params.require(:current_user).permit(:email, :password, :comedian_id => [])
+  end
 
 end
