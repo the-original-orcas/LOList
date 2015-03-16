@@ -1,5 +1,10 @@
-<h1>edit <%=@user.email  %></h1>
-<p>Find me in app/views/user/edit.html.erb</p>
+<div class="container center-align">
+<h1>LOList</h1>
+
+<h4>Select at least three comedians to get started.</h4>
+<p>By selecting a comedian, you will begin to receive email notifications ONLY associated with the
+	artists you are following.</p>
+</div>
 
 <%= form_for @user, url: user_path(@user), html: { method: :put } do |f| %>
 <div class='row'>
@@ -12,10 +17,12 @@
 			<span class='card-title'> <%= comedian.name %> </span>
 		</div>
 	<div class="card-action">
-	
-		<span id='comedian-<%= comedian.id %>' class='follow'>FOLLOW</span>
-   
-    <a href="#" onclick="this.style.backgroundColor='#990000'">Checked = red</a>
+		<i class="fa fa-question-circle fa-2x"></i>
+		<% if @user.comedians.include?(comedian) %>
+			<span id='comedian-<%= comedian.id %>' class='follow following'><i class="mdi-action-stars"></i></span>
+    <% else  %>
+      <span id='comedian-<%= comedian.id %>' class='follow'><i class="mdi-action-stars"></i></span>
+    <% end  %>
     </div>
 	</div>
 </div>
