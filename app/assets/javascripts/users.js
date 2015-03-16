@@ -3,9 +3,11 @@ $(function() {
         var pathName = window.location.pathname
         var comedianId = this.id.split('-')[1]
         var $comedian_el = $(this);
+
         values = {
             comedian_id: comedianId
         }
+
         $.ajax({
             url: pathName.split('edit')[0],
             dataType: 'json',
@@ -23,11 +25,14 @@ $(function() {
         var pathName = window.location.pathname
         var comedianId = this.id.split('-')[1]
         var $comedian_el = $(this);
+        var userIdDiv = $('#find-me').next()
+    
         values = {
             comedian_id: comedianId
         }
+
         $.ajax({
-            url: pathName || ,
+            url: '/user/' + userIdDiv.attr('id').split('-')[1] || pathName,
             dataType: 'json',
             type: 'PUT',
             data: values,
