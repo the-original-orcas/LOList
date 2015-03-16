@@ -4,7 +4,10 @@
 <h4>Select at least three comedians to get started.</h4>
 <p>By selecting a comedian, you will begin to receive email notifications ONLY associated with the
 	artists you are following.</p>
+<br>
+<%= link_to "I'm Ready!", user_path, class: "waves-effect waves-light blue btn" %>
 </div>
+
 
 <%= form_for @user, url: user_path(@user), html: { method: :put } do |f| %>
 <div class='row'>
@@ -14,7 +17,7 @@
 	<div class='card'>
 		<div class='card-image'>
 			<img src=<%= comedian.image %>>
-			<span class='card-title'> <%= comedian.name %> </span>
+			<span class='card-title teal-text text-darken-2 bold'> <%= comedian.name %> </span>
 		</div>
 	<div class="card-action">
 		<i class="fa fa-question-circle fa-2x"></i>
@@ -29,9 +32,5 @@
 
 <% end %>
 <% f.hidden_field :authenticity_token, value: form_authenticity_token() %> 
-
-
-<%= f.submit 'Submit', class: 'btn blue' %>
-</div>
 
 <% end  %>
