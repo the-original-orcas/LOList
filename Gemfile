@@ -53,9 +53,7 @@ group :development, :test do
   gem 'spring'
 end
 
+# ruby "2.1.4" <------------------necessary for heroku deployment------------------>
 
-<<<<<<< HEAD
-# ruby "2.1.2" <------------------necessary for heroku deployment------------------>
 
-# ruby "2.1.4"
 
