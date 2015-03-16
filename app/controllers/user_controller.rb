@@ -17,7 +17,8 @@ prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :
 
   def show
     @user = current_user
-    @faves = Comedian.where(id: @user.pluck(:comedian_id))
+
+
 
     if @user.comedians.count < 3
       redirect_to '/user/'+current_user.id.to_s+'/edit'
@@ -26,7 +27,7 @@ prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :
 
 
   def update
-
+  
     @user = current_user
     if params['comedian_id']
       respond_to do |format|

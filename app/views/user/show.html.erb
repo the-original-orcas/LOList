@@ -3,7 +3,7 @@
 
 <a href="/user/<%= @user.id  %>/edit">edit your prefs</a>
 
-
+<%= console  %>
 <% @comedians.each do |c| %>
 <% @user.comedians.include?(c) do |comedian| %>
 <div class='col s12'>
