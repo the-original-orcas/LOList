@@ -10,12 +10,15 @@ prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :
 
   def edit
     @user = current_user
+
     @comedians = Comedian.all
     @events = Event.all
   end
 
   def show
     @user = current_user
+    @faves = Comedian.all
+    @comedians = Comedian.all
     if @user.comedians.count < 3
       redirect_to '/user/'+current_user.id.to_s+'/edit'
     end

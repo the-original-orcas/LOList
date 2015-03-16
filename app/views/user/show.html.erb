@@ -4,8 +4,8 @@
 <a href="/user/<%= @user.id  %>/edit">edit your prefs</a>
 
 
-<% @user.comedians.each do |comedian| %>
-<% comedian.sort_by(comedian.event.time)  %>
+<% @comedians.each do |c| %>
+<% @user.comedians.include?(c) do |comedian| %>
 <div class='col s12'>
 <div class="card faveComs">
         <div class="card-image waves-effect waves-block waves-light">
@@ -29,20 +29,48 @@
 		<% end  %>
 
         <div class="videoWrapper">
-        	<iframe src="<%= comedian.youtube_url %>" frameborder = "0"	width = "560",
-	height: "349";seamless></iframe>
+        	<iframe src="<%= comedian.youtube_url %>&output=embed" frameborder = "0"	width = "560",
+	height= "349";seamless></iframe>
         </div>
         </div>
 
       </div>	
-
-
-
-
-
-
 </div>
+
 <% end %>
+
+<div class='col s4'>
+<div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src=<%= c.image %>>
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><%= c.name %><i class="mdi-navigation-more-vert right"></i></span>
+
+          <% if @user.comedians.include?(c) %>
+          <p class = "mdi-navigation right"><a href="#">Unfollow</a></p>
+          	<% else  %>
+          <p><a href="#">Follow</a></p>
+          <% end  %>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><%= c.name %><i class="mdi-navigation-close right"></i></span>
+		<p class="grey-text text-darken-4">Upcoming events:</p>
+		<% c.events.each do |event| %>
+		<p>Where: <%= event.venue  %></p>
+		<p>When: <%= event.time  %></p>
+		<% end  %>
+
+    
+        </div>
+        </div>
+
+      </div>	
+</div>
+
+
+<% end %>
+
 
 
 
