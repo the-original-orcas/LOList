@@ -16,9 +16,3 @@
 //= require turbolinks
 //= require_tree .
 
-$('.following').live('change', function() {
-  $(this).parents('form:first').submit();
-});
-
-// toggle class to .following  & send delete request
-

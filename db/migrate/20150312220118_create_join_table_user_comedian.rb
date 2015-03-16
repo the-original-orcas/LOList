@@ -1,7 +1,8 @@
 class CreateJoinTableUserComedian < ActiveRecord::Migration
   def change
-    create_join_table :users, :comedians do |t|
-      t.index [:user_id, :comedian_id]
-    end
+    create_table "comedians_users", force: :cascade do |t|
+    t.integer "user_id",     null: false
+    t.integer "comedian_id", null: false
+  end
   end
 end
