@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :rememberable, :trackable, :omniauthable
 
-  has_and_belongs_to_many :comedians, :join_table => :comedians_users
+  has_many :comedians_users 
+  has_many :comedians, through: :comedians_users
 
   def followComedian(current_user)
     comedian = Comedian.find(comedian_id)

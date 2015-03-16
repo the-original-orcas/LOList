@@ -23,15 +23,30 @@ prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :
 
 
   def update
-    # respond_to do |format|
-    #   if @user.update
-    #     format.html { redirect_to @user, notice: 'Post was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @user }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @user.errors, status: :unprocessable_entity }
-    #   end
-    # end
+    @user = current_user
+    if params['comedian_id']
+      respond_to do |format|
+        if comedian_user = @user.comedians_users.find_by_comedian_id(params["comedian_id"])
+          comedian_user.destroy!
+          format.json { render json: 'removed'.to_json}
+        else
+          @user.comedians << Comedian.find(params["comedian_id"])
+          format.json { render json: 'added'.to_json }
+        end
+      end
+    else
+      respond_to do |format|
+        if @user.valid?
+          format.html { redirect_to @user, notice: 'Post was successfully updated.' }
+          format.json { render json: @user }
+        else
+          format.html { render :edit }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+
+
     # user = current_user
     # binding.pry
     # user.update(comedian_id: :comedian_id)
