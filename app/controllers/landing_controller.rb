@@ -1,5 +1,5 @@
 class LandingController < ApplicationController
-  
+ before_action :authenticate_user!  
   def index
 
   	@user = User.new
@@ -26,6 +26,10 @@ class LandingController < ApplicationController
 
 	end
 
+
+
+  	@fbapi = ENV["FB_API"]
+  end
 
 
 end

@@ -1,2 +1,37 @@
-<h1>User#edit</h1>
-<p>Find me in app/views/user/edit.html.erb</p>
+<div class="container center-align">
+<h1>LOList</h1>
+
+<h4>Select at least three comedians to get started.</h4>
+<p>By selecting a comedian, you will begin to receive email notifications ONLY associated with the
+	artists you are following.</p>
+</div>
+
+<%= form_for @user, url: user_path(@user), html: { method: :put } do |f| %>
+<div class='row'>
+
+<% @comedians.each do |comedian| %>
+<div class='col s4'>
+	<div class='card'>
+		<div class='card-image'>
+			<img src=<%= comedian.image %>>
+			<span class='card-title'> <%= comedian.name %> </span>
+		</div>
+	<div class="card-action">
+		<i class="fa fa-question-circle fa-2x"></i>
+		<% if @user.comedians.include?(comedian) %>
+			<span id='comedian-<%= comedian.id %>' class='follow following'><i class="mdi-action-stars"></i></span>
+    <% else  %>
+      <span id='comedian-<%= comedian.id %>' class='follow'><i class="mdi-action-stars"></i></span>
+    <% end  %>
+    </div>
+	</div>
+</div>
+
+<% end %>
+<% f.hidden_field :authenticity_token, value: form_authenticity_token() %> 
+
+
+<%= f.submit 'Submit', class: 'btn blue' %>
+</div>
+
+<% end  %>

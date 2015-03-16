@@ -20,9 +20,14 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#font awesome icons
+gem 'font-awesome-sass'
+
 
 # geocoder gem to translate IP address to location info
 gem 'geocoder'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # materialize sass
 gem 'materialize-sass'
@@ -35,9 +40,6 @@ gem 'devise'
 # Use Unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
 gem 'rails_12factor', group: :production
 
 gem 'whenever', :require => false
@@ -48,9 +50,12 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
 
 
+<<<<<<< HEAD
 # ruby "2.1.2" <------------------necessary for heroku deployment------------------>
+
+# ruby "2.1.4"
+

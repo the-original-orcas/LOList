@@ -1,6 +1,8 @@
+<script src="http://connect.facebook.net/en_US/all.js"></script>
+
 <div id="landing-banner" class="valign-wrapper">
 		<h1 class="valign center-align">LOList</h1>
-		<h5 class="valign center-align">Never experience comedy-related FOMO ever again.</h5>
+		<h5 class="valign center-align">No Mo' FOMO! Don't ever miss out when your favorite comedian comes to town. Sign up now and receive an email notification telling you when the next big show is.</h5>
 </div>
 
 <div class="divider"></div>
@@ -8,13 +10,14 @@
 
 <!-- sign up -->
 <div class='container'>
-	<button class="waves-effect waves-light blue btn" type="submit" name="action">Log in with Facebook</button>
+<%= button_to "Sign in with Facebook", omniauth_authorize_path(:facebook), class: "waves-effect waves-light blue btn" %>
 	<div class="row">
 
+	
 		
 		<h4>Sign Up</h4>
 			
-		<form class='col s6' action="/users" method="POST">	
+		<form class='col s6' action="/user" method="POST">	
 			<div class="input-field col s12">
 			<input type="text" name="user[email]" placeholder="Email"></input>
 			</div>
@@ -34,7 +37,7 @@
 
 <!-- login  -->
 
-		<form class='col s6' action="/users/sign_in" method="POST">
+		<form class='col s6' action="/user/sign_in" method="POST">
 		<h4>Existing Users, Login</h4>
 			<div class="input-field col s12">
 			<input type="text" name="user[email]" placeholder="Email"></input>

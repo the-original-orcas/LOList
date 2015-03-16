@@ -6,11 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Comedian.destroy_all
-Event.destroy_all
-User.destroy_all
+# Comedian.destroy_all
+# Event.destroy_all
+# User.destroy_all
 
-comedians = ["Kevin Hart", "Louis C.K.", "Aziz Ansari", "Jim Gaffigan", "Sarah Silverman", "Chelsea Peretti", "Nick Kroll", "Daniel Tosh", "John Oliver", "Hannibal Burress", "Dave Chappelle", "Amy Schumer"] 
+# comedians = ["Kevin Hart", "Louis C.K.", "Aziz Ansari", "Jim Gaffigan", "Sarah Silverman", "Chelsea Peretti", "Nick Kroll", "Daniel Tosh", "John Oliver", "Hannibal Burress", "Dave Chappelle", "Amy Schumer"] 
 
 Comedian.create({
 	name: 'Kevin Hart',
@@ -156,8 +156,8 @@ c4 = Comedian.create({
 
 c2 = Comedian.create({
 	name: 'Hannibal Burress',
-	image: 'http://media.chicagomag.com//images/cache/cache_7/cache_1/cache_1/C201404-Hannibal-Buress-preview-23742117.jpeg?ver=1415285056&aspectratio=0.75',
-	youtube_url: 'https://www.youtube.com/watch?v=W3O0XEdj4t8'
+	image: 'https://consequenceofsound.files.wordpress.com/2014/10/hannibal-buress-2.jpg',
+	youtube_url: 'https://consequenceofsound.files.wordpress.com/2014/10/hannibal-buress-2.jpg'
 	})
 
 c3 = Comedian.create({
@@ -179,29 +179,34 @@ u1 = User.create({
 
 u2 = User.create({
 	email: 'sol@gmail.com',
-	password: '12312313'
+	password: '123123123'
 	})
+
+u3 = User.create({
+	email: 'davidedaniel@gmail.com',
+	password: '123123123'
+	})
+
+u3.comedians = [c1,c2,c3]
+u2.comedians = [c3,c4]
+u2.save
+u1.save
 
 e1 = Event.create({
 	date: "03-21-2015",
 	time: "12:00",
 	venue: "MSG",
-	price: 45.00
+	price: 45.00,
+	comedian_id: c3.id
 	})
+
 
 e2 = Event.create({
 	date: "03-22-2015",
 	time: "18:00",
 	venue: "Best Buy Theater",
-	price: 60.00
+	price: 60.00,
+	comedian_id: c3.id
 	})
 
-e1.comedians = [c3]
-e2.comedians = [c2]
-e1.save
-e2.save
-u1.comedians = [c1,c2,c3]
-u2.comedians = [c3,c4]
-u2.save
-u1.save
 
