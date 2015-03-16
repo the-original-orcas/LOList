@@ -48,6 +48,10 @@ iframe {
 	font-size: 32px;
 }
 
+.follow:active {
+	margin-bottom: -2px;
+}
+
 .follow.following {
 	color: green;
 }

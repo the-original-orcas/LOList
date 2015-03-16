@@ -1,5 +1,10 @@
-<h1>edit <%=@user.email  %></h1>
-<p>Find me in app/views/user/edit.html.erb</p>
+<div class="container center-align">
+<h1>LOList</h1>
+
+<h4>Select at least three comedians to get started.</h4>
+<p>By selecting a comedian, you will begin to receive email notifications ONLY associated with the
+	artists you are following.</p>
+</div>
 
 <%= form_for @user, url: user_path(@user), html: { method: :put } do |f| %>
 <div class='row'>
