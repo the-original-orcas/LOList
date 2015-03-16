@@ -60,6 +60,94 @@ Comedian.create({
 	youtube_url: 'https://www.youtube.com/watch?v=W2zTQwWaPps'
 	})
 
+
+
+
+Event.create({
+	date: "03-18-2015",
+	time: "7:00",
+	venue: "Arlington Theater",
+	price: 176.37
+	})
+
+Event.create({
+	date: "03-19-2015",
+	time: "7:00",
+	venue: "Santa Cruz Civic Auditorium",
+	price: 166.00
+	})
+
+Event.create({
+	date: "03-29-2015",
+	time: "7:00",
+	venue: "Comerica Theatre",
+	price: 152.00
+	})
+
+Event.create({
+	date: "03-29-2015",
+	time: "7:30",
+	venue: "Bryce Jordan Center",
+	price: 61.00
+	})
+
+Event.create({
+	date: "07-17-2015",
+	time: "9:30",
+	venue: "McCaw Hall",
+	price: 84.00
+	})
+
+Event.create({
+	date: "07-21-2015",
+	time: "7:00",
+	venue: "Redding Convention Center",
+	price: 88.00
+	})
+
+Event.create({
+	date: "07-22-2015",
+	time: "7:00",
+	venue: "Wells Fargo Center for the Art",
+	price: 119.00
+	})
+
+Event.create({
+	date: "07-23-2015",
+	time: "7:00",
+	venue: "Mountain Winery",
+	price: 111.00
+	})
+
+Event.create({
+	date: "04-18-2015",
+	time: "8:00",
+	venue: "Ryman Auditorium",
+	price: 52.00
+	})
+
+Event.create({
+	date: "04-24-2015",
+	time: "10:00",
+	venue: "Terry Fator Theatre at Mirage Hotel and Casino",
+	price: 143.00
+	})
+
+Event.create({
+	date: "06-09-2015",
+	time: "7:00",
+	venue: "Collins Center for the Arts",
+	price: 93.00
+	})
+
+Event.create({
+	date: "06-13-2015",
+	time: "7:00",
+	venue: "Merrill Auditorium",
+	price: 106.00
+	})
+
+
 c4 = Comedian.create({
 	name: 'John Oliver',
 	image: 'http://cdn.hitfix.com/photos/5496125/john-oliver-hbo_article_story_large.jpg',

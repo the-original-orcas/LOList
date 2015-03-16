@@ -42,6 +42,9 @@ gem 'unicorn'
 
 gem 'rails_12factor', group: :production
 
+gem 'whenever', :require => false
+
+gem "httparty"  #<-----------------remember to remove------------->
 
 group :development, :test do
   gem 'pry-rails'
@@ -51,4 +54,8 @@ group :development, :test do
 end
 
 
-ruby "2.1.4"
+<<<<<<< HEAD
+# ruby "2.1.2" <------------------necessary for heroku deployment------------------>
+
+# ruby "2.1.4"
+
