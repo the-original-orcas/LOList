@@ -29,7 +29,6 @@ class LandingController < ApplicationController
 
 
   	@fbapi = ENV["FB_API"]
-  end
 
 
 end
