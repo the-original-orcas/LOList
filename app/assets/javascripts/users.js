@@ -27,7 +27,7 @@ $(function() {
             comedian_id: comedianId
         }
         $.ajax({
-            url: pathName,
+            url: pathName || ,
             dataType: 'json',
             type: 'PUT',
             data: values,
