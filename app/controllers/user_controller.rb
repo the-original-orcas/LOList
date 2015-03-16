@@ -1,6 +1,6 @@
 class UserController < ApplicationController
-prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
-prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :show]
+  prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
+  prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :show]
   def new
     @user = User.new
   end
@@ -17,8 +17,10 @@ prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :
 
   def show
     @user = current_user
-
-
+    userId = @user.id
+    @faves = @user.comedians
+    @comedians = Comedian.all
+    @nonfaves = @comedians - @faves
 
     if @user.comedians.count < 3
       redirect_to '/user/'+current_user.id.to_s+'/edit'
@@ -27,7 +29,7 @@ prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :
 
 
   def update
-  
+
     @user = current_user
     if params['comedian_id']
       respond_to do |format|
@@ -51,7 +53,7 @@ prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :
       end
     end
   end
-  
+
   private
   def current_user_params
     params.require(:current_user).permit(:email, :password, :comedian_id => [])
