@@ -1,11 +1,11 @@
-<h5>show <%=@user.email  %></h5>
-<p>Find me in app/views/user/show.html.erb</p>
+<div class="container center-align">
+<h1 id='find-me'>LOList</h1>
+<div id='user-<%=@user.id%>'>
+  </div>
+</div>
 
-<a href="/user/<%= @user.id  %>/edit">edit your prefs</a>
 
-<%= console  %>
-<% @comedians.each do |c| %>
-<% @user.comedians.include?(c) do |comedian| %>
+<% @faves.each do |comedian| %>
 <div class='col s12'>
 <div class="card faveComs">
         <div class="card-image waves-effect waves-block waves-light">
@@ -15,10 +15,10 @@
           <span class="card-title activator grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-more-vert right"></i></span>
 
           <% if @user.comedians.include?(comedian) %>
-          <p class = "mdi-navigation right"><a href="#">Unfollow</a></p>
-          	<% else  %>
-          <p><a href="#">Follow</a></p>
-          <% end  %>
+			<span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
+    <% else  %>
+      <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="mdi-action-stars"></i></span>
+    <% end  %>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
@@ -36,11 +36,9 @@
 
       </div>	
 </div>
-
 <% end %>
-
-
-
+<div class="row">
+<% @nonfaves.each do |c| %>
 <div class='col s4'>
 <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
@@ -50,10 +48,10 @@
           <span class="card-title activator grey-text text-darken-4"><%= c.name %><i class="mdi-navigation-more-vert right"></i></span>
 
           <% if @user.comedians.include?(c) %>
-          <p class = "mdi-navigation right"><a href="#">Unfollow</a></p>
-          	<% else  %>
-          <p><a href="#">Follow</a></p>
-          <% end  %>
+			<span id='comedian-<%= c.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
+    <% else  %>
+      <span id='comedian-<%= c.id %>' class='index-follow'><i class="mdi-action-stars"></i></span>
+    <% end  %>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4"><%= c.name %><i class="mdi-navigation-close right"></i></span>
@@ -68,13 +66,7 @@
         </div>
 
       </div>	
-</div>
 
 
 <% end %>
-
-
-
-
-
-      
+</div>

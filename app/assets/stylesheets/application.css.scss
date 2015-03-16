@@ -39,6 +39,11 @@ ul.hmenu li {
 iframe {
 	frameborder: "0";
 }
+.mdi-action-settings.small {
+	float:right;
+	font-size: 38px;
+	margin-right: 6px;
+}
 
 .follow {
 	transition: color 0.5s ease;
@@ -53,6 +58,22 @@ iframe {
 }
 
 .follow.following {
+	color: green;
+}
+
+.index-follow {
+	transition: color 0.5s ease;
+	float:right;
+	margin-top: -8px;
+	cursor: pointer;
+	font-size: 32px;
+}
+
+.index-follow:active {
+	margin-bottom: -2px;
+}
+
+.index-follow.index-following {
 	color: green;
 }
 
