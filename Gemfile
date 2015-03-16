@@ -54,8 +54,6 @@ group :development, :test do
 end
 
 
-<<<<<<< HEAD
 # ruby "2.1.2" <------------------necessary for heroku deployment------------------>
 
-# ruby "2.1.4"
 

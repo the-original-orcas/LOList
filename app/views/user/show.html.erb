@@ -13,9 +13,9 @@
           <span class="card-title activator grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-more-vert right"></i></span>
 
           <% if @user.comedians.include?(comedian) %>
-			<span id='comedian-<%= comedian.id %>' class='follow following'><i class="mdi-action-stars"></i></span>
+			<span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
     <% else  %>
-      <span id='comedian-<%= comedian.id %>' class='follow'><i class="mdi-action-stars"></i></span>
+      <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="mdi-action-stars"></i></span>
     <% end  %>
         </div>
         <div class="card-reveal">
@@ -46,9 +46,9 @@
           <span class="card-title activator grey-text text-darken-4"><%= c.name %><i class="mdi-navigation-more-vert right"></i></span>
 
           <% if @user.comedians.include?(c) %>
-			<span id='comedian-<%= c.id %>' class='follow following'><i class="mdi-action-stars"></i></span>
+			<span id='comedian-<%= c.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
     <% else  %>
-      <span id='comedian-<%= c.id %>' class='follow'><i class="mdi-action-stars"></i></span>
+      <span id='comedian-<%= c.id %>' class='index-follow'><i class="mdi-action-stars"></i></span>
     <% end  %>
         </div>
         <div class="card-reveal">
