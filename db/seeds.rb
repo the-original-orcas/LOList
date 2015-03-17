@@ -14,49 +14,49 @@
 
 Comedian.create({
 	name: 'Kevin Hart',
-	image: '../app/assets/images/kevin-hart.jpg',
+	image: '/assets/kevin-hart.jpg',
 	youtube_url: 'https://www.youtube.com/embed/TTCgr3V_HhI'
 	})
 
 Comedian.create({
 	name: 'Louis CK',
-	image: '../app/assets/images/louis-ck.jpg',
+	image: '/assets/louis-ck.jpg',
 	youtube_url: 'https://www.youtube.com/embed/mQUr2RkjykU'
 	})
 
 Comedian.create({
 	name: 'Aziz Ansari',
-	image: '../app/assets/images/aziz-ansari.jpg',
+	image: '/assets/aziz-ansari.jpg',
 	youtube_url: 'https://www.youtube.com/embed/3oLuxhYO5cw'
 	})
 
 Comedian.create({
 	name: 'Jim Gaffigan',
-	image: '../app/assets/images/jim-gaffigan.jpg',
+	image: '/assets/jim-gaffigan.jpg',
 	youtube_url: 'https://www.youtube.com/embed/N-i9GXbptog'
 	})
 
 Comedian.create({
 	name: 'Sarah Silverman',
-	image: '../app/assets/images/sarah-silverman.jpg',
+	image: '/assets/sarah-silverman.jpg',
 	youtube_url: 'https://www.youtube.com/embed/nT3yLcqv_8Q'
 	})
 
 Comedian.create({
 	name: 'Chelsea Peretti',
-	image: '../app/assets/images/chelsea-peretti.jpg',
+	image: '/assets/chelsea-peretti.jpg',
 	youtube_url: 'https://www.youtube.com/embed/fYXJYHAPT18'
 	})
 
 Comedian.create({
 	name: 'Nick Kroll',
-	image: '../app/assets/images/nick-kroll.jpg',
+	image: '/assets/nick-kroll.jpg',
 	youtube_url: 'https://www.youtube.com/embed/kdcmSdwO2CE'
 	})
 
 Comedian.create({
 	name: 'Daniel Tosh',
-	image: '../app/assets/images/daniel-tosh.jpg',
+	image: '/assets/daniel-tosh.jpg',
 	youtube_url: 'https://www.youtube.com/embed/W2zTQwWaPps'
 	})
 
@@ -208,25 +208,25 @@ Event.create({
 
 c4 = Comedian.create({
 	name: 'John Oliver',
-	image: '../app/assets/images/john-oliver.jpg',
+	image: '/assets/john-oliver.jpg',
 	youtube_url: 'https://www.youtube.com/embed/DeQqe0oj5Ls'
 	})
 
 c2 = Comedian.create({
 	name: 'Hannibal Burress',
-	image: '../app/assets/images/hannibal-burress.jpg',
+	image: '/assets/hannibal-burress.jpg',
 	youtube_url: 'https://www.youtube.com/embed/BklmMSEYRgk'
 	})
 
 c3 = Comedian.create({
 	name: 'Dave Chappelle',
-	image: '../app/assets/images/dave-chappelle.jpg',
+	image: '/assets/dave-chappelle.jpg',
 	youtube_url: 'https://www.youtube.com/embed/LLWlBgj0uOc'
 	})
 
 c1 = Comedian.create({
 	name: 'Amy Schumer',
-	image: '../app/assets/images/amy-schumer.jpg',
+	image: '/assets/amy-schumer.jpg',
 	youtube_url: 'https://www.youtube.com/embed/YEXmu89_E8o'
 	})
 
