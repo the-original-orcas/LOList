@@ -31,12 +31,10 @@ ActiveRecord::Schema.define(version: 20150317034927) do
 
   add_index "comedians_events", ["comedian_id", "event_id"], name: "index_comedians_events_on_comedian_id_and_event_id", using: :btree
 
-  create_table "comedians_users", id: false, force: :cascade do |t|
+  create_table "comedians_users", force: :cascade do |t|
     t.integer "user_id",     null: false
     t.integer "comedian_id", null: false
   end
-
-  add_index "comedians_users", ["user_id", "comedian_id"], name: "index_comedians_users_on_user_id_and_comedian_id", using: :btree
 
   create_table "events", force: :cascade do |t|
     t.date     "date"
