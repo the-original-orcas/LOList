@@ -105,47 +105,6 @@ Event.create({
 	price: 88.00
 	})
 
-Event.create({
-	date: "07-22-2015",
-	time: "7:00",
-	venue: "Wells Fargo Center for the Art",
-	price: 119.00
-	})
-
-Event.create({
-	date: "07-23-2015",
-	time: "7:00",
-	venue: "Mountain Winery",
-	price: 111.00
-	})
-
-Event.create({
-	date: "04-18-2015",
-	time: "8:00",
-	venue: "Ryman Auditorium",
-	price: 52.00
-	})
-
-Event.create({
-	date: "04-24-2015",
-	time: "10:00",
-	venue: "Terry Fator Theatre at Mirage Hotel and Casino",
-	price: 143.00
-	})
-
-Event.create({
-	date: "06-09-2015",
-	time: "7:00",
-	venue: "Collins Center for the Arts",
-	price: 93.00
-	})
-
-Event.create({
-	date: "06-13-2015",
-	time: "7:00",
-	venue: "Merrill Auditorium",
-	price: 106.00
-	})
 
 
 c4 = Comedian.create({
@@ -163,7 +122,7 @@ c2 = Comedian.create({
 c3 = Comedian.create({
 	name: 'Dave Chappelle',
 	image: 'http://api.ning.com/files/7WaW*6Bsqz0AzPn7jpDmWx1vrNQcwojhJvf8wrE8-FihxMV5ix747HpcmA51YZWmTWpV2Govk1oY2bRHiRKsOjR9zG4PPdDX/119747432e1371518463818.jpg',
-	youtube_url: 'https://www.youtube.com/watch?v=LLWlBgj0uOc'
+	youtube_url: 'https://www.youtube.com/embed/LLWlBgj0uOc'
 	})
 
 c1 = Comedian.create({
@@ -198,6 +157,7 @@ e1 = Event.create({
 	time: "12:00",
 	venue: "MSG",
 	price: 45.00,
+	zipcode: '10001',
 	comedian_id: c3.id
 	})
 
@@ -207,7 +167,61 @@ e2 = Event.create({
 	time: "18:00",
 	venue: "Best Buy Theater",
 	price: 60.00,
+	zipcode: '10001',
 	comedian_id: c3.id
 	})
 
+Event.create({
+	date: "07-22-2015",
+	time: "7:00",
+	venue: "Wells Fargo Center for the Art",
+	price: 119.00,
+	zipcode: '10001',
+	comedian_id: c1.id
+	})
+
+Event.create({
+	date: "07-23-2015",
+	time: "7:00",
+	venue: "Mountain Winery",
+	price: 111.00,
+	zipcode: '10001',
+	comedian_id: c1.id
+	})
+
+Event.create({
+	date: "04-18-2015",
+	time: "8:00",
+	venue: "Ryman Auditorium",
+	price: 52.00,
+	zipcode: '10001',
+	comedian_id: c4.id
+	})
+
+Event.create({
+	date: "04-24-2015",
+	time: "10:00",
+	venue: "Terry Fator Theatre at Mirage Hotel and Casino",
+	price: 143.00,
+	zipcode: '10001',
+	comedian_id: c4.id
+	})
+
+Event.create({
+	date: "06-09-2015",
+	time: "7:00",
+	venue: "Collins Center for the Arts",
+	price: 93.00,
+	zipcode: '10001',
+	comedian_id: c4.id
+	})
+
+Event.create({
+	date: "06-13-2015",
+	time: "7:00",
+	venue: "Merrill Auditorium",
+	price: 106.00,
+	zipcode: '10001',
+	comedian_id: c3.id
+	})
 
