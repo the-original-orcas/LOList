@@ -35,7 +35,6 @@ class UserController < ApplicationController
     if params['comedian_id']
       respond_to do |format|
         if comedian_user = @user.comedians_users.find_by_comedian_id(params["comedian_id"])
-          binding.pry
           comedian_user.destroy!
           format.json { render json: 'removed'.to_json}
         else
@@ -61,6 +60,9 @@ class UserController < ApplicationController
     headers["Access-Control-Allow-Methods"] = %w{GET POST PUT DELETE}.join(",")
     headers["Access-Control-Allow-Headers"] =
       %w{Origin Accept Content-Type X-Requested-With X-CSRF-Token}.join(",")
+
+    # headers['Access-Control-Request-Method'] = '*'
+    
 
     head(:ok) if request.request_method == "OPTIONS"
     # or, render text: ''

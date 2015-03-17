@@ -4,7 +4,15 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
+  	<div>
     <h1>LOList</h1>
-    <p>This is a Test</p>
+    <h4><%= @comedian %> booked a show in your area!</h4>
+    <ul style="list-style-type: none;">
+    	<li>Venue: <%= @event.venue %></li>
+    	<li>Date: <%= @event.date %></li>
+    	<li>Time: <%= @event.time %></li>
+    	<li><%= @event.city %>, <%= @event.state_code %></li>
+    </ul>
+
   </body>
 </html>
