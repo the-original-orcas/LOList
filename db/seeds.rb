@@ -56,7 +56,7 @@ Comedian.create({
 
 Comedian.create({
 	name: 'Daniel Tosh',
-	image: 'http://www.tvequals.com/wp-content/uploads/2010/08/Daniel-Tosh-2.jpg',
+	image: '',
 	youtube_url: 'https://www.youtube.com/embed/W2zTQwWaPps'
 	})
 

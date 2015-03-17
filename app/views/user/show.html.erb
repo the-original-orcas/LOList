@@ -1,74 +1,62 @@
 <div class="container center-align">
-<h3 id='find-me'>LOList</h3>
-<div id='user-<%=@user.id%>'>
-  </div>
+    <h3 id='find-me'>LOList</h3>
+    <div id='user-<%=@user.id%>'>
+    </div>
 </div>
-
-
 <% @faves.each do |comedian| %>
 <div class='col s12'>
-<div class="card faveComs">
+    <div class="card faveComs">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src=<%= comedian.image %>>
+            <img class="activator" src=<%= comedian.image %>>
         </div>
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-more-vert right"></i></span>
-
-          <% if @user.comedians.include?(comedian) %>
-			<span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
-    <% else  %>
-      <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="mdi-action-stars"></i></span>
-    <% end  %>
+            <span class="card-title activator grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-more-vert right"></i></span>
+            <% if @user.comedians.include?(comedian) %>
+            <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
+            <% else  %>
+            <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="mdi-action-stars"></i></span>
+            <% end  %>
         </div>
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
-		<img class = 'insideDivImg' src='<%= comedian.image %>'>
-
-		<p class="grey-text text-darken-4">Upcoming events:</p>
-		<% comedian.events.each do |event| %>
-		<p>Where: <%= event.venue  %></p>
-		<p>When: <%= event.time  %></p>
-		<% end  %>
-    	<iframe width="560" height="315" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
-        <div class="videoWrapper">
-        	<iframe class='col s3'width="560" height="349" src="https://www.youtube.com/embed/LLWlBgj0uOc" frameborder="0" allowfullscreen></iframe>
+            <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
+            <img class = 'insideDivImg' src='<%= comedian.image %>'>
+            <p class="grey-text text-darken-4">Upcoming events:</p>
+            <% comedian.events.each do |event| %>
+            <p>Where: <%= event.venue  %></p>
+            <p>When: <%= event.time  %></p>
+            <% end  %>
+            <div class="videoWrapper">
+                <iframe class='col s3'width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
-        </div>
-        </div>
-
-      </div>	
+    </div>
 </div>
 <% end %>
 <div class="row">
 <% @nonfaves.each do |c| %>
 <div class='col s4'>
 <div class="card small z-depth-2">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src=<%= c.image %>>
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><%= c.name %><i class="mdi-navigation-more-vert right"></i></span>
+    <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src=<%= c.image %>>
+    </div>
+    <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4"><%= c.name %><i class="mdi-navigation-more-vert right"></i></span>
+        <% if @user.comedians.include?(c) %>
+        <span id='comedian-<%= c.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
+        <% else  %>
+        <span id='comedian-<%= c.id %>' class='index-follow'><i class="mdi-action-stars"></i></span>
+        <% end  %>
+    </div>
+    <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4"><%= c.name %><i class="mdi-navigation-close right"></i></span>
+        <p class="grey-text text-darken-4">Upcoming events:</p>
+        <% c.events.each do |event| %>
+        <p>Where: <%= event.venue  %></p>
+        <p>When: <%= event.time  %></p>
+        <% end  %>
 
-          <% if @user.comedians.include?(c) %>
-			<span id='comedian-<%= c.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
-    <% else  %>
-      <span id='comedian-<%= c.id %>' class='index-follow'><i class="mdi-action-stars"></i></span>
-    <% end  %>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4"><%= c.name %><i class="mdi-navigation-close right"></i></span>
-		<p class="grey-text text-darken-4">Upcoming events:</p>
-		<% c.events.each do |event| %>
-		<p>Where: <%= event.venue  %></p>
-		<p>When: <%= event.time  %></p>
-		<% end  %>
-
-    
-        </div>
-        </div>
-
-      </div>	
-
-
+    </div>
+</div>
+</div>
 <% end %>
 </div>

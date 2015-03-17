@@ -15,6 +15,12 @@ body {
     margin-right: auto;
 }
 
+.card, .faveComs {
+	height: 30%;
+	width:100%;
+
+}
+
 .btn-social{text-transform:none;border-radius:8px;position:relative;padding-left:68px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.btn-social>:first-child{position:absolute;left:0;top:0;bottom:0;width:45px;font-size:1.6em;text-align:center;border-right:1px solid rgba(0,0,0,0.2)}
 .btn-social.btn-lg{padding-left:61px}.btn-social.btn-lg :first-child{width:45px;font-size:1.8em}
 .btn-social.btn-sm{padding-left:38px}.btn-social.btn-sm :first-child{width:28px;font-size:1.4em}
