@@ -99,10 +99,7 @@ GEM
     minitest (5.5.1)
     multi_json (1.11.0)
     multi_xml (0.5.5)
-<<<<<<< HEAD
-=======
     multipart-post (2.0.0)
->>>>>>> ee95318f607b1c4c178007ed9a700f4d0b46a1d7
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
