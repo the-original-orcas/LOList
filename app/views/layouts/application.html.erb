@@ -7,14 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
 <ul class="hmenu">
+	<%= render 'devise/menu/login_items' %> 
 	<!-- Edit Cog Button -->
-	<a href="/users/edit"><i class="mdi-action-settings small"></i></a> 
-  <%= render 'devise/menu/registration_items' %>
-  <%= render 'devise/menu/login_items' %>
+	<a href="/users/edit"><i class="mdi-action-settings small"></i></a>
+
 </ul>
 <%= yield %>
-
+</div>
 
 </body>
 </html>

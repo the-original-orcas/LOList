@@ -60,9 +60,6 @@ Comedian.create({
 	youtube_url: 'https://www.youtube.com/watch?v=W2zTQwWaPps'
 	})
 
-
-
-
 Event.create({
 	date: "04-25-2015",
 	time: "9:00",

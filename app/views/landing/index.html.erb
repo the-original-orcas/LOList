@@ -1,68 +1,53 @@
 <script src="http://connect.facebook.net/en_US/all.js"></script>
-
-<div id="landing-banner" class="valign-wrapper">
-		<h1 class="valign center-align">LOList</h1>
-		<h5 class="valign center-align">No Mo' FOMO! Don't ever miss out when your favorite comedian comes to town. Sign up now and receive an email notification telling you when the next big show is.</h5>
+<div id="landing-banner">
+    <div class = "center-block">
+        <h3 class = "center-block">LOList</h3>
+    </div>
+    <div class = "center-block">
+        <p class = "center-block">No Mo' FOMO!</p>
+        <p>Don't ever miss out when your favorite comedian comes to town. Sign up now and receive an email notification telling you when the next big show is.</p>
+    </div>
 </div>
-
-<div class="divider"></div>
-<!-- Expanding cards? -->
-
 <!-- sign up -->
-<div class='container'>
 
-	<div class="row">
+	<a class="btn-social btn-large btn-icon  btn-facebook" href = '/users/auth/facebook/'>
+	<i class="fa fa-facebook left"></i>
+	Connect with Facebook</a>
 
-	
-		
-		<h4>Sign Up</h4>
-			
-		<form class='col s6' action="/user" method="POST">	
-			<div class="input-field col s12">
-			<input type="text" name="user[email]" placeholder="Email"></input>
-			</div>
+<div class="row">
+    <div class="col s6">
+        <p class="center-align">New user?</p><h5 class = "center-align">Sign Up</h5>
 
-			<div class="input-field col s12">
-			<input type="password" name="user[password]" placeholder="Password"></input>
-			</div>
+        <form action="/user" method="POST">
+            <div class="input-field col s12">
+                <input type="text" name="user[email]" placeholder="Email"></input>
+            </div>
+            <div class="input-field col s12">
+                <input type="password" name="user[password]" placeholder="Password"></input>
+            </div>
+            <div class="input-field col s12">
+                <input type="password" name="user[password_confirmation]" placeholder="Confirm Password"></input>
+            </div>
+            <div class="input-field col s12">
+                <input type="text" name="user[zipcode]" placeholder="Zipcode to filter results!"></input>
+            </div>
+            <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
+            <button class="center-block waves-effect waves-light green btn" type="submit" name="action">Sign Up</button>
+        </form>
+    </div>
 
-			<div class="input-field col s12">
-			<input type="password" name="user[password_confirmation]" placeholder="Confirm Password"></input>
-			</div>
-			<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
-			<button class="waves-effect waves-light blue btn" type="submit" name="action">Sign Up</button>
-
-		</form>
-	
-
-<!-- login  -->
-
-		<form class='col s6' action="/user/sign_in" method="POST">
-		<h4>Existing Users, Login</h4>
-			<div class="input-field col s12">
-			<input type="text" name="user[email]" placeholder="Email"></input>
-			</div>
-
-			<div class="input-field col s12">
-			<input type="password" name="user[password]" placeholder="Password"></input>
-			</div>
-			<input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
-			<button class="waves-effect waves-light blue btn" type="submit" name="action">Login</button>
-
-		</form>
-	</div>
+    <!-- login  -->
+    <div class='col s6'>
+        <form action="/users/sign_in" method="POST">
+            <p class="center-align">Existing user?</p><h5 class='center-align'>Login</h5>
+            <div class="input-field col s12">
+                <input type="text" name="user[email]" placeholder="Email"></input>
+            </div>
+            <div class="input-field col s12">
+                <input type="password" name="user[password]" placeholder="Password"></input>
+            </div>
+            <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
+            <button class="center-block waves-effect waves-light green btn" type="submit" name="action">Login</button>
+        </form>
+    </div>
 </div>
-
-<footer class="page-footer">
-  <div class="footer-copyright">
-	  <div class="container">
-	  2015 LOList
-	  <a class="grey-text text-lighten-4 right" href="#!">About</a>
-	  </div>
-	</div>
-</footer>
-
-
-
-
-
