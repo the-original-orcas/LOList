@@ -9,7 +9,8 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 #font awesome icons
 gem 'font-awesome-sass'
-
+# materialize sass
+gem 'materialize-sass'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -30,10 +31,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'geocoder'
 gem 'zip-codes'
 
-
-# materialize sass
-gem 'materialize-sass'
-
 # LOGINS & SECURE PW
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
@@ -48,13 +45,13 @@ gem 'unicorn'
 
 gem 'rails_12factor', group: :production
 
-# gem 'whenever', :require => false
+gem 'whenever', :require => false
 
-# gem "httparty"  #<-----------------remember to remove------------->
+gem "httparty"  #<-----------------remember to remove------------->
 
-# group :development, :test do
-  # gem 'pry-rails'
-  # gem 'better_errors'
-  # gem 'binding_of_caller'
-  # gem 'spring'
-# end
+group :development, :test do
+  gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'spring'
+end
