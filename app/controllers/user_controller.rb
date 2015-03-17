@@ -61,7 +61,7 @@ class UserController < ApplicationController
     headers["Access-Control-Allow-Methods"] = %w{GET POST PUT DELETE}.join(",")
     headers["Access-Control-Allow-Headers"] =
       %w{Origin Accept Content-Type X-Requested-With X-CSRF-Token}.join(",")
-
+    headers['Access-Control-Request-Method'] = '*'
     head(:ok) if request.request_method == "OPTIONS"
     # or, render text: ''
     # if that's more your style
