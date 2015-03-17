@@ -14,49 +14,49 @@
 
 Comedian.create({
 	name: 'Kevin Hart',
-	image: 'http://www.bet.com/topics/k/kevin-hart/_jcr_content/topicintro.topicintro.dimg/010313-shows-real-husbands-hollywood-rhoh-press-kevin-hart-2.jpg',
+	image: '../app/assets/images/kevin-hart.jpg',
 	youtube_url: 'https://www.youtube.com/embed/TTCgr3V_HhI'
 	})
 
 Comedian.create({
 	name: 'Louis CK',
-	image: 'http://coolmaterial.com/wp-content/uploads/2013/10/louis-ck-oh-my-god.jpg',
+	image: '../app/assets/images/louis-ck.jpg',
 	youtube_url: 'https://www.youtube.com/embed/mQUr2RkjykU'
 	})
 
 Comedian.create({
 	name: 'Aziz Ansari',
-	image: 'https://25.media.tumblr.com/tumblr_m3p31qUFSa1qz7f9to1_1280.jpg',
+	image: '../app/assets/images/aziz-ansari.jpg',
 	youtube_url: 'https://www.youtube.com/embed/3oLuxhYO5cw'
 	})
 
 Comedian.create({
 	name: 'Jim Gaffigan',
-	image: 'https://media.livenation.com/artists/78250/78250-show-65737.jpg?1374689257',
+	image: '../app/assets/images/jim-gaffigan.jpg',
 	youtube_url: 'https://www.youtube.com/embed/N-i9GXbptog'
 	})
 
 Comedian.create({
 	name: 'Sarah Silverman',
-	image: 'https://flavorwire.files.wordpress.com/2013/04/sarah-silverman1.jpg',
+	image: '../app/assets/images/sarah-silverman.jpg',
 	youtube_url: 'https://www.youtube.com/embed/nT3yLcqv_8Q'
 	})
 
 Comedian.create({
 	name: 'Chelsea Peretti',
-	image: 'http://cdn.splitsider.com/wp-content/uploads/2014/09/chelsea_peretti_bk99_s2.jpg',
+	image: '../app/assets/images/chelsea-peretti.jpg',
 	youtube_url: 'https://www.youtube.com/embed/fYXJYHAPT18'
 	})
 
 Comedian.create({
 	name: 'Nick Kroll',
-	image: 'http://www.foodrepublic.com/sites/default/files/imagecache/enlarge/singlepage/Kroll.jpg',
+	image: '../app/assets/images/nick-kroll.jpg',
 	youtube_url: 'https://www.youtube.com/embed/kdcmSdwO2CE'
 	})
 
 Comedian.create({
 	name: 'Daniel Tosh',
-	image: '',
+	image: '../app/assets/images/daniel-tosh.jpg',
 	youtube_url: 'https://www.youtube.com/embed/W2zTQwWaPps'
 	})
 
@@ -208,25 +208,25 @@ Event.create({
 
 c4 = Comedian.create({
 	name: 'John Oliver',
-	image: 'http://cdn.hitfix.com/photos/5496125/john-oliver-hbo_article_story_large.jpg',
+	image: '../app/assets/images/john-oliver.jpg',
 	youtube_url: 'https://www.youtube.com/embed/DeQqe0oj5Ls'
 	})
 
 c2 = Comedian.create({
 	name: 'Hannibal Burress',
-	image: 'https://consequenceofsound.files.wordpress.com/2014/10/hannibal-buress-2.jpg',
+	image: '../app/assets/images/hannibal-burress.jpg',
 	youtube_url: 'https://www.youtube.com/embed/BklmMSEYRgk'
 	})
 
 c3 = Comedian.create({
 	name: 'Dave Chappelle',
-	image: 'http://api.ning.com/files/7WaW*6Bsqz0AzPn7jpDmWx1vrNQcwojhJvf8wrE8-FihxMV5ix747HpcmA51YZWmTWpV2Govk1oY2bRHiRKsOjR9zG4PPdDX/119747432e1371518463818.jpg',
+	image: '../app/assets/images/dave-chappelle.jpg',
 	youtube_url: 'https://www.youtube.com/embed/LLWlBgj0uOc'
 	})
 
 c1 = Comedian.create({
 	name: 'Amy Schumer',
-	image: 'http://cdn.thedailybeast.com/content/dailybeast/articles/2014/03/31/comedy-s-r-rated-queen-amy-schumer-is-raunchier-than-ever/jcr:content/image.img.2000.jpg/1396277014165.cached.jpg',
+	image: '../app/assets/images/amy-schumer.jpg',
 	youtube_url: 'https://www.youtube.com/embed/YEXmu89_E8o'
 	})
 
