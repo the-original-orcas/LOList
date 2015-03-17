@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+  before_filter :allow_cors ## NEED TO ADD AUTH TOKEN TO JSON REQUESTS
   prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :show]
   def new
@@ -34,6 +35,7 @@ class UserController < ApplicationController
     if params['comedian_id']
       respond_to do |format|
         if comedian_user = @user.comedians_users.find_by_comedian_id(params["comedian_id"])
+          binding.pry
           comedian_user.destroy!
           format.json { render json: 'removed'.to_json}
         else
@@ -52,6 +54,17 @@ class UserController < ApplicationController
         end
       end
     end
+  end
+
+  def allow_cors
+    headers["Access-Control-Allow-Origin"] = "*"
+    headers["Access-Control-Allow-Methods"] = %w{GET POST PUT DELETE}.join(",")
+    headers["Access-Control-Allow-Headers"] =
+      %w{Origin Accept Content-Type X-Requested-With X-CSRF-Token}.join(",")
+
+    head(:ok) if request.request_method == "OPTIONS"
+    # or, render text: ''
+    # if that's more your style
   end
 
   private
