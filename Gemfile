@@ -47,7 +47,7 @@ gem 'rails_12factor', group: :production
 
 gem 'whenever', :require => false
 
-gem "httparty"  #<-----------------remember to remove------------->
+gem "httparty"  
 
 group :development, :test do
   gem 'pry-rails'
