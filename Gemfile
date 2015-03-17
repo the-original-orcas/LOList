@@ -48,13 +48,13 @@ gem 'unicorn'
 
 gem 'rails_12factor', group: :production
 
-gem 'whenever', :require => false
+# gem 'whenever', :require => false
 
-gem "httparty"  #<-----------------remember to remove------------->
+# gem "httparty"  #<-----------------remember to remove------------->
 
-group :development, :test do
-  gem 'pry-rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'spring'
-end
+# group :development, :test do
+  # gem 'pry-rails'
+  # gem 'better_errors'
+  # gem 'binding_of_caller'
+  # gem 'spring'
+# end
