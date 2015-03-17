@@ -24,9 +24,7 @@ class LandingController < ApplicationController
 
     # binding.pry
 
-  end
 
-
-
-  @fbapi = ENV["FB_API"]
+  	@fbapi = ENV["FB_API"]
+  	
 end
