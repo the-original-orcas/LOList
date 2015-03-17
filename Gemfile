@@ -40,18 +40,10 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 
-# Use Unicorn as the app server
-gem 'unicorn'
-
 gem 'rails_12factor', group: :production
 
-gem 'whenever', :require => false
 
-gem "httparty"  
+gem 'pry-rails'
+gem 'spring'
 
-group :development, :test do
-  gem 'pry-rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'spring'
-end
+ruby '2.1.4'
