@@ -1,5 +1,5 @@
 <div class="container center-align">
-<h1 id='find-me'>LOList</h1>
+<h3 id='find-me'>LOList</h3>
 <div id='user-<%=@user.id%>'>
   </div>
 </div>
@@ -22,15 +22,17 @@
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
+		<img class = 'insideDivImg' src='<%= comedian.image %>'>
+
 		<p class="grey-text text-darken-4">Upcoming events:</p>
 		<% comedian.events.each do |event| %>
 		<p>Where: <%= event.venue  %></p>
 		<p>When: <%= event.time  %></p>
 		<% end  %>
-
+    	<iframe width="560" height="315" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
         <div class="videoWrapper">
-        	<iframe src="<%= comedian.youtube_url %>&output=embed" frameborder = "0"	width = "560",
-	height= "349";seamless></iframe>
+        	<iframe class='col s3'width="560" height="349" src="https://www.youtube.com/embed/LLWlBgj0uOc" frameborder="0" allowfullscreen></iframe>
+        </div>
         </div>
         </div>
 
