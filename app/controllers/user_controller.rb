@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-  before_filter: allow_cors
+  before_filter :allow_cors
   prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :show]
   def new
