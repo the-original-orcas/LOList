@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # geocoder gem to translate IP address to location info
 gem 'geocoder'
+gem 'zip-codes'
 
 
 # materialize sass
