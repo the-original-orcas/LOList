@@ -19,9 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 set :output, "~/src/wdi/Princess_Zelda/projects/hackathon_project/LOList/log/cron.log"
-job_type :controllers, "'~/src/wdi/Princess_Zelda/projects/hackathon_project/LOList/app/controllers/:task' :output"
 
 every 15.minutes do 
-	command "http://lolist.herokuapp.com/"
+	command "HTTParty.get(http://lolist.herokuapp.com/)"
 end
 
