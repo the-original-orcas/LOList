@@ -203,6 +203,7 @@ GEM
       rack (>= 1.0)
     whenever (0.9.4)
       chronic (>= 0.6.3)
+    zip-codes (0.2.0)
 
 PLATFORMS
   ruby
@@ -211,7 +212,6 @@ DEPENDENCIES
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
-  coffee-rails (~> 4.1.0)
   devise
   font-awesome-sass
   geocoder
@@ -232,3 +232,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   whenever
+  zip-codes
