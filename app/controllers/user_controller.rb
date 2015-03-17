@@ -34,6 +34,7 @@ class UserController < ApplicationController
     if params['comedian_id']
       respond_to do |format|
         if comedian_user = @user.comedians_users.find_by_comedian_id(params["comedian_id"])
+          binding.pry
           comedian_user.destroy!
           format.json { render json: 'removed'.to_json}
         else
