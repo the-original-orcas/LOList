@@ -5,6 +5,8 @@ class Notification < ApplicationMailer
     @event = event
     @comedian = @event.comedians.first
 
+    # if comedian.user.location is within 100 zip code places, show
+
 		@event.comedians.each do |comedian|
 			comedian.users.each do |user|  
 				mail( :to => user.email,	

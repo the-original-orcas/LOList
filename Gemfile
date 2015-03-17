@@ -42,6 +42,7 @@ gem 'omniauth-facebook'
 
 gem 'rails_12factor', group: :production
 
+
 gem 'pry-rails'
 gem 'spring'
 
