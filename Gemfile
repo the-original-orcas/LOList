@@ -52,7 +52,3 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'spring'
 end
-
-# ruby "2.1.2" <------------------necessary for heroku deployment------------------>
-
-
