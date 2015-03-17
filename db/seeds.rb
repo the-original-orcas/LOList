@@ -14,8 +14,7 @@
 
 Comedian.create({
 	name: 'Kevin Hart',
-	image: 'http://www.bet.com/topics/k/kevin-hart/_jcr_content/topicintro.topicintro.dimg/010313-shows-real-husbands-hollywood-rhoh-press-kevin-hart-2.jpg',
-	youtube_url: 'https://www.youtube.com/embed/TTCgr3V_HhI'
+	image: '	youtube_url: 'https://www.youtube.com/embed/TTCgr3V_HhI'
 	})
 
 Comedian.create({

@@ -21,6 +21,6 @@
 set :output, "~/src/wdi/Princess_Zelda/projects/hackathon_project/LOList/log/cron.log"
 
 every 15.minutes do 
-	command "HTTParty.get(http://lolist.herokuapp.com/)"
+	runner "CreateEvent.now"
 end
 
