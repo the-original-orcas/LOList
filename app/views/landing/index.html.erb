@@ -1,11 +1,6 @@
-<script src="http://connect.facebook.net/en_US/all.js"></script>
-<div id="landing-banner">
-    <div class = "center-block">
-        <h3 class = "center-block">LOList</h3>
-    </div>
-    <div class = "center-block">
-        <p class = "center-block">No Mo' FOMO!</p>
-        <p>Don't ever miss out when your favorite comedian comes to town. Sign up now and receive an email notification telling you when the next big show is.</p>
+<div id="landing-banner" class="container">
+    <div class = "center-align">
+        <p>No Mo' FOMO!Don't ever miss out when your favorite comedian comes to town. Sign up now and receive an email notification telling you when the next big show is.</p>
     </div>
 </div>
 
@@ -36,7 +31,7 @@
                 <input class = "validate" type="text" name="user[zipcode]" placeholder="Zipcode to filter results!"></input>
             </div>
             <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
-            <button class="center-block waves-effect waves-light green btn" type="submit" name="action">Sign Up</button>
+            <button class="center-block waves-effect waves-light indigo lighten-2 btn" type="submit" name="action">Sign Up</button>
         </form>
     </div>
 
@@ -51,7 +46,7 @@
                 <input type="password" name="user[password]" placeholder="Password"></input>
             </div>
             <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
-            <button class="center-block waves-effect waves-light green btn" type="submit" name="action">Login</button>
+            <button class="center-block waves-effect waves-light indigo lighten-2 btn" type="submit" name="action">Login</button>
         </form>
     </div>
 </div>

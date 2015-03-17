@@ -7,25 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-<ul class="hmenu">
-<% if user_signed_in? %>
-  <!-- Sign out Button -->
-  <li>
+<nav>
+    <div class="nav-wrapper indigo lighten-2 z-depth-2">
 
-<%= link_to(
-      content_tag(
-        :i,
-        nil, 
-        class: 'fa fa-sign-out'
-      ), 
-      destroy_user_session_path,
-      method: :delete,
-      class:
-        "btn small waves-effect waves-light red" 
-    ) 
-%>
-  </li>	
+      <a href="#!" class="brand-logo center">LOList</a>
+      <ul class="right hide-on-med-and-down">
+  <li><form>
+        <div class="input-field">
+          <input id="search" type="text" required>
+          <label for="search"><i class="mdi-action-search"></i></label>
+        </div>
+      </form></li>
+  <li>
+        <% if user_signed_in? %>
+  <!-- Search -->
+  
+
   <!-- Edit Cog Button -->
   <li>
   <%= link_to(
@@ -36,10 +33,25 @@
       ), 
       edit_user_registration_path,
       style:
-        "color:green" 
+        "color:#fff" 
     ) 
 %>
   </li>
+<!-- Sign out -->
+
+<%= link_to(
+      content_tag(
+        :i,
+        nil, 
+        class: 'fa fa-sign-out'
+      ), 
+      destroy_user_session_path,
+      method: :delete,
+      style:
+        "color:#fff" 
+    ) 
+%>
+  </li>	
 <% else %>
 <!-- Sign up if not logged in button -->
   <li>
@@ -51,12 +63,21 @@
       ), 
       new_user_registration_path,
       style:
-        "color:blue" 
+        "color:#fff" 
     ) 
 %>
   </li>
 <% end %>
 </ul>
+      </ul>
+    </div>
+  </nav>
+
+<div class="container">
+
+
+<ul class="hmenu">
+
 
 
 <%= yield %>

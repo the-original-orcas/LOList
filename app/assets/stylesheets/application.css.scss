@@ -2,6 +2,9 @@
 @import"font-awesome-sprockets";
 @import"font-awesome";
 
+.brand-logo {
+	font-weight: 600;
+}
 .center-block {
     display: block;
     margin-left: auto;
@@ -47,13 +50,10 @@
 }
 
 #landing-banner {
-    height: 300px;
+
     width: 100%;
 }
-.card-image.resize {
-    height: 500px;
-    width: auto;
-}
+
 .insideDivImg {
     height: 20%;
 }
