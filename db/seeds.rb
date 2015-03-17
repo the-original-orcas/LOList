@@ -184,7 +184,8 @@ u2 = User.create({
 
 u3 = User.create({
 	email: 'davidedaniel@gmail.com',
-	password: '123123123'
+	password: '123123',
+	zipcode: '10001'
 	})
 
 u3.comedians = [c1,c2,c3]
