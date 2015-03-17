@@ -68,10 +68,10 @@ Event.create({
 	time: "9:00",
 	venue: "Grand Sierra Resort and Casino",
 	price: 159.00,
-	city: "Reno"
-	state_name:
-	state_code: "NV"
-	time_zone: "America/Los_Angeles"
+	city: "Reno",
+	state_name: 'Nevada',
+	state_code: "NV",
+	time_zone: "America/Los_Angeles",
 	zipcode: "89595"
 	})
 
@@ -81,7 +81,7 @@ Event.create({
 	venue: "Santa Cruz Civic Auditorium",
 	price: 166.00,
 	city: "Santa Cruz",
-	state_name:
+	state_name: 'California',
 	state_code: "CA",
 	time_zone: "America/Los_Angele",
 	zipcode: "95060"
@@ -93,7 +93,7 @@ Event.create({
 	venue: "Comerica Theatre",
 	price: 152.00,
 	city: "Phoenix",
-	state_name:
+	state_name: 'Arizona',
 	state_code: "AZ",
 	time_zone: "America/Phoeni",
 	zipcode: "85003"
@@ -105,7 +105,7 @@ Event.create({
 	venue: "Bryce Jordan Center",
 	price: 61.00,
 	city: "University Park",
-	state_name:
+	state_name: 'Pennsylvania',
 	state_code: "PA",
 	time_zone: "America/New_York",
 	zipcode: "16802"
@@ -117,7 +117,7 @@ Event.create({
 	venue: "McCaw Hall",
 	price: 84.00,
 	city: "Seattle",
-	state_name:
+	state_name: 'Washington',
 	state_code: "WA",
 	time_zone: "America/Los_Angele",
 	zipcode: "98109"
@@ -129,7 +129,7 @@ Event.create({
 	venue: "Redding Convention Center",
 	price: 88.00,
 	city: "Redding",
-	state_name:
+	state_name: 'California',
 	state_code: "CA",
 	time_zone: "America/Los_Angeles",
 	zipcode: "96001"
@@ -141,7 +141,7 @@ Event.create({
 	venue: "Wells Fargo Center for the Art",
 	price: 119.00,
 	city: "Santa Rosa",
-	state_name:
+	state_name: 'California',
 	state_code: "CA",
 	time_zone: "America/Los_Angeles",
 	zipcode: "95403"
@@ -153,7 +153,7 @@ Event.create({
 	venue: "Mountain Winery",
 	price: 111.00,
 	city: "Saratoga",
-	state_name:
+	state_name: 'California',
 	state_code: "CA",
 	time_zone: "America/Los_Angeles",
 	zipcode: "95070"
@@ -165,7 +165,7 @@ Event.create({
 	venue: "Ryman Auditorium",
 	price: 52.00,
 	city: "Nashville",
-	state_name:
+	state_name: 'Tennessee',
 	state_code: "TN",
 	time_zone: "America/Chicago",
 	zipcode: "37219"
@@ -177,7 +177,7 @@ Event.create({
 	venue: "Terry Fator Theatre at Mirage Hotel and Casino",
 	price: 143.00,
 	city: "Las Vegas",
-	state_name:
+	state_name: 'Nevada',
 	state_code: "NV",
 	time_zone: "America/Los_Angeles",
 	zipcode: "89109"
@@ -189,7 +189,7 @@ Event.create({
 	venue: "Collins Center for the Arts",
 	price: 93.00,
 	city: "Orono",
-	state_name:
+	state_name: "Maine",
 	state_code: "ME",
 	time_zone: "America/New_York",
 	zipcode: "04469"
@@ -201,9 +201,128 @@ Event.create({
 	venue: "Merrill Auditorium",
 	price: 106.00,
 	city: "Portland",
-	state_name:
+	state_name: "Maine",
 	state_code: "ME",
-	time_zone: "America/New_York".
+	time_zone: "America/New_York",
 	zipcode: "04101"
 	})
 
+
+
+c4 = Comedian.create({
+	name: 'John Oliver',
+	image: 'http://cdn.hitfix.com/photos/5496125/john-oliver-hbo_article_story_large.jpg',
+	youtube_url: 'https://www.youtube.com/watch?v=sEotafqxFI4'
+	})
+
+c2 = Comedian.create({
+	name: 'Hannibal Burress',
+	image: 'https://consequenceofsound.files.wordpress.com/2014/10/hannibal-buress-2.jpg',
+	youtube_url: 'https://consequenceofsound.files.wordpress.com/2014/10/hannibal-buress-2.jpg'
+	})
+
+c3 = Comedian.create({
+	name: 'Dave Chappelle',
+	image: 'http://api.ning.com/files/7WaW*6Bsqz0AzPn7jpDmWx1vrNQcwojhJvf8wrE8-FihxMV5ix747HpcmA51YZWmTWpV2Govk1oY2bRHiRKsOjR9zG4PPdDX/119747432e1371518463818.jpg',
+	youtube_url: 'https://www.youtube.com/embed/LLWlBgj0uOc'
+	})
+
+c1 = Comedian.create({
+	name: 'Amy Schumer',
+	image: 'http://cdn.thedailybeast.com/content/dailybeast/articles/2014/03/31/comedy-s-r-rated-queen-amy-schumer-is-raunchier-than-ever/jcr:content/image.img.2000.jpg/1396277014165.cached.jpg',
+	youtube_url: 'https://www.youtube.com/watch?v=YEXmu89_E8o'
+	})
+
+u1 = User.create({
+	email: 'daniel.snider87@gmail.com',
+	password: '12312313'
+	})
+
+u2 = User.create({
+	email: 'sol@gmail.com',
+	password: '123123123'
+	})
+
+u3 = User.create({
+	email: 'davidedaniel@gmail.com',
+	password: '123123',
+	zipcode: '10001'
+	})
+
+u3.comedians = [c1,c2,c3]
+u2.comedians = [c3,c4]
+u2.save
+u1.save
+
+e1 = Event.create({
+	date: "03-21-2015",
+	time: "12:00",
+	venue: "MSG",
+	price: 45.00,
+	zipcode: '10001',
+	comedian_id: c3.id
+	})
+
+
+e2 = Event.create({
+	date: "03-22-2015",
+	time: "18:00",
+	venue: "Best Buy Theater",
+	price: 60.00,
+	zipcode: '10001',
+	comedian_id: c3.id
+	})
+
+Event.create({
+	date: "07-22-2015",
+	time: "7:00",
+	venue: "Wells Fargo Center for the Art",
+	price: 119.00,
+	zipcode: '10001',
+	comedian_id: c1.id
+	})
+
+Event.create({
+	date: "07-23-2015",
+	time: "7:00",
+	venue: "Mountain Winery",
+	price: 111.00,
+	zipcode: '10001',
+	comedian_id: c1.id
+	})
+
+Event.create({
+	date: "04-18-2015",
+	time: "8:00",
+	venue: "Ryman Auditorium",
+	price: 52.00,
+	zipcode: '10001',
+	comedian_id: c4.id
+	})
+
+Event.create({
+	date: "04-24-2015",
+	time: "10:00",
+	venue: "Terry Fator Theatre at Mirage Hotel and Casino",
+	price: 143.00,
+	zipcode: '10001',
+	comedian_id: c4.id
+	})
+
+Event.create({
+	date: "06-09-2015",
+	time: "7:00",
+	venue: "Collins Center for the Arts",
+	price: 93.00,
+	zipcode: '10001',
+	comedian_id: c4.id
+	})
+
+Event.create({
+	date: "06-13-2015",
+	time: "7:00",
+	venue: "Merrill Auditorium",
+	price: 106.00,
+	zipcode: '10001',
+	comedian_id: c3.id
+	})
