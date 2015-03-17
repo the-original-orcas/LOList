@@ -11,10 +11,8 @@ Rails.application.routes.draw do
   end
 
   unauthenticated do
-    root to: 'landing#index', :as => "unauthenticated"
+    root to: 'landing#index'
   end
-
-  root to: 'landing#index'
 
   resources :event
   resources :comedian
