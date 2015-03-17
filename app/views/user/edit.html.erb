@@ -5,11 +5,9 @@
 <p>By selecting a comedian, you will begin to receive email notifications ONLY associated with the
 	artists you are following.</p>
 <br>
-<%= link_to "I'm Ready!", user_path, class: "waves-effect waves-light blue btn" %>
+<%= link_to "I'm Ready!", user_path, class: "waves-effect waves-light green btn" %>
 </div>
 
-
-<%= form_for @user, url: user_path(@user), html: { method: :put } do |f| %>
 <div class='row'>
 
 <% @comedians.each do |comedian| %>
@@ -31,6 +29,3 @@
 </div>
 
 <% end %>
-<% f.hidden_field :authenticity_token, value: form_authenticity_token() %> 
-
-<% end  %>

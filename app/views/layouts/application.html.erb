@@ -9,11 +9,56 @@
 <body>
 <div class="container">
 <ul class="hmenu">
-	<%= render 'devise/menu/login_items' %> 
-	<!-- Edit Cog Button -->
-	<a href="/users/edit"><i class="mdi-action-settings small"></i></a>
+<% if user_signed_in? %>
+  <!-- Sign out Button -->
+  <li>
 
+<%= link_to(
+      content_tag(
+        :i,
+        nil, 
+        class: 'fa fa-sign-out'
+      ), 
+      destroy_user_session_path,
+      method: :delete,
+      class:
+        "btn small waves-effect waves-light red" 
+    ) 
+%>
+  </li>	
+  <!-- Edit Cog Button -->
+  <li>
+  <%= link_to(
+      content_tag(
+        :i,
+        nil, 
+        class: 'mdi-action-settings small'
+      ), 
+      edit_user_registration_path,
+      style:
+        "color:green" 
+    ) 
+%>
+  </li>
+<% else %>
+<!-- Sign up if not logged in button -->
+  <li>
+  <%= link_to(
+      content_tag(
+        :i,
+        nil, 
+        class: 'mdi-action-settings small'
+      ), 
+      new_user_registration_path,
+      style:
+        "color:blue" 
+    ) 
+%>
+  </li>
+<% end %>
 </ul>
+
+
 <%= yield %>
 </div>
 

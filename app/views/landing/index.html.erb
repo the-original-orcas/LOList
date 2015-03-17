@@ -8,28 +8,32 @@
         <p>Don't ever miss out when your favorite comedian comes to town. Sign up now and receive an email notification telling you when the next big show is.</p>
     </div>
 </div>
+
 <!-- sign up -->
-
-	<a class="btn-social btn-large btn-icon  btn-facebook" href = '/users/auth/facebook/'>
-	<i class="fa fa-facebook left"></i>
-	Connect with Facebook</a>
-
-<div class="row">
+<div class="container">
+	<div class="center-align">
+		<a class="btn-social btn-large btn-icon  btn-facebook" href = '/users/auth/facebook/'>
+			<i class="fa fa-facebook left"></i>
+				Connect with Facebook
+		</a>
+	</div>
+	<div class="divider"></div>
+</div><div class="row">
     <div class="col s6">
         <p class="center-align">New user?</p><h5 class = "center-align">Sign Up</h5>
 
-        <form action="/user" method="POST">
+        <form action="/users" method="POST">
             <div class="input-field col s12">
-                <input type="text" name="user[email]" placeholder="Email"></input>
+                <input type = "email" class = "validate" type="text" name="user[email]" placeholder="Email"></input>
             </div>
             <div class="input-field col s12">
-                <input type="password" name="user[password]" placeholder="Password"></input>
+                <input type="password" class = "validate" name="user[password]" placeholder="Password"></input>
             </div>
             <div class="input-field col s12">
-                <input type="password" name="user[password_confirmation]" placeholder="Confirm Password"></input>
+                <input type="password" class = "validate" name="user[password_confirmation]" placeholder="Confirm Password"></input>
             </div>
             <div class="input-field col s12">
-                <input type="text" name="user[zipcode]" placeholder="Zipcode to filter results!"></input>
+                <input class = "validate" type="text" name="user[zipcode]" placeholder="Zipcode to filter results!"></input>
             </div>
             <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
             <button class="center-block waves-effect waves-light green btn" type="submit" name="action">Sign Up</button>
