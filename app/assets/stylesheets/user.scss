@@ -1,1 +1,30 @@
+div.card-image {
+	
+	.card-title.teal-text.text-darken-2.bold {
+		margin-top: 1px;
+	}	
+}
+
+
+div.card-action {
+    height:75px;
+
+    .fa.fa-youtube-play.fa-2x {
+    	cursor:pointer;
+    }
+
+		.up-arrow {
+		    height: 30px;
+		    margin: -22px;
+				opacity: 60%;
+
+				#chevron-up {
+					height: 80%;
+					width:10%;
+					margin-left: 50px;
+		  		margin-top: 9px;
+		  		cursor:pointer;
+				}
+		}
+}
 
