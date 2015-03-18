@@ -67,7 +67,7 @@ Event.create({
 	price: 159.00,
 	city: "Reno",
 	state_code: "NV",
-	zipcode: "89595"
+	postal_code: "89595"
 	})
 
 Event.create({
@@ -77,7 +77,7 @@ Event.create({
 	price: 166.00,
 	city: "Santa Cruz",
 	state_code: "CA",
-	zipcode: "95060"
+	postal_code: "95060"
 	})
 
 Event.create({
@@ -87,7 +87,7 @@ Event.create({
 	price: 152.00,
 	city: "Phoenix",
 	state_code: "AZ",
-	zipcode: "85003"
+	postal_code: "85003"
 	})
 
 Event.create({
@@ -97,7 +97,7 @@ Event.create({
 	price: 61.00,
 	city: "University Park",
 	state_code: "PA",
-	zipcode: "16802"
+	postal_code: "16802"
 	})
 
 Event.create({
@@ -107,7 +107,7 @@ Event.create({
 	price: 84.00,
 	city: "Seattle",
 	state_code: "WA",
-	zipcode: "98109"
+	postal_code: "98109"
 	})
 
 Event.create({
@@ -117,7 +117,7 @@ Event.create({
 	price: 88.00,
 	city: "Redding",
 	state_code: "CA",
-	zipcode: "96001"
+	postal_code: "96001"
 	})
 
 Event.create({
@@ -127,7 +127,7 @@ Event.create({
 	price: 119.00,
 	city: "Santa Rosa",
 	state_code: "CA",
-	zipcode: "95403"
+	postal_code: "95403"
 	})
 
 Event.create({
@@ -137,7 +137,7 @@ Event.create({
 	price: 111.00,
 	city: "Saratoga",
 	state_code: "CA",
-	zipcode: "95070"
+	postal_code: "95070"
 	})
 
 Event.create({
@@ -147,7 +147,7 @@ Event.create({
 	price: 52.00,
 	city: "Nashville",
 	state_code: "TN",
-	zipcode: "37219"
+	postal_code: "37219"
 	})
 
 Event.create({
@@ -157,7 +157,7 @@ Event.create({
 	price: 143.00,
 	city: "Las Vegas",
 	state_code: "NV",
-	zipcode: "89109"
+	postal_code: "89109"
 	})
 
 Event.create({
@@ -167,7 +167,7 @@ Event.create({
 	price: 93.00,
 	city: "Orono",
 	state_code: "ME",
-	zipcode: "04469"
+	postal_code: "04469"
 	})
 
 Event.create({
@@ -177,7 +177,7 @@ Event.create({
 	price: 106.00,
 	city: "Portland",
 	state_code: "ME",
-	zipcode: "04101"
+	postal_code: "04101"
 	})
 
 
@@ -209,19 +209,19 @@ c1 = Comedian.create({
 u1 = User.create({
 	email: 'daniel.snider87@gmail.com',
 	password: '12312313',
-	zipcode: '10001'
+	postal_code: '10001'
 	})
 
 u2 = User.create({
 	email: 'sol@gmail.com',
 	password: '123123123',
-	zipcode: '10001'
+	postal_code: '10001'
 	})
 
 u3 = User.create({
 	email: 'davidedaniel@gmail.com',
 	password: '123123',
-	zipcode: '97217'
+	postal_code: '97217'
 	})
 
 u3.comedians = [c1,c2,c3]
@@ -234,7 +234,7 @@ e1 = Event.create({
 	time: "12:00",
 	venue: "MSG",
 	price: 45.00,
-	zipcode: '10001',
+	postal_code: '10001',
 	comedian_id: c3.id
 	})
 
@@ -244,7 +244,7 @@ e2 = Event.create({
 	time: "18:00",
 	venue: "Best Buy Theater",
 	price: 60.00,
-	zipcode: '10001',
+	postal_code: '10001',
 	comedian_id: c3.id
 	})
 
@@ -253,7 +253,7 @@ Event.create({
 	time: "7:00",
 	venue: "Wells Fargo Center for the Art",
 	price: 119.00,
-	zipcode: '10001',
+	postal_code: '10001',
 	comedian_id: c1.id
 	})
 
@@ -262,7 +262,7 @@ Event.create({
 	time: "7:00",
 	venue: "Mountain Winery",
 	price: 111.00,
-	zipcode: '10001',
+	postal_code: '10001',
 	comedian_id: c1.id
 	})
 
@@ -271,7 +271,7 @@ Event.create({
 	time: "8:00",
 	venue: "Ryman Auditorium",
 	price: 52.00,
-	zipcode: '10001',
+	postal_code: '10001',
 	comedian_id: c4.id
 	})
 
@@ -280,7 +280,7 @@ Event.create({
 	time: "10:00",
 	venue: "Terry Fator Theatre at Mirage Hotel and Casino",
 	price: 143.00,
-	zipcode: '10001',
+	postal_code: '10001',
 	comedian_id: c4.id
 	})
 
@@ -289,7 +289,7 @@ Event.create({
 	time: "7:00",
 	venue: "Collins Center for the Arts",
 	price: 93.00,
-	zipcode: '10001',
+	postal_code: '10001',
 	comedian_id: c4.id
 	})
 
@@ -298,6 +298,6 @@ Event.create({
 	time: "7:00",
 	venue: "Merrill Auditorium",
 	price: 106.00,
-	zipcode: '10001',
+	postal_code: '10001',
 	comedian_id: c3.id
 	})
