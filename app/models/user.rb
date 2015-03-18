@@ -18,7 +18,8 @@ class User < ActiveRecord::Base
     self.comedians.where(comedian_id)
   end
 
-  def populateDb(zip)
+  def populateDb(current_user, zip)
+    puts self.postal_code
     names = []
     Comedian.all.map { |all| names << all.name }
     names.each do |comedian|

@@ -17,16 +17,16 @@ class UserController < ApplicationController
 
   def show
     zip = current_user.postal_code
-    current_user.populateDb(zip)
+    current_user.populateDb(current_user, zip)
     @user = current_user
     userId = @user.id
     @faves = @user.comedians
     @comedians = Comedian.all
     @nonfaves = @comedians - @faves
 
-    if @user.comedians.count < 3
-      redirect_to '/user/'+current_user.id.to_s+'/edit'
-    end
+    # if @user.comedians.count < 1
+      # redirect_to '/user/'+current_user.id.to_s+'/edit'
+    # end
   end
 
 
