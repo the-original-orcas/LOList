@@ -15,7 +15,7 @@ class CreateEvent < ActiveRecord::Base
 
 				performer["events"].each do |event|
 
-					Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], time_zone: event["venue"]["timezone"], zipcode: event["venue"]["postal_code"], comedian_id: performer.id})
+					Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], time_zone: event["venue"]["timezone"], postal_code: event["venue"]["postal_code"], comedian_id: performer.id})
 					# 	Additional paramerters
 					# address: event["venue"]["address"]
 					# latitude: event["venue"]["location"]["lat"] 

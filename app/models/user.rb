@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
       all_comedians.each do |performer|
 
         performer["events"].each do |event|
+          binding.pry
           existing_event = Event.find_or_initialize_by(id: :seatgeek_id)
           if event.id != existing_event.seatgeek_id 
           Event.create({seatgeek_id: event["id"], date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"]})
