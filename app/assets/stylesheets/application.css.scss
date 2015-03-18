@@ -1,6 +1,14 @@
+/*
+
+*= require_self
+*= require_tree .
+
+*/
+
 @import"materialize";
 @import"font-awesome-sprockets";
 @import"font-awesome";
+
 
 body {
 	color: #232838;
