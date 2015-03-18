@@ -31,7 +31,7 @@ Comedian.create({
 	})
 
 Comedian.create({
-	name: 'Jim Gaffigan',
+	name: 'Daniel Tosh',
 	image: 'http://i.imgur.com/hu4EmGa.jpg',
 	youtube_url: 'https://www.youtube.com/embed/N-i9GXbptog'
 	})
@@ -55,7 +55,7 @@ Comedian.create({
 	})
 
 Comedian.create({
-	name: 'Daniel Tosh',
+	name: 'Jim Gaffigan',
 	image: 'http://i.imgur.com/judq3RS.jpg',
 	youtube_url: 'https://www.youtube.com/embed/W2zTQwWaPps'
 	})

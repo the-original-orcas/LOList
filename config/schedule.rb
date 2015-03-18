@@ -20,7 +20,8 @@
 # Learn more: http://github.com/javan/whenever
 set :output, "~/src/wdi/Princess_Zelda/projects/hackathon_project/LOList/log/cron.log"
 
-every 15.minutes do 
-	runner "CreateEvent.now"
+every :day, :at => '2:00am' do 
+	# runner "User.newEvent"
+	rake "get:new_events"
 end
 
