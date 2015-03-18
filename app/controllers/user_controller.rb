@@ -16,6 +16,8 @@ class UserController < ApplicationController
   end
 
   def show
+    zip = current_user.postal_code
+    current_user.populateDb(zip)
     @user = current_user
     userId = @user.id
     @faves = @user.comedians
