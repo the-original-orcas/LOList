@@ -11,24 +11,31 @@
 <div class='row'>
 
 <% @comedians.each do |comedian| %>
-<div class='col s4'>
+<div class='col s12 m4'>
 	<div class='card small z-depth-2'>
 		<div class='card-image'>
 			<img src=<%= comedian.image %>>
-			<span class='card-title teal-text text-darken-2 bold'> <%= comedian.name %> </span>
+			<span class='card-title grey-text text-darken-3 bold'> <%= comedian.name %> </span>
 		</div>
-	<div class="card-action">
-		<i class="fa fa-youtube-play fa-2x"></i>
-		<% if @user.comedians.include?(comedian) %>
-			<span id='comedian-<%= comedian.id %>' class='follow following'><i class="mdi-action-stars"></i></span>
-    <% else  %>
-      <span id='comedian-<%= comedian.id %>' class='follow'><i class="mdi-action-stars"></i></span>
-    <% end  %>
-		<div class="center-align up-arrow">
-		<img id="chevron-up" src="http://cdn1.freepik.com/image/th/408-63950.png"></img>
-		</div>
-    </div>
+		<div class="card-action">
+			<i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3"></i>
+			<% if @user.comedians.include?(comedian) %>
+				<span id='comedian-<%= comedian.id %>' class='follow following'><i class="mdi-action-stars grey-text text-darken-3"></i></span>
+	    <% else  %>
+	      <span id='comedian-<%= comedian.id %>' class='follow'><i class="mdi-action-stars grey-text text-darken-3"></i></span>
+	    <% end  %>
+			<div class="center-align up-arrow">
+				<img id="chevron-up" src="http://cdn1.freepik.com/image/th/408-63950.png"></img>
+			</div>
+	  </div>
+	  <div class="card-reveal">
+	    <span class="card-title grey-text text-darken-3"><%=comedian.name%> <i class="mdi-navigation-close right"></i></span>
+	      <div class="video-container">
+        <iframe width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
+      </div>
+	  </div>
 	</div>
 </div>
 
 <% end %>
+
