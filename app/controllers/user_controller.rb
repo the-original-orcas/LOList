@@ -11,7 +11,6 @@ class UserController < ApplicationController
 
   def edit
     @user = current_user
-
     @comedians = Comedian.all
     @events = Event.all
   end
