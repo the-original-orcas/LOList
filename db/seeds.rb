@@ -14,12 +14,8 @@
 
 Comedian.create({
 	name: 'Kevin Hart',
-<<<<<<< HEAD
-	image: '	youtube_url: 'https://www.youtube.com/embed/TTCgr3V_HhI'
-=======
 	image: 'http://i.imgur.com/ftDSpf1.jpg',
 	youtube_url: 'https://www.youtube.com/embed/TTCgr3V_HhI'
->>>>>>> d45e515bdc770aac0786ed6f8e2b807df84658b4
 	})
 
 Comedian.create({
@@ -35,7 +31,7 @@ Comedian.create({
 	})
 
 Comedian.create({
-	name: 'Jim Gaffigan',
+	name: 'Daniel Tosh',
 	image: 'http://i.imgur.com/hu4EmGa.jpg',
 	youtube_url: 'https://www.youtube.com/embed/N-i9GXbptog'
 	})
@@ -59,7 +55,7 @@ Comedian.create({
 	})
 
 Comedian.create({
-	name: 'Daniel Tosh',
+	name: 'Jim Gaffigan',
 	image: 'http://i.imgur.com/judq3RS.jpg',
 	youtube_url: 'https://www.youtube.com/embed/W2zTQwWaPps'
 	})

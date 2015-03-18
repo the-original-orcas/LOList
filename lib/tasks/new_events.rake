@@ -1,27 +1,10 @@
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :recoverable, :lockable, :timeoutable and :validatable
-  devise :database_authenticatable, :registerable,
-    :rememberable, :trackable, :omniauthable
+namespace :get do
+	desc "Rake task to get events data"
+	task :new_events => [:environment] do
 
-  has_many :comedians_users 
-  has_many :comedians, through: :comedians_users
+	names = []
 
-  def followComedian(current_user)
-    comedian = Comedian.find(comedian_id)
-    self.comedians << comedian
-
-  end
-
-  def unfollowComedian(current_user)
-    comedian = Comedian.find(comedian_id)
-    self.comedians.where(comedian_id)
-  end
-
-  def newEvent
-    names = []
-
-    Comedian.all.map { |all| names << all.name }
+  Comedian.all.map { |all| names << all.name }
 
     names.each do |comedian|
       all_comedians = []
@@ -40,8 +23,7 @@ class User < ActiveRecord::Base
         end
       end
     end
+
+
   end
-
-
 end
-
