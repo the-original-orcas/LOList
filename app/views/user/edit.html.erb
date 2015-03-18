@@ -18,12 +18,15 @@
 			<span class='card-title teal-text text-darken-2 bold'> <%= comedian.name %> </span>
 		</div>
 	<div class="card-action">
-		<i class="fa fa-question-circle fa-2x"></i>
+		<i class="fa fa-youtube-play fa-2x"></i>
 		<% if @user.comedians.include?(comedian) %>
 			<span id='comedian-<%= comedian.id %>' class='follow following'><i class="mdi-action-stars"></i></span>
     <% else  %>
       <span id='comedian-<%= comedian.id %>' class='follow'><i class="mdi-action-stars"></i></span>
     <% end  %>
+		<div class="center-align up-arrow">
+		<img id="chevron-up" src="http://cdn1.freepik.com/image/th/408-63950.png"></img>
+		</div>
     </div>
 	</div>
 </div>
