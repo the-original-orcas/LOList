@@ -18,7 +18,7 @@ class LandingController < ApplicationController
 
 				performer["events"].each do |event|
 
-					Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], time_zone: event["venue"]["timezone"], zipcode: event["venue"]["postal_code"]})
+					Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"]})
 					# 	Additional paramerters
 					# address: event["venue"]["address"]
 					# latitude: event["venue"]["location"]["lat"] 
