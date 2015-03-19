@@ -16,22 +16,21 @@ class UserController < ApplicationController
   end
 
   def show
+    binding.pry
     zip = current_user.postal_code
-    current_user.populateDb(current_user, zip)
+    # current_user.populateDb(current_user, zip)
     @user = current_user
     userId = @user.id
     @faves = @user.comedians
     @comedians = Comedian.all
     @nonfaves = @comedians - @faves
-
+    @events = Event.joins(:@faves)
     # if @user.comedians.count < 1
       # redirect_to '/user/'+current_user.id.to_s+'/edit'
     # end
   end
 
-
   def update
-
     @user = current_user
     if params['comedian_id']
       respond_to do |format|
@@ -62,7 +61,7 @@ class UserController < ApplicationController
     headers["Access-Control-Allow-Headers"] =
       %w{Origin Accept Content-Type X-Requested-With X-CSRF-Token}.join(",")
 
-    # headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Request-Method'] = '*'
     
 
     head(:ok) if request.request_method == "OPTIONS"
