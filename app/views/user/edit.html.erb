@@ -15,16 +15,19 @@
 	<div class='card small z-depth-2'>
 		<div class='card-image' style="background-image: url(<%=comedian.image%>)">
 			
-			<span class='card-title grey-text text-darken-3 bold'> <%= comedian.name %> </span>
-		
-			<div class="interaction-buttons">
-			<i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3"></i>
-			<% if @user.comedians.include?(comedian) %>
-				<span id='comedian-<%= comedian.id %>' class='follow following'><i class="mdi-action-stars grey-text text-darken-3"></i></span>
-	    <% else  %>
-	      <span id='comedian-<%= comedian.id %>' class='follow'><i class="mdi-action-stars grey-text text-darken-3"></i></span>
-	    <% end  %>
-	  </div>
+			<span class='card-title grey-text text-darken-4'> <%= comedian.name %> </span>
+				<div class="interaction-buttons z-depth-3">
+			
+			
+				<i class="fa fa-youtube-play fa-2x activator grey-text text-darken-4"></i>
+				<% if @user.comedians.include?(comedian) %>
+					<span id='comedian-<%= comedian.id %>' class='follow following'><i class="mdi-action-stars grey-text text-darken-4"></i></span>
+		    <% else  %>
+		      <span id='comedian-<%= comedian.id %>' class='follow'><i class="mdi-action-stars grey-text text-darken-4"></i></span>
+		    <% end  %>
+		    </div>
+		    <div class='hover bottom'></div>
+	  	
 	  </div>
 	  <div class="card-reveal">
 	    <span class="card-title grey-text text-darken-3"><%=comedian.name%> <i class="mdi-navigation-close right"></i></span>

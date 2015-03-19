@@ -1,3 +1,9 @@
+.hover { 
+	background-color: white;
+	height: 260px;
+	opacity: 0.5
+}
+
 .card.small{
 	height: 260px;
 		
@@ -6,13 +12,16 @@
 		background-size:100%;
 
 		.interaction-buttons {
-			margin-top: 225px;
+			margin-top:226px;
 			padding: 0 5px;
+			background: rgba(255, 255, 255, 0);
 		}
 		
 		.card-title {
 			position:absolute;
-			margin: 100px;
+			width:100%;
+			background: rgba(255,255,255,.5);
+			padding: 0 0 0 38px;
 		}
 		.card-title.teal-text.text-darken-2.bold {
 			margin-top: 1px;
@@ -23,7 +32,7 @@
 
 
 .card.card-reveal {
-	background-color: #F9FCFC
+	background-color: #F9FCFC;
 }
 
 div.card-action {
