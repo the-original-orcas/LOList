@@ -1,13 +1,13 @@
 class Event < ActiveRecord::Base
-  after_create :addToComs, :send_notification
+  after_create :send_notification
 
   has_and_belongs_to_many :comedians, :join_table => :comedians_events
 
-  def addToComs
-    comedian = Comedian.find(self.comedian_id)
-    comedian.event_id = self.id
-    comedian.save
-  end
+  # def addToComs
+  #   comedian = Comedian.find(self.comedian_id)
+  #   comedian.event_id = self.id
+  #   comedian.save
+  # end
 
   private
 
