@@ -1,5 +1,5 @@
 class AddSeatgeekUrlToEvents < ActiveRecord::Migration
   def change
-  	add_column, :url, :text
+  	add_column :events, :url, :text
   end
 end

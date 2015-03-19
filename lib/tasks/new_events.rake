@@ -2,6 +2,7 @@ namespace :get do
 
   desc "Rake task to get events data"
   task :new_events => [:environment] do
+
     Comedian.all.each do |comedian|
       all_comedians = []
       date_today = Date.today.to_formatted_s
@@ -10,10 +11,11 @@ namespace :get do
 
       all_comedians.each do |performer|
         performer["events"].each do |event|
-          Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"], comedian_id: comedian.id})
+          Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"], comedian_id: comedian.id, lon: event["venue"]["location"]["lon"], lat: event["venue"]["location"]["lat"]})
         end
       end
     end
 
   end
+
 end

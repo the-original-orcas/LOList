@@ -45,23 +45,29 @@ class User < ActiveRecord::Base
   end
 
 
-  def newEvent
 
-    Comedian.all.each do |comedian|
-      all_comedians = []
-      all_comedians << HTTParty.get('http://api.seatgeek.com/2/events?performers.slug='+comedian.name.downcase.gsub(" ","-"))
+end
 
 
-      all_comedians.each do |c|
+  # def newEvent
 
-        c["events"].each do |event|
+  #   Comedian.all.each do |comedian|
+  #     all_comedians = []
+  #     all_comedians << HTTParty.get('http://api.seatgeek.com/2/events?performers.slug='+comedian.name.downcase.gsub(" ","-"))
 
-          Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"], comedian_id: comedian.id})
-        end
-      end
-    end
 
-  end
+  #     all_comedians.each do |c|
+
+  #       c["events"].each do |event|
+
+  #         Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"], comedian_id: comedian.id})
+  #       end
+  #     end
+  #   end
+
+  # end
+
+
 
 #   end
 # end
