@@ -23,7 +23,7 @@
             <p class="grey-text text-darken-4">Upcoming events:</p>
             <% comedian.events.each do |event| %>
             <p>Where: <%= event.venue  %></p>
-            <p>When: <%= event.time  %></p>
+            <p>When: <%= event.date  %></p>
             <% end  %>
             <div class="videoWrapper">
                 <iframe class='col s3'width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>

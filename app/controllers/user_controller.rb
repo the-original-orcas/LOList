@@ -16,7 +16,6 @@ class UserController < ApplicationController
   end
 
   def show
-    binding.pry
     zip = current_user.postal_code
     # current_user.populateDb(current_user, zip)
     @user = current_user
