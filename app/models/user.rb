@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :recoverable, :lockable, :timeoutable and :validatable
   devise :database_authenticatable, :registerable,
     :rememberable, :trackable, :omniauthable
-    
+
   has_many :comedians_users
   has_many :comedians, through: :comedians_users
 
@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   end
 
   def updateDb(current_user, zip)
+    puts self.postal_code
+
     names = []
     Comedian.all.map { |all| names << all.name }
 
@@ -29,7 +31,7 @@ class User < ActiveRecord::Base
       all_comedians.each do |performer|
 
         performer["events"].each do |event|
-          binding.pry
+
           existing_event = Event.find_or_initialize_by(id: :seatgeek_id)
           if event.id != existing_event.seatgeek_id
             Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"]})
@@ -39,7 +41,6 @@ class User < ActiveRecord::Base
     end
   end
 end
-
 
 # def newEvent
 

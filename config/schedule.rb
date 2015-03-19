@@ -18,7 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :output, "~/src/wdi/Princess_Zelda/projects/hackathon_project/LOList/log/cron.log"
+set :output, "~/src/wdi/Princess_Zelda/projects/hackathon_project/LOList/log/cron_error.log"
 
 every :day, :at => '2:00am' do 
 	# runner "User.newEvent"
