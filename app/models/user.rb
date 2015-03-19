@@ -22,6 +22,7 @@ class User < ActiveRecord::Base
 
     names = []
     Comedian.all.map { |all| names << all.name }
+    
     names.each do |comedian|
       all_comedians = []
 

@@ -24,13 +24,15 @@ class UserController < ApplicationController
     @comedians = Comedian.all
     @nonfaves = @comedians - @faves
     @events = Event.joins(:@faves)
-    # if @user.comedians.count < 1
-      # redirect_to '/user/'+current_user.id.to_s+'/edit'
-    # end
+
+    if @user.comedians.count < 1 # NEED TO FIX THIS LOGIC - TRIED after_sign_up TRIED sign_in_count == 1
+      redirect_to '/user/'+current_user.id.to_s+'/edit'
+    end
   end
 
   def update
     @user = current_user
+
     if params['comedian_id']
       respond_to do |format|
         if comedian_user = @user.comedians_users.find_by_comedian_id(params["comedian_id"])
