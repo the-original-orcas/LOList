@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :recoverable, :lockable, :timeoutable and :validatable
   devise :database_authenticatable, :registerable,
     :rememberable, :trackable, :omniauthable
-
+    
   has_many :comedians_users
   has_many :comedians, through: :comedians_users
 
@@ -18,11 +18,9 @@ class User < ActiveRecord::Base
   end
 
   def updateDb(current_user, zip)
-    puts self.postal_code
-
     names = []
     Comedian.all.map { |all| names << all.name }
-    
+
     names.each do |comedian|
       all_comedians = []
 
@@ -36,7 +34,6 @@ class User < ActiveRecord::Base
           if event.id != existing_event.seatgeek_id
             Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"]})
           end
-
         end
       end
     end
@@ -44,26 +41,21 @@ class User < ActiveRecord::Base
 end
 
 
-def newEvent
+# def newEvent
 
+#   Comedian.all.each do |comedian|
+#     all_comedians = []
+#     all_comedians << HTTParty.get('http://api.seatgeek.com/2/events?performers.slug='+comedian.name.downcase.gsub(" ","-"))
 
+#     all_comedians.each do |c|
 
+#       c["events"].each do |event|
 
-
-  Comedian.all.each do |comedian|
-    all_comedians = []
-    all_comedians << HTTParty.get('http://api.seatgeek.com/2/events?performers.slug='+comedian.name.downcase.gsub(" ","-"))
-
-    all_comedians.each do |c|
-
-      c["events"].each do |event|
-
-        Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"], comedian_id: comedian.id})
-      end
-    end
-  end
-
-end
+#         Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"], comedian_id: comedian.id})
+#       end
+#     end
+#   end
+# end
 #   end
 # end
 
