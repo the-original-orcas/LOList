@@ -13,20 +13,18 @@
 <% @comedians.each do |comedian| %>
 <div class='col s12 m4'>
 	<div class='card small z-depth-2'>
-		<div class='card-image'>
-			<img src=<%= comedian.image %>>
+		<div class='card-image' style="background-image: url(<%=comedian.image%>)">
+			
 			<span class='card-title grey-text text-darken-3 bold'> <%= comedian.name %> </span>
-		</div>
-		<div class="card-action">
+		
+			<div class="interaction-buttons">
 			<i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3"></i>
 			<% if @user.comedians.include?(comedian) %>
 				<span id='comedian-<%= comedian.id %>' class='follow following'><i class="mdi-action-stars grey-text text-darken-3"></i></span>
 	    <% else  %>
 	      <span id='comedian-<%= comedian.id %>' class='follow'><i class="mdi-action-stars grey-text text-darken-3"></i></span>
 	    <% end  %>
-			<div class="center-align up-arrow">
-				<img id="chevron-up" src="http://cdn1.freepik.com/image/th/408-63950.png"></img>
-			</div>
+	  </div>
 	  </div>
 	  <div class="card-reveal">
 	    <span class="card-title grey-text text-darken-3"><%=comedian.name%> <i class="mdi-navigation-close right"></i></span>
