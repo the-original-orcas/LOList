@@ -15,6 +15,17 @@ class RegistrationsController < Devise::RegistrationsController
       resource.update_with_password(params)
     end
   end
+    # protected
+
+  #   # The path used after sign up.
+  # def after_sign_up_path_for(resource)
+  #   edit_user_path(current_user)
+  # end
+
+  # def after_update_path_for(resource)
+  #   user_path(resource)
+  # end
+
 end
 
 
