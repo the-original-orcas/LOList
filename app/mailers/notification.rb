@@ -9,8 +9,8 @@ class Notification < ApplicationMailer
     @event.comedians.each do |comedian|
       comedian.users.each do |user|
         # if @event.location == user.location && user.subscribed?
-        mail( :to => user.email,
-              :subject => "One of your favorite comedians booked a show in your area!" )
+        # mail( :to => user.email,
+              # :subject => "One of your favorite comedians booked a show in your area!" )
       end
     end
   end
