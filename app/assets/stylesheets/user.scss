@@ -1,7 +1,12 @@
 .hover { 
 	background-color: white;
 	height: 260px;
-	opacity: 0.5
+	opacity: 0.0
+}
+
+i.fav {
+	border-radius:100%;
+	padding: -2px;
 }
 
 .card.small{
@@ -12,7 +17,7 @@
 		background-size:100%;
 
 		.interaction-buttons {
-			margin-top:226px;
+			margin-top:0px;
 			padding: 0 5px;
 			background: rgba(255, 255, 255, 0);
 		}

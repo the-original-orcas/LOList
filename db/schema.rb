@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20150320010130) do
     t.string   "postal_code"
     t.string   "address"
     t.integer  "seatgeek_id"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
     t.text     "url"
   end
 
