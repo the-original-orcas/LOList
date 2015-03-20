@@ -12,7 +12,7 @@
 
 <% @comedians.each do |comedian| %>
 <div class='col s12 m4'>
-	<div class='card small z-depth-2'>
+	<div id='comedian-<%= comedian.id %>' class='card small z-depth-2 follow'>
 		<div class='card-image' style="background-image: url(<%=comedian.image%>)">
 			
 			<span class='card-title grey-text text-darken-4'> <%= comedian.name %> </span>
