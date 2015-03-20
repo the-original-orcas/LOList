@@ -16,7 +16,7 @@ class UserController < ApplicationController
   end
 
   def show
-    zip = current_user.postal_code
+    # zip = current_user.postal_code
     # current_user.populateDb(current_user, zip)
     @user = current_user
     userId = @user.id
@@ -70,9 +70,9 @@ class UserController < ApplicationController
     # if that's more your style
   end
 
-  private
-  def current_user_params
-    params.require(:current_user).permit(:email, :password, :comedian_id => [])
-  end
+  # private
+  # def current_user_params
+  #   params.require(:current_user).permit(:email, :password, :comedian_id => [])
+  # end
 
 end

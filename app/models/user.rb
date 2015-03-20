@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
   has_many :comedians_users
   has_many :comedians, through: :comedians_users
 
-  geocoded_by :current_sign_in_ip    # can also be an IP address
+  geocoded_by :current_sign_in_ip   # can also be an IP address
+  reverse_geocoded_by :latitude, :longitude
   after_validation :geocode, :reverse_geocode, :if => :current_sign_in_ip_changed? # auto-fetch coordinates
 
   def followComedian(current_user)
