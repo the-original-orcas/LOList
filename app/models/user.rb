@@ -8,24 +8,8 @@ class User < ActiveRecord::Base
   has_many :comedians, through: :comedians_users
 
   geocoded_by :current_sign_in_ip    # can also be an IP address
-  after_validation :geocode, :if => :current_sign_in_ip_changed? # auto-fetch coordinates
-
-
-
-
-  def lookupLocation(current_user)
-    reverse_geocoded_by :latitude, :longitude do |obj,results|
-
-      if geo = results.first
-        obj.city    = geo.city
-        obj.postal_code = geo.postal_code
-        obj.state_code = geo.state_code
-
-      end
-
-      after_validation :reverse_geocode  # auto-fetch address
-      self.postal_code
-    end
+  reverse_geocoded_by :latitude, :longitude 
+  after_validation :geocode, :reverse_geocode, :if => :current_sign_in_ip_changed? # auto-fetch coordinates
 
     def followComedian(current_user)
       comedian = Comedian.find(comedian_id)
