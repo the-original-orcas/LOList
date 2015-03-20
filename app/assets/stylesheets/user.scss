@@ -6,12 +6,22 @@
 
 i.fav {
 	border-radius:100%;
-	padding: -2px;
+	margin: 15px 6px 0 0;
+}
+
+i.follow {
+	color: black;
+}
+
+
+.following > i {
+	color: goldenrod;
 }
 
 .card.small{
 	height: 260px;
 		
+
 	.card-image {
 		height: 260px;
 		background-size:100%;
@@ -28,6 +38,7 @@ i.fav {
 			width:100%;
 			background: rgba(255,255,255,.5);
 			padding: 0 0 0 38px;
+			filter: invert(100%);
 		}
 		.card-title.teal-text.text-darken-2.bold {
 			margin-top: 1px;

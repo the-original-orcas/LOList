@@ -1,5 +1,4 @@
 <div class="container center-align">
-<h1>LOList</h1>
 
 <h4>Select at least three comedians to get started.</h4>
 <p>By selecting a comedian, you will begin to receive email notifications ONLY associated with the
@@ -13,16 +12,14 @@
 <% @comedians.each do |comedian| %>
 <div class='col s12 m4'>
 	<div id='comedian-<%= comedian.id %>' class='card small z-depth-2 follow'>
-		<div class='card-image' style="background-image: url(<%=comedian.image%>)">
+		<div class='card-image' style="background-image:  url(<%=comedian.image%>)">
 			
 			<span class='card-title grey-text text-darken-4'> <%= comedian.name %> </span>
-				<div class="interaction-buttons z-depth-3">
 				<% if @user.comedians.include?(comedian) %>
-					<span id='comedian-<%= comedian.id %>' class='follow following'><i class="fav mdi-action-stars grey-text text-darken-4 z-depth-2"></i></span>
+					<span class='following'><i class="fav fa fa-star-o"></i></span>
 		    <% else  %>
-		      <span id='comedian-<%= comedian.id %>' class='follow'><i class="fav mdi-action-stars grey-text text-darken-4 z-depth-2"></i></span>
+		      <span><i class="fav fa fa-star-o"></i></span>
 		    <% end  %>
-		    </div>
 	  	
 	  </div>
 	</div>

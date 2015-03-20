@@ -4,6 +4,7 @@ $(document).ready(function() {
             var pathName = window.location.pathname
             var comedianId = this.id.split('-')[1]
             var $comedian_el = $(this);
+            var $starSpan = $comedian_el.children()
             values = {
                 comedian_id: comedianId
             }
@@ -13,9 +14,9 @@ $(document).ready(function() {
                 type: 'PUT',
                 data: values,
                 success: function(data) {
-                    console.log($comedian_el)
                     console.log(data)
-                    $comedian_el.toggleClass('following')
+                    $comedian_el.toggleClass('following');
+                    $($starSpan.children()[1]).toggleClass('following');
                 }
             });
         });
