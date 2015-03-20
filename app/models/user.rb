@@ -8,38 +8,36 @@ class User < ActiveRecord::Base
   has_many :comedians, through: :comedians_users
 
   geocoded_by :current_sign_in_ip    # can also be an IP address
-  reverse_geocoded_by :latitude, :longitude 
   after_validation :geocode, :reverse_geocode, :if => :current_sign_in_ip_changed? # auto-fetch coordinates
 
-    def followComedian(current_user)
-      comedian = Comedian.find(comedian_id)
-      self.comedians << comedian
-    end
+  def followComedian(current_user)
+    comedian = Comedian.find(comedian_id)
+    self.comedians << comedian
+  end
 
-    def unfollowComedian(current_user)
-      comedian = Comedian.find(comedian_id)
-      self.comedians.where(comedian_id)
-    end
+  def unfollowComedian(current_user)
+    comedian = Comedian.find(comedian_id)
+    self.comedians.where(comedian_id)
+  end
 
-    def updateDb(current_user, zip)
-      puts self.postal_code
+  def updateDb(current_user, zip)
+    puts self.postal_code
 
-      names = []
-      Comedian.all.map { |all| names << all.name }
+    names = []
+    Comedian.all.map { |all| names << all.name }
 
-      names.each do |comedian|
-        all_comedians = []
+    names.each do |comedian|
+      all_comedians = []
 
-        all_comedians << HTTParty.get('http://api.seatgeek.com/2/events?postal_code='+zip+'&datetime_utc.gt='+Date.today.to_formatted_s+'&datetime_utc.lte='+Date.today.months_since(6)+'&performers.slug='+comedian.downcase.gsub(" ","-"))
+      all_comedians << HTTParty.get('http://api.seatgeek.com/2/events?postal_code='+zip+'&datetime_utc.gt='+Date.today.to_formatted_s+'&datetime_utc.lte='+Date.today.months_since(6)+'&performers.slug='+comedian.downcase.gsub(" ","-"))
 
-        all_comedians.each do |performer|
+      all_comedians.each do |performer|
 
-          performer["events"].each do |event|
+        performer["events"].each do |event|
 
-            existing_event = Event.find_or_initialize_by(id: :seatgeek_id)
-            if event.id != existing_event.seatgeek_id
-              Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"]})
-            end
+          existing_event = Event.find_or_initialize_by(id: :seatgeek_id)
+          if event.id != existing_event.seatgeek_id
+            Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"]})
           end
         end
       end
@@ -47,23 +45,24 @@ class User < ActiveRecord::Base
   end
 end
 
-  # def newEvent
 
-  #   Comedian.all.each do |comedian|
-  #     all_comedians = []
-  #     all_comedians << HTTParty.get('http://api.seatgeek.com/2/events?performers.slug='+comedian.name.downcase.gsub(" ","-"))
+# def newEvent
 
-  #     all_comedians.each do |c|
+#   Comedian.all.each do |comedian|
+#     all_comedians = []
+#     all_comedians << HTTParty.get('http://api.seatgeek.com/2/events?performers.slug='+comedian.name.downcase.gsub(" ","-"))
 
-  #       c["events"].each do |event|
+#     all_comedians.each do |c|
 
-  #         Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"], comedian_id: comedian.id})
-  #       end
-  #     end
-  #   end
-  # end
-  #   end
-  # end
+#       c["events"].each do |event|
 
-  # existing_event = Event.find_or_initialize_by(seatgeek_id: event_params[:seatgeek_id])
-  #         if event.id != existing_event.seatgeek_id
+#         Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"], comedian_id: comedian.id})
+#       end
+#     end
+#   end
+# end
+#   end
+# end
+
+# existing_event = Event.find_or_initialize_by(seatgeek_id: event_params[:seatgeek_id])
+#         if event.id != existing_event.seatgeek_id
