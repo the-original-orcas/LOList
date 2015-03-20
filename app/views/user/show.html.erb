@@ -25,6 +25,9 @@
             <% comedian.events.each do |event| %>
             <p>Where: <%= event.venue  %></p>
             <p>When: <%= event.date  %></p>
+            <p>: <%= event.address  %></p>
+            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=225x150&sensor=false&zoom=16&markers=#{event.latitude}%2C#{event.longitude}" %>
+
             <% end  %>
             <div class="videoWrapper">
                 <iframe class='col s3'width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
