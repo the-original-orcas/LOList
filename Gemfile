@@ -45,7 +45,6 @@ gem 'rails_12factor', group: :production
 # gem 'pry-rails'
 # gem 'spring'
 
-
 gem 'whenever', :require => false
 
 gem "httparty"  

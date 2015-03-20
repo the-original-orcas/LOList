@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :comedians_users
   has_many :comedians, through: :comedians_users
 
+  geocoded_by :current_sign_in_ip   # can also be an IP address
+  after_validation :geocode          # auto-fetch coordinates
+
   def followComedian(current_user)
     comedian = Comedian.find(comedian_id)
     self.comedians << comedian
