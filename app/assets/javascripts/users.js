@@ -5,6 +5,7 @@ $(document).ready(function() {
         }, function() {
             var el = $(this).children("video")[0];
             el.pause();
+            el.style.display = 'none';
             el.currentTime = 0;
         });
         $('.follow').unbind('click').bind('click', function(event) {

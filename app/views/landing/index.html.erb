@@ -35,10 +35,15 @@
         </form>
     </div>
 
-    <!-- login  -->
-    <div class='col s6'>
-        <form action="/users/sign_in" method="POST">
-            <p class="center-align">Existing user?</p><h5 class='center-align'>Login</h5>
+<!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+   <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Sign In</h4>
+      <form action="/users/sign_in" method="POST">
+            <!-- <p class="center-align">Existing user?</p><h5 class='center-align'>Login</h5> -->
             <div class="input-field col s12">
                 <input type="text" name="user[email]" placeholder="Email"></input>
             </div>
@@ -46,7 +51,14 @@
                 <input type="password" name="user[password]" placeholder="Password"></input>
             </div>
             <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
-            <button class="center-block waves-effect waves-light indigo lighten-2 btn" type="submit" name="action">Login</button>
-        </form>
+            
+        
+    
+    <div class="modal-footer">
+      <a class="modal-action modal-close center-block waves-effect waves-light indigo lighten-2 btn" type="submit" name="action">Login</a>
     </div>
-</div>
+    </form>
+  </div>
+  </div>
+    <!-- login  -->
+
