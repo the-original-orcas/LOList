@@ -10,10 +10,13 @@
 <div class='row'>
 
 <% @comedians.each do |comedian| %>
+<% vidTag = comedian.name + ".mp4"  %>
 <div class='col s12 m4'>
 	<div id='comedian-<%= comedian.id %>' class='card small z-depth-2 follow'>
-		<div class='card-image' style="background-image:  url(<%=comedian.image%>)">
-			
+		<div class='card-image thumbnail' style="background-image:  url(<%=comedian.image%>)">
+		
+		<%= video_tag(vidTag, controls: true, poster: comedian.image ) %>
+
 			<span class='card-title grey-text text-darken-4'> <%= comedian.name %> </span>
 				<% if @user.comedians.include?(comedian) %>
 					<span class='following'><i class="fav fa fa-star-o"></i></span>
