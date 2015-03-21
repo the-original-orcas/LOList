@@ -2,6 +2,7 @@ $(document).ready(function() {
     $(function() {
         $(".thumbnail").hover(function() {
             $(this).children("video")[0].play();
+            el.style.display = 'center';
         }, function() {
             var el = $(this).children("video")[0];
             el.pause();
