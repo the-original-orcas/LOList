@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
-  # after_create :send_notification
+  after_create  :addComedian
+  # :send_notification
 
   has_and_belongs_to_many :comedians, :join_table => :comedians_events
 
@@ -13,6 +14,11 @@ class Event < ActiveRecord::Base
   after_validation :reverse_geocode  # auto-fetch address
 
   private
+
+  def addComedian
+    @comedian = Comedian.find(self.comedian_id)
+    self.comedians << @comedian
+  end
 
   # def send_notification
   #   @comedian = Comedian.find(self.comedian_id)

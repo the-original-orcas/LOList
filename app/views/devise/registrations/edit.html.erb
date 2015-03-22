@@ -38,6 +38,16 @@
 <% end %>
 
 <div class="section">
+<h5>Cancel my email subscription</h5>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= f.hidden_field :subscribed, value: false  %>
+  <div class="actions">
+    <%= f.submit "Cancel my subscription" %>
+  </div>
+  <% end %>
+<p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+</div>
+
 <h5>Cancel my account</h5>
 <p>We're sad to see you go!</p>
 <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
