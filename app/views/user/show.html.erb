@@ -4,31 +4,18 @@
     </div>
 </div>
 
-<% @events.each do |e| %>
-    <%  e.comedians.each do |c| %>
-  <ul class="collapsible" data-collapsible="accordion">
-    <li>
-      <div class="collapsible-header"><%= c.name  %> @ <%= e.venue  %></div>
-      <div class="collapsible-body"><p><%= e.date %></p><p><%= e.venue %></p></div>
-    </li>    
-  </ul>
-
-<% end %>
-<% end %>
-
-
 <% @faves.each do |comedian| %>
 
 <div class='col s12'>
     <div class="card faveComs">
         <div class="card-image waves-effect waves-block waves-light">
-            <h1 class = "right-align"><%= comedian.name  %>
+            <h1 class = "center-align"><%= comedian.name  %>
             
             
             </h1>
         </div>
         <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-more-vert right"></i></span>
+            <span class="card-title activator grey-text text-darken-4">Show info<i class="mdi-navigation-more-vert right"></i></span>
             <% if @user.comedians.include?(comedian) %>
             <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
             <% else  %>
@@ -39,7 +26,7 @@
             <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
             <img class = 'insideDivImg' src='<%= comedian.image %>'>
             <p class="grey-text text-darken-4">Upcoming events:</p>
-            <a class='dropdown-button btn' href='#' data-activates='dropdown<%= comedian.id  %>'>Drop Me!</a>
+            <a class='dropdown-button btn' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
             <ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
     <% @events.each do |event| %>
     <li> When: <%= event.date  %> </li>
@@ -54,13 +41,15 @@
             
             
             
-            <div class="videoWrapper">
+            <div class="videp-container">
                 <iframe class='col s3'width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 </div>
 <% end %>
+<div class="divider"></div>
+<h5 class = 'center-align'>See who else makes you LOL...</h5>
 <div class="row">
     <% @nonfaves.each do |comedian| %>
     <div class='col s12 m4'>
