@@ -1,5 +1,5 @@
 class Notification < ApplicationMailer
-  default :from => 'any_from_address@example.com'
+  default :from => 'comedy@lolist.io'
 
   def send_event_notification(user)
     @user = user
