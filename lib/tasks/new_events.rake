@@ -23,6 +23,7 @@ namespace :get do
         end
       end
     end
+    Notification.send_all_notifications
 
   end
 
