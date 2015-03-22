@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  after_create :send_notification
+  # after_create :send_notification
   after_create :addToComs
 
   has_and_belongs_to_many :comedians, :join_table => :comedians_events
@@ -15,10 +15,10 @@ class Event < ActiveRecord::Base
 
   private
 
-  def send_notification
-    users = User.all
-    users.each do |user|
-      Notification.send_event_notification(user).deliver_now
-    end
-  end
+  # def send_notification
+  #   users = User.all
+  #   users.each do |user|
+  #     Notification.send_event_notification(user).deliver_now
+  #   end
+  # end
 end

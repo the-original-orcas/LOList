@@ -2,12 +2,13 @@ class Notification < ApplicationMailer
   default :from => 'any_from_address@example.com'
 
   def send_event_notification(user)
-    # @user = user
     @user = user
-    events = Event.near(user.postal_code, 1000)
+    @events = Event.near(user.postal_code, 3000)
 
-    events.each do |event|
-      if user.comedians.include?(event.comedians)
+    @events.each do |event|
+      if user.comedians.include?(event.comedians.first)
+        @comedian = event.comedians.first
+        @event = event
         mail( :to => user.email,
           :subject => "One of your favorite comedians booked a show in your area!" )
       end
@@ -17,7 +18,7 @@ class Notification < ApplicationMailer
   def send_all_notifications
     @users = User.all
     @users.each do |user|
-      Notification.send_event_notification(user)
+      Notification.send_event_notification(user).deliver_now
     end
   end
 
