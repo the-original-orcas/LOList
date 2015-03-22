@@ -11,6 +11,7 @@ class Notification < ApplicationMailer
         @event = event
         mail( :to => user.email,
           :subject => "One of your favorite comedians booked a show in your area!" )
+
       end
     end
   end

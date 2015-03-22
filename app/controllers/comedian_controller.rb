@@ -12,4 +12,9 @@ class ComedianController < ApplicationController
     @events = Event.all
   	@fbapi = ENV["FB_API"]
   end
+
+  def show
+    @comedian = Comedian.find_by_comedian_id
+    @events = comedian.events.near(current_user.postal_code)
+  end
 end
