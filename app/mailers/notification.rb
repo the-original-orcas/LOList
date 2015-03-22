@@ -1,17 +1,25 @@
 class Notification < ApplicationMailer
-  # default :from => 'any_from_address@example.com'
+  default :from => 'any_from_address@example.com'
 
-  def send_event_notification(event)
-    @event = event
+  def send_event_notification(user)
+    # @user = user
+    @user = user
+    events = Event.near(user.postal_code, 1000)
 
-    # if comedian.user.location is within 100 zip code places, show
-
-    @event.comedians.each do |comedian|
-      comedian.users.each do |user|
-        if @event.near(user.postal_code) == user.location && user.subscribed?
+    events.each do |event|
+      if user.comedians.include?(event.comedians)
         mail( :to => user.email,
-              :subject => "One of your favorite comedians booked a show in your area!" )
+          :subject => "One of your favorite comedians booked a show in your area!" )
+
       end
     end
   end
+
+  def send_all_notifications
+    @users = User.all
+    @users.each do |user|
+      Notification.send_event_notification(user)
+    end
+  end
+
 end
