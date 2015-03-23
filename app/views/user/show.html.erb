@@ -6,22 +6,24 @@
 
 <% @faves.each do |comedian| %>
 
-<div class='col s12'>
-    <div class="card faveComs">
-        <div class='col s3'>
-            <img src='<%= comedian.image %>' class="col s3 comedian-index">
-        </div>
+<div class='col s12 card faveComs row'>
+    <div class="faveImg card-image">
+        <img src='<%= comedian.image %>' class="col s3 responsive-image comedian-index">
+     <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star-o right"></i></span>
+    </div>
+    <div class="col s10">
         <% if @user_events.where(comedian_id: comedian.id) != nil %>
             <h4 class = "comedian-name"><%= comedian.name %> 
             <% if comedian.events.include?(@latest) %>@ <%= @latest.venue %>
-            <% end  %>
+            
+            
             </h4>
 
+            <a class = "btn right" href="<%= @latest.url %>">Buy your ticket here!</a>
+            <% end  %>
         <% else %>
             <h4 class = "comedian-name"><%= comedian.name %>
         <% end %>
-        <div class="card-image waves-effect waves-block waves-light">
-        </div>
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-4 right">Show info<i class="mdi-navigation-more-vert right"></i></span>
             
@@ -31,25 +33,36 @@
             <img class = 'insideDivImg' src='<%= comedian.image %>'>
             <br>
             
-            <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars right"></i></span>
-            <!-- Modal Trigger -->
             
-            <a class='dropdown-button btn-flat' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
-            <ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
+            
+            <% if @user_events.where(comedian_id: comedian.id).length >= 2 %>
+            
 
+            <a class='dropdown-button btn-flat left' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
+
+                <ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
                 <% @user_events.each do  |event| %>
                 <% if event.comedian_id == comedian.id  %>
-                        <li class="grey-text text-darken-4"> When: <%= event.datetime_local.to_time.strftime('%B %e at %l:%M %p')  %> </li>
-                        <li class="grey-text text-darken-4">Where: <%= event.venue  %>: <p class="grey-text text-darken-4"><%= event.address  %> </p>
-                <li class="divider"></li>
-                    <% end  %>
-                <% end  %>
-            </ul>
-            <i class="fa fa-youtube-play large fa-2x grey-text text-darken-3 right modal-trigger" href="#modal<%=comedian.id %>"></i>
+                <!-- Modal Trigger -->
+                
             
+                        <li class="grey-text text-darken-4"> <%= event.datetime_local.to_time.strftime('%B %e at %l:%M %p')  %> </li>
+                        <li class="grey-text text-darken-4"><%= event.venue  %></li>
+                        <li class="grey-text text-darken-4"><%= event.address  %> </li>
+                        <li class="divider"></li>
+                        
+                        <% end  %>
+                    <% end  %>
+            </ul>
+            <% end  %>
+
+            <div class="col s2">
+            <i class="fa fa-youtube-play large fa-2x grey-text text-darken-3 modal-trigger" href="#modal<%=comedian.id %>"></i>
+            </div>
         </div>
     </div>
 </div>
+
 <!-- Modal Structure -->
   <div id="modal<%= comedian.id %>" class="modal">
     <div class="modal-content">
@@ -68,7 +81,7 @@
         <div class='card small z-depth-2'>
             <div class='card-image'>
                 <img src=<%= comedian.image %>>
-                <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i>
+
                 <% if @user.comedians.include?(comedian) %>
                 <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star-o right"></i></span>
                 <% else  %>
