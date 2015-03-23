@@ -2,10 +2,8 @@ source 'https://rubygems.org'
 ruby '2.1.4'
 
 gem 'rails', '4.2.0'
-
 # Postgres database
 gem 'pg'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 #font awesome icons
