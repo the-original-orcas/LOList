@@ -54,7 +54,7 @@ Comedian.create({
 	youtube_url: 'https://www.youtube.com/embed/kdcmSdwO2CE'
 	})
 
-Comedian.create({
+c5 = Comedian.create({
 	name: 'Jim Gaffigan',
 	image: 'http://i.imgur.com/MznojsG.jpg',
 	youtube_url: 'https://www.youtube.com/embed/W2zTQwWaPps'
@@ -219,12 +219,12 @@ u2 = User.create({
 	})
 
 u3 = User.create({
-	email: 'davidedaniel@gmail.com',
+	email: 'register1020@gmail.com',
 	password: '123123',
 	postal_code: '97217'
 	})
 
-u3.comedians = [c1,c2,c3]
+u3.comedians = [c1,c2,c3,c5]
 u2.comedians = [c3,c4]
 u1.comedians = [c1,c2,c3,c4]
 u2.save

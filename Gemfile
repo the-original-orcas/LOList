@@ -46,8 +46,9 @@ gem 'rails_12factor', group: :production
 # gem 'spring'
 
 gem 'whenever', :require => false
+gem "httparty"  
 
-# gem "httparty"  
+#  Deployment - DO
 # gem "unicorn"
 
 group :development, :test do

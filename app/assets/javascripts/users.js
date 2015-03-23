@@ -19,7 +19,7 @@ $('.dropdown-button').dropdown({
       hover: false, // Activate on click
       alignment: 'left', // Aligns dropdown to left or right edge (works with constrain_width)
       gutter: 0, // Spacing from edge
-      belowOrigin: false // Displays dropdown below the button
+      belowOrigin: true // Displays dropdown below the button
     }
   );
         $('.follow').unbind('click').bind('click', function(event) {

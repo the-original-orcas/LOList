@@ -1,111 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>LOList</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<nav>
-    <div class="nav-wrapper teal lighten-2 fixed z-depth-2">
+  <head>
+    <title>LOList</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+    <body>
+      <div class="navbar-fixed">
+        <nav>
+          <div class="nav-wrapper teal lighten-2 fixed z-depth-2">
+            <a href="#!" class="brand-logo center">LOList</a>
+              <ul class="right">
+                <li>
+                <!-- Modal Trigger -->
+                <% if !current_user %>
+                <div class="valign-wrapper">
+                  <a id="login-button" class="modal-trigger valign" href="#modal1" style="margin-top: 2px;">Login</a>
+                </div>
+                <% end %>
+                <% if user_signed_in? %>
+                <!-- Edit Cog Button -->
+                <li>
+                <%= link_to(
+                    content_tag(
+                      :i,
+                      nil, 
+                      class: 'mdi-action-settings small'
+                    ), 
+                    edit_user_registration_path,
+                    style:
+                      "color:#fff" 
+                  ) 
+                %>
+                </li>
+               <!-- Sign out -->
 
-      <a href="#!" class="brand-logo center">LOList</a>
-      <ul class="right">
-  <li>
+                <%= link_to(
+                    content_tag(
+                      :p,
+                      nil, 
+                      class: 'fa fa-sign-out'
+                    ), 
+                    destroy_user_session_path,
+                    method: :delete,
+                    style:
+                      "color:#fff" 
+                  ) 
+                %>
+                </li>	
+                <% else %>
+                <!-- Sign up if not logged in button -->
+                <li>
+                <%= link_to(
+                  content_tag(
+                    :i,
+                    nil, 
+                    class: 'mdi-action-settings small'
+                  ), 
+                  new_user_registration_path,
+                  style:
+                    "color:#fff" 
+                  ) 
+                %>
+                </li>
+                <% end %>
+            </ul>
+          </div>
+        </nav>
+      </div>
 
-    <!-- Modal Trigger -->
-  <% if !current_user %>
-  <div class="valign-wrapper">
-  <a id="login-button" class="modal-trigger valign" href="#modal1" style="
-    margin-top: 2px;">Login</a>
-</div>
-  <!-- Modal Structure -->
-   <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4 class="grey-text text-darken-4">Sign In</h4>
-      <form action="/users/sign_in" method="POST">
-            <!-- <p class="center-align">Existing user?</p><h5 class='center-align'>Login</h5> -->
-            <div class="input-field col s12 grey-text text-darken-4">
-                <input type="text" name="user[email]" placeholder="Email"></input>
-            </div>
-            <div class="input-field col s12 grey-text text-darken-4">
-                <input type="password" name="user[password]" placeholder="Password"></input>
-            </div>
-            <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
-            
-        
-    
-    <div class="modal-footer">
-      <button class="center-block waves-effect waves-light indigo lighten-2 btn" type="submit" name="action">Login</button>
-    </div>
-    </form>
-  </div>
-  </div>
-  <% end %>
-        <% if user_signed_in? %>
-  <!-- Search -->
-  
+      <div class="container">
 
-  <!-- Edit Cog Button -->
-  <li>
-  <%= link_to(
-      content_tag(
-        :i,
-        nil, 
-        class: 'mdi-action-settings small'
-      ), 
-      edit_user_registration_path,
-      style:
-        "color:#fff" 
-    ) 
-%>
-  </li>
-<!-- Sign out -->
+      <%= yield %>
 
-<%= link_to(
-      content_tag(
-        :p,
-        nil, 
-        class: 'fa fa-sign-out'
-      ), 
-      destroy_user_session_path,
-      method: :delete,
-      style:
-        "color:#fff" 
-    ) 
-%>
-  </li>	
-<% else %>
-<!-- Sign up if not logged in button -->
-  <li>
-  <%= link_to(
-      content_tag(
-        :i,
-        nil, 
-        class: 'mdi-action-settings small'
-      ), 
-      new_user_registration_path,
-      style:
-        "color:#fff" 
-    ) 
-%>
-  </li>
-<% end %>
-</ul>
-      </ul>
-    </div>
-  </nav>
+      </div>
 
-<div class="container">
+    </body>
 
-
-<ul class="hmenu">
-
-
-
-<%= yield %>
-</div>
-
-</body>
 </html>

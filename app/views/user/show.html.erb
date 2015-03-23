@@ -21,26 +21,26 @@
         </div>
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-4 right">Show info<i class="mdi-navigation-more-vert right"></i></span>
-            <% if @user.comedians.include?(comedian) %>
-            <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
-            <% else  %>
-            <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="mdi-action-stars"></i></span>
-            <% end  %>
+            
         </div>
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
             <img class = 'insideDivImg' src='<%= comedian.image %>'>
-            
+            <% if @user.comedians.include?(comedian) %>
+            <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars right"></i></span>
+            <% else  %>
+            <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="mdi-action-stars right"></i></span>
+            <% end  %>
             <p class="grey-text text-darken-4">Upcoming events:</p>
             <% @user_events.where(comedian_id: comedian.id).each do |event| %>
             <p><%= event.venue %> - <%= event.date %>. <%= event.city %>, <%= event.state_code %></p>
             <% end %>
             <a class='dropdown-button btn' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
             <ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
-    <% @events.each do |event| %>
-    <li> When: <%= event.date  %> </li>
-    <li>Where: <%= event.venue  %> : <%= event.address  %>    
-    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=225x150&sensor=false&zoom=16&markers=#{event.latitude}%2C#{event.longitude}" %> </li>
+                <% @events.each do |event| %>
+                <li> When: <%= event.date  %> </li>
+                <li>Where: <%= event.venue  %> : <%= event.address  %>    
+                <%= image_tag "http://maps.google.com/maps/api/staticmap?size=225x150&sensor=false&zoom=16&markers=#{event.latitude}%2C#{event.longitude}" %> </li>
     <li class="divider"></li>
     <% end  %>
     </ul>
@@ -50,7 +50,7 @@
             
             
             
-            <div class="videp-container">
+            <div class="video-container">
                 <iframe class='col s3'width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
@@ -69,20 +69,31 @@
                 <% if @user.comedians.include?(comedian) %>
                 <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star-o right"></i></span>
                 <% else  %>
-                <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="fav fa fa-star-o right"></i></i></span>
+                <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="fav fa fa-star-o right"></i></span>
                 <% end  %>
                 <span class='card-title grey-text text-darken-3 bold'> <%= comedian.name %> </span>
             </div>
-            
-                <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i>
+            <!-- Modal Trigger -->
+            <a class="fa fa-youtube-play fa-2x grey-text text-darken-3 right modal-trigger" href="#modal<%=comedian.id %>"></a>
+
+            <!-- <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i> -->
+            <i class=""></i>
             
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-3"><%=comedian.name%> <i class="mdi-navigation-close right"></i></span>
-                <div class="video-container">
-                    <iframe width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
-                </div>
+                
             </div>
         </div>
     </div>
+
+
+  <!-- Modal Structure -->
+  <div id="modal<%= comedian.id %>" class="modal">
+    <div class="modal-content">
+        <div class="video-container">
+            <iframe width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+  </div>
     <% end %>
 </div>
