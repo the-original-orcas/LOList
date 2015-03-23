@@ -8,14 +8,15 @@
 
 <div class='col s12'>
     <div class="card faveComs">
+        <div class='col s3'>
+            <img src='<%= comedian.image %>' class="col s3 comedian-index">
+        </div>
+        <h4 class = "comedian-name"><%= comedian.name  %>
+        </h4>
         <div class="card-image waves-effect waves-block waves-light">
-            <h1 class = "center-align"><%= comedian.name  %>
-            
-            
-            </h1>
         </div>
         <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">Show info<i class="mdi-navigation-more-vert right"></i></span>
+            <span class="card-title activator grey-text text-darken-4 right">Show info<i class="mdi-navigation-more-vert right"></i></span>
             <% if @user.comedians.include?(comedian) %>
             <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
             <% else  %>
