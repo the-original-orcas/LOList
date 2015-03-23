@@ -1,9 +1,10 @@
-class Welcome < ApplicationMailer::Base
+class Welcome < ApplicationMailer
 default from: "comedy@lolist.io"
 
-def send_welcome(current_user)
-    @user = current_user
-    mail(:to => current_user.email, :subject => "Welcome to LOList!!!")
+def send_welcome(user)
+    @user = user
+    mail(:to => user.email, :subject => "Welcome to LOList!!!")
   end
+
 
 end
