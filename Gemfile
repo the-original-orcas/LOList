@@ -30,14 +30,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'geocoder'
 # gem 'zip-codes'
 
-# LOGINS & SECURE PW
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
-
 # Authentication related gems
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'rails_12factor', group: :production
 
