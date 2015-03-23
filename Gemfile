@@ -9,7 +9,7 @@ gem 'sass-rails', '~> 5.0'
 #font awesome icons
 gem 'font-awesome-sass'
 # materialize sass
-gem 'materialize-sass'
+# gem 'materialize-sass'  # trying CDN for speed
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
