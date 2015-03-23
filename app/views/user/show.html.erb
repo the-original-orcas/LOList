@@ -6,19 +6,19 @@
 
 <% @faves.each do |comedian| %>
 
-<div class='col s12 card faveComs row'>
-    <div class="faveImg card-image">
-        <img src='<%= comedian.image %>' class="col s3 responsive-image comedian-index">
-     <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star-o right"></i></span>
-    </div>
-    <div class="col s10">
+<div class='col s12'>
+    <div class="card faveComs">
+        <div class="row">
+            <div class="card-image">
+            <img src='<%= comedian.image %>' class="col s3 responsive-image comedian-index">
+            </div>
+        <div class="col s10">
+        <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars right"></i></span>
         <% if @user_events.where(comedian_id: comedian.id) != nil %>
             <h4 class = "comedian-name"><%= comedian.name %> 
             <% if comedian.events.include?(@latest) %>@ <%= @latest.venue %>
-            
-            
+                
             </h4>
-
             <a class = "btn right" href="<%= @latest.url %>">Buy your ticket here!</a>
             <% end  %>
         <% else %>
@@ -40,7 +40,7 @@
 
             <a class='dropdown-button btn-flat left' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
 
-                <ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
+<ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
                 <% @user_events.each do  |event| %>
                 <% if event.comedian_id == comedian.id  %>
                 <!-- Modal Trigger -->
@@ -56,13 +56,14 @@
             </ul>
             <% end  %>
 
-            <div class="col s2">
-            <i class="fa fa-youtube-play large fa-2x grey-text text-darken-3 modal-trigger" href="#modal<%=comedian.id %>"></i>
-            </div>
+
+            <i class="fa fa-youtube-play large fa-2x grey-text text-darken-3 left modal-trigger" href="#modal<%=comedian.id %>"></i>
+            
+        </div>
+        </div>
         </div>
     </div>
 </div>
-
 <!-- Modal Structure -->
   <div id="modal<%= comedian.id %>" class="modal">
     <div class="modal-content">

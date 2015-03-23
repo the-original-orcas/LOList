@@ -203,7 +203,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   devise
-  font-awesome-sass
+  font-awesome-sass (~> 4.3.0)
   geocoder
   httparty
   jbuilder (~> 2.0)

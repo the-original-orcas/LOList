@@ -7,7 +7,7 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 #font awesome icons
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 4.3.0'
 # materialize sass
 gem 'materialize-sass'  # trying CDN for speed
 # Use Uglifier as compressor for JavaScript assets

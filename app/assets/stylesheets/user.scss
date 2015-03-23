@@ -2,7 +2,6 @@
 	margin: -33px 8px 0 0;
 }
 
-
 .index-follow {
 	margin: -277px 1px 0 0;
 }
@@ -16,13 +15,16 @@
 i.fav {
 	border-radius:100%;
 	margin: 15px 6px 0 0;
+	z-index: 100;
+}
 
+i.right {
+  float: right;
+  margin-left: 15px;
 }
 
 i.follow {
 	color: black;
-	flex: 50%;
-    text-align: right;
 }
 
 
@@ -90,7 +92,6 @@ div.card-action {
 
 .comedian-index {
 	width: 240px;
-	margin: auto;
 }
 
 .comedian-name {

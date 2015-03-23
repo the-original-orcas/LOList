@@ -5,13 +5,17 @@
 
 */
 
+@import"materialize";
+@import"font-awesome-sprockets";
+@import"font-awesome";
+
 nav.nav-wrapper {
-    background-color: #FDC000 !important;
+    background-color: #34D7E2;
 }
 
 body {
 	color: #232838;
-	background-color: #F4F7F5 !important;
+	background-color: #F9FCFC;
 }
 .brand-logo {
 	font-weight: 600;
@@ -115,7 +119,6 @@ iframe {
     margin-top: -8px;
     cursor: pointer;
     font-size: 32px;
-
 }
 .follow:active {
     margin-bottom: -2px;
@@ -128,8 +131,6 @@ iframe {
     margin-top: -8px;
     cursor: pointer;
     font-size: 32px;
-    margin: -277px 1px 0 0;
-  
 }
 .index-follow:active {
     margin-bottom: -2px;
