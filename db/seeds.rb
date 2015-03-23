@@ -219,7 +219,7 @@ u2 = User.create({
 	})
 
 u3 = User.create({
-	email: 'davidedaniel@gmail.com',
+	email: 'register1020@gmail.com',
 	password: '123123',
 	postal_code: '97217'
 	})
