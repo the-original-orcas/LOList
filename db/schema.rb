@@ -38,12 +38,11 @@ ActiveRecord::Schema.define(version: 20150323080552) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.date     "date"
-    t.time     "time"
+    t.datetime "datetime_local"
     t.text     "venue"
     t.decimal  "price"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "comedian_id"
     t.string   "city"
     t.string   "state_code"

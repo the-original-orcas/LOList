@@ -12,8 +12,11 @@
             <img src='<%= comedian.image %>' class="col s3 comedian-index">
         </div>
         <% if @user_events.where(comedian_id: comedian.id) != nil %>
-            <h4 class = "comedian-name"><%= comedian.name %> @ <%= @user_events.where(comedian_id: comedian.id).first %>
+            <h4 class = "comedian-name"><%= comedian.name %> 
+            <% if comedian.events.include?(@latest) %>@ <%= @latest.venue %>
+            <% end  %>
             </h4>
+
         <% else %>
             <h4 class = "comedian-name"><%= comedian.name %>
         <% end %>
@@ -26,39 +29,39 @@
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
             <img class = 'insideDivImg' src='<%= comedian.image %>'>
-            <% if @user.comedians.include?(comedian) %>
+            <br>
+            
             <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars right"></i></span>
-            <% else  %>
-            <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="mdi-action-stars right"></i></span>
-            <% end  %>
-            <p class="grey-text text-darken-4">Upcoming events:</p>
-            <% @user_events.where(comedian_id: comedian.id).each do |event| %>
-            <p><%= event.venue %> - <%= event.date %>. <%= event.city %>, <%= event.state_code %></p>
-            <% end %>
-            <a class='dropdown-button btn' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
+            <!-- Modal Trigger -->
+            
+            <a class='dropdown-button btn-flat' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
             <ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
-                <% @events.each do |event| %>
-                <li> When: <%= event.date  %> </li>
-                <li>Where: <%= event.venue  %> : <%= event.address  %>    
-                <%= image_tag "http://maps.google.com/maps/api/staticmap?size=225x150&sensor=false&zoom=16&markers=#{event.latitude}%2C#{event.longitude}" %> </li>
-    <li class="divider"></li>
-    <% end  %>
-    </ul>
-  
 
-
+                <% @user_events.each do  |event| %>
+                <% if event.comedian_id == comedian.id  %>
+                        <li class="grey-text text-darken-4"> When: <%= event.datetime_local.to_time.strftime('%B %e at %l:%M %p')  %> </li>
+                        <li class="grey-text text-darken-4">Where: <%= event.venue  %>: <p class="grey-text text-darken-4"><%= event.address  %> </p>
+                <li class="divider"></li>
+                    <% end  %>
+                <% end  %>
+            </ul>
+            <i class="fa fa-youtube-play large fa-2x grey-text text-darken-3 right modal-trigger" href="#modal<%=comedian.id %>"></i>
             
-            
-            
-            <div class="video-container">
-                <iframe class='col s3'width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
-            </div>
         </div>
     </div>
 </div>
+<!-- Modal Structure -->
+  <div id="modal<%= comedian.id %>" class="modal">
+    <div class="modal-content">
+        <div class="video-container">
+            <iframe width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+  </div>
 <% end %>
 <div class="divider"></div>
 <h5 class = 'center-align'>See who else makes you LOL...</h5>
+<div class="divider"></div>
 <div class="row">
     <% @nonfaves.each do |comedian| %>
     <div class='col s12 m4'>
