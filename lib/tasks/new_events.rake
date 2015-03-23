@@ -13,6 +13,9 @@ namespace :get do
         for event in performer["events"]
           sleep 0.5 
           new_event = Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"], comedian_id: comedian.id, longitude: event["venue"]["location"]["lon"], latitude: event["venue"]["location"]["lat"]})
+          
+          new_event.comedians << comedian
+          
         end
       end
     end
