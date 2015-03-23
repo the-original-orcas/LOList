@@ -56,19 +56,17 @@
         <div class='card small z-depth-2'>
             <div class='card-image'>
                 <img src=<%= comedian.image %>>
+                <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i>
+                <% if @user.comedians.include?(comedian) %>
+                <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star-o right"></i></span>
+                <% else  %>
+                <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="fav fa fa-star-o right"></i></i></span>
+                <% end  %>
                 <span class='card-title grey-text text-darken-3 bold'> <%= comedian.name %> </span>
             </div>
-            <div class="card-action">
-                <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3"></i>
-                <% if @user.comedians.include?(comedian) %>
-                <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars grey-text text-darken-3"></i></span>
-                <% else  %>
-                <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="mdi-action-stars grey-text text-darken-3"></i></span>
-                <% end  %>
-                <div class="center-align up-arrow">
-                    <img id="chevron-up" src="http://cdn1.freepik.com/image/th/408-63950.png"></img>
-                </div>
-            </div>
+            
+                <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i>
+            
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-3"><%=comedian.name%> <i class="mdi-navigation-close right"></i></span>
                 <div class="video-container">
