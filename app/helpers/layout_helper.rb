@@ -8,5 +8,9 @@ module LayoutHelper
   def materialize_version
     "0.95.3"
   end
+  
+  def fa_version
+  "4.3.0"
+  end
 
 end

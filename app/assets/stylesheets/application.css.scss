@@ -5,10 +5,6 @@
 
 */
 
-@import"materialize";
-@import"font-awesome-sprockets";
-@import"font-awesome";
-
 nav.nav-wrapper {
     background-color: #FDC000 !important;
 }
@@ -119,6 +115,7 @@ iframe {
     margin-top: -8px;
     cursor: pointer;
     font-size: 32px;
+
 }
 .follow:active {
     margin-bottom: -2px;
@@ -131,10 +128,8 @@ iframe {
     margin-top: -8px;
     cursor: pointer;
     font-size: 32px;
-        margin: -277px 1px 0 0;
-    -webkit-box-shadow: 0 8px 17px 0 rgba(255, 255, 255, .7), 0 6px 20px 0 rgba(255, 255, 255, .6);
-  -moz-box-shadow: 0 8px 17px 0 rgba(255, 255, 255, .7), 0 6px 20px 0 rgba(255, 255, 255, .6);
-  box-shadow: 0 8px 17px 0 rgba(255, 255, 255, .7), 0 6px 20px 0 rgba(255, 255, 255, .6); 
+    margin: -277px 1px 0 0;
+  
 }
 .index-follow:active {
     margin-bottom: -2px;
