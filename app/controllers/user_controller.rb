@@ -23,7 +23,9 @@ class UserController < ApplicationController
     @faves = @user.comedians
     @comedians = Comedian.all
     @nonfaves = @comedians - @faves
-    @events = Event.joins(:comedians).near(zip)
+    @events = Event.joins(:comedians)
+    @user_events = @events.near(zip, 2000)
+    @user_events.order('date')
     @faveEvents = []
     @faves.each do |f|
       f.events.near(zip) do |e|
