@@ -9,6 +9,9 @@
 @import"font-awesome-sprockets";
 @import"font-awesome";
 
+nav.nav-wrapper {
+    background-color: #34D7E2;
+}
 
 body {
 	color: #232838;
@@ -75,6 +78,10 @@ body {
     height: 20%;
 }
 
+.imgIcon {
+    height: 20%;
+}
+
 ul.hmenu {
     list-style: none;
     margin: 0 0 2em;
@@ -116,6 +123,7 @@ iframe {
 .follow:active {
     margin-bottom: -2px;
 }
+
 
 .index-follow {
     transition: color 0.5s ease;

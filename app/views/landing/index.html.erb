@@ -28,25 +28,11 @@
                 <input type="password" class = "validate" name="user[password_confirmation]" placeholder="Confirm Password"></input>
             </div>
             <div class="input-field col s12">
-                <input class = "validate" type="text" name="user[postal_code]" placeholder="Zipcode to filter results!"></input>
+                <input type="text" name="user[postal_code]" placeholder="Zipcode to filter results!"></input>
             </div>
             <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
             <button class="center-block waves-effect waves-light indigo lighten-2 btn" type="submit" name="action">Sign Up</button>
         </form>
     </div>
 
-    <!-- login  -->
-    <div class='col s6'>
-        <form action="/users/sign_in" method="POST">
-            <p class="center-align">Existing user?</p><h5 class='center-align'>Login</h5>
-            <div class="input-field col s12">
-                <input type="text" name="user[email]" placeholder="Email"></input>
-            </div>
-            <div class="input-field col s12">
-                <input type="password" name="user[password]" placeholder="Password"></input>
-            </div>
-            <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
-            <button class="center-block waves-effect waves-light indigo lighten-2 btn" type="submit" name="action">Login</button>
-        </form>
-    </div>
-</div>
+

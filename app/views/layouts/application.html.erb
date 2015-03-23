@@ -8,17 +8,41 @@
 </head>
 <body>
 <nav>
-    <div class="nav-wrapper fixed indigo lighten-2 z-depth-2">
+    <div class="nav-wrapper teal lighten-2 fixed z-depth-2">
 
       <a href="#!" class="brand-logo center">LOList</a>
-      <ul class="right hide-on-med-and-down">
-  <li><form>
-        <div class="input-field">
-          <input id="search" type="text" required>
-          <label for="search"><i class="mdi-action-search"></i></label>
-        </div>
-      </form></li>
+      <ul class="right">
   <li>
+
+    <!-- Modal Trigger -->
+  <% if !current_user %>
+  <div class="valign-wrapper">
+  <a id="login-button" class="modal-trigger valign" href="#modal1" style="
+    margin-top: 2px;">Login</a>
+</div>
+  <!-- Modal Structure -->
+   <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4 class="grey-text text-darken-4">Sign In</h4>
+      <form action="/users/sign_in" method="POST">
+            <!-- <p class="center-align">Existing user?</p><h5 class='center-align'>Login</h5> -->
+            <div class="input-field col s12 grey-text text-darken-4">
+                <input type="text" name="user[email]" placeholder="Email"></input>
+            </div>
+            <div class="input-field col s12 grey-text text-darken-4">
+                <input type="password" name="user[password]" placeholder="Password"></input>
+            </div>
+            <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
+            
+        
+    
+    <div class="modal-footer">
+      <button class="center-block waves-effect waves-light indigo lighten-2 btn" type="submit" name="action">Login</button>
+    </div>
+    </form>
+  </div>
+  </div>
+  <% end %>
         <% if user_signed_in? %>
   <!-- Search -->
   
@@ -41,7 +65,7 @@
 
 <%= link_to(
       content_tag(
-        :i,
+        :p,
         nil, 
         class: 'fa fa-sign-out'
       ), 

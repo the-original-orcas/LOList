@@ -23,11 +23,22 @@ class UserController < ApplicationController
     @faves = @user.comedians
     @comedians = Comedian.all
     @nonfaves = @comedians - @faves
-    @events = Event.joins(:@faves)
+    @events = Event.joins(:comedians)
+    @user_events = @events.near(zip, 2000)
+    @user_events.order('date')
+    @faveEvents = []
+    @faves.each do |f|
+      f.events.near(zip) do |e|
+        @faveEvents << e
+        
+      end
+    end
 
+    # upcomingEvents = @faves.
     if @user.comedians.count < 1 # NEED TO FIX THIS LOGIC - TRIED after_sign_up TRIED sign_in_count == 1
       redirect_to '/user/'+current_user.id.to_s+'/edit'
     end
+
   end
 
   def update
@@ -63,16 +74,9 @@ class UserController < ApplicationController
       %w{Origin Accept Content-Type X-Requested-With X-CSRF-Token}.join(",")
 
     headers['Access-Control-Request-Method'] = '*'
-    
 
     head(:ok) if request.request_method == "OPTIONS"
-    # or, render text: ''
-    # if that's more your style
-  end
 
-  private
-  def current_user_params
-    params.require(:current_user).permit(:email, :password, :comedian_id => [])
   end
 
 end

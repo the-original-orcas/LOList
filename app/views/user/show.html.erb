@@ -5,13 +5,22 @@
 </div>
 
 <% @faves.each do |comedian| %>
+
 <div class='col s12'>
     <div class="card faveComs">
+        <div class='col s3'>
+            <img src='<%= comedian.image %>' class="col s3 comedian-index">
+        </div>
+        <% if @user_events.where(comedian_id: comedian.id) != nil %>
+            <h4 class = "comedian-name"><%= comedian.name %> @ <%= @user_events.where(comedian_id: comedian.id).first %>
+            </h4>
+        <% else %>
+            <h4 class = "comedian-name"><%= comedian.name %>
+        <% end %>
         <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src=<%= comedian.image %>>
         </div>
         <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-more-vert right"></i></span>
+            <span class="card-title activator grey-text text-darken-4 right">Show info<i class="mdi-navigation-more-vert right"></i></span>
             <% if @user.comedians.include?(comedian) %>
             <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars"></i></span>
             <% else  %>
@@ -21,40 +30,52 @@
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
             <img class = 'insideDivImg' src='<%= comedian.image %>'>
+            
             <p class="grey-text text-darken-4">Upcoming events:</p>
-            <% comedian.events.each do |event| %>
-            <p>Where: <%= event.venue  %></p>
-            <p>When: <%= event.date  %></p>
-            <p>: <%= event.address  %></p>
-            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=225x150&sensor=false&zoom=16&markers=#{event.latitude}%2C#{event.longitude}" %>
+            <% @user_events.where(comedian_id: comedian.id).each do |event| %>
+            <p><%= event.venue %> - <%= event.date %>. <%= event.city %>, <%= event.state_code %></p>
+            <% end %>
+            <a class='dropdown-button btn' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
+            <ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
+    <% @events.each do |event| %>
+    <li> When: <%= event.date  %> </li>
+    <li>Where: <%= event.venue  %> : <%= event.address  %>    
+    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=225x150&sensor=false&zoom=16&markers=#{event.latitude}%2C#{event.longitude}" %> </li>
+    <li class="divider"></li>
+    <% end  %>
+    </ul>
+  
 
-            <% end  %>
-            <div class="videoWrapper">
+
+            
+            
+            
+            <div class="videp-container">
                 <iframe class='col s3'width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
 </div>
 <% end %>
+<div class="divider"></div>
+<h5 class = 'center-align'>See who else makes you LOL...</h5>
 <div class="row">
     <% @nonfaves.each do |comedian| %>
     <div class='col s12 m4'>
         <div class='card small z-depth-2'>
             <div class='card-image'>
                 <img src=<%= comedian.image %>>
+                <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i>
+                <% if @user.comedians.include?(comedian) %>
+                <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star-o right"></i></span>
+                <% else  %>
+                <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="fav fa fa-star-o right"></i></i></span>
+                <% end  %>
                 <span class='card-title grey-text text-darken-3 bold'> <%= comedian.name %> </span>
             </div>
-            <div class="card-action">
-                <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3"></i>
-                <% if @user.comedians.include?(comedian) %>
-                <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars grey-text text-darken-3"></i></span>
-                <% else  %>
-                <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="mdi-action-stars grey-text text-darken-3"></i></span>
-                <% end  %>
-                <div class="center-align up-arrow">
-                    <img id="chevron-up" src="http://cdn1.freepik.com/image/th/408-63950.png"></img>
-                </div>
-            </div>
+            
+                <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i>
+            
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-3"><%=comedian.name%> <i class="mdi-navigation-close right"></i></span>
                 <div class="video-container">

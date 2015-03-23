@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-// $(".button-collapse").sideNav();
+// $(".button-collapse").sideNav();    
+
 
        
