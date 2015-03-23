@@ -42,19 +42,19 @@ gem 'omniauth-facebook'
 
 gem 'rails_12factor', group: :production
 
-# gem 'pry-rails'
-# gem 'spring'
+gem 'pry-rails'
+gem 'spring'
 
 gem 'whenever', :require => false
 gem "httparty"  
 
 #  Deployment - DO
-# gem "unicorn"
+gem "unicorn"
 
-group :development, :test do
-  gem 'pry-rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'spring'
-end
+# group :development, :test do
+#   gem 'pry-rails'
+#   gem 'better_errors'
+#   gem 'binding_of_caller'
+#   gem 'spring'
+# end
 
