@@ -23,16 +23,15 @@ class UserController < ApplicationController
     @faves = @user.comedians
     @comedians = Comedian.all
     @nonfaves = @comedians - @faves
-    @events = Event.joins(:comedians).near(zip)
-    @faveEvents = []
-    @faves.each do |f|
-      f.events.near(zip) do |e|
-        @faveEvents << e
-        
-      end
+    events = Event.joins(:comedians)
+    
+    @user_events = events.near(zip, 100)
+    
+    if @user_events.length >= 1
+    @user_events.order('datetime_local')
+    @latest = @user_events.order('datetime_local').first # what I meant about assigning variable for single event then sending to view
     end
 
-    # upcomingEvents = @faves.
     if @user.comedians.count < 1 # NEED TO FIX THIS LOGIC - TRIED after_sign_up TRIED sign_in_count == 1
       redirect_to '/user/'+current_user.id.to_s+'/edit'
     end

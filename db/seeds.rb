@@ -1,17 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
-# Comedian.destroy_all
-# Event.destroy_all
-# User.destroy_all
-
-# comedians = ["Kevin Hart", "Louis C.K.", "Aziz Ansari", "Jim Gaffigan", "Sarah Silverman", "Chelsea Peretti", "Nick Kroll", "Daniel Tosh", "John Oliver", "Hannibal Burress", "Dave Chappelle", "Amy Schumer"] 
-
 Comedian.create({
 	name: 'Kevin Hart',
 	image: 'http://i.imgur.com/xqIX6J0.jpg',
@@ -54,11 +40,132 @@ Comedian.create({
 	youtube_url: 'https://www.youtube.com/embed/kdcmSdwO2CE'
 	})
 
-Comedian.create({
+c5 = Comedian.create({
 	name: 'Jim Gaffigan',
 	image: 'http://i.imgur.com/MznojsG.jpg',
 	youtube_url: 'https://www.youtube.com/embed/W2zTQwWaPps'
 	})
+
+c4 = Comedian.create({
+	name: 'John Oliver',
+	image: 'http://i.imgur.com/jarObAa.jpg',
+	youtube_url: 'https://www.youtube.com/embed/DeQqe0oj5Ls'
+	})
+
+c2 = Comedian.create({
+	name: 'Hannibal Burress',
+	image: 'http://i.imgur.com/l4s9Or7.jpg',
+	youtube_url: 'https://www.youtube.com/embed/BklmMSEYRgk'
+	})
+
+c3 = Comedian.create({
+	name: 'Dave Chappelle',
+	image: 'http://i.imgur.com/w2hyfFe.jpg',
+	youtube_url: 'https://www.youtube.com/embed/LLWlBgj0uOc'
+	})
+
+c1 = Comedian.create({
+	name: 'Amy Schumer',
+	image: 'http://i.imgur.com/VoBG977.jpg',
+	youtube_url: 'https://www.youtube.com/embed/YEXmu89_E8o'
+	})
+
+u1 = User.create({
+	email: 'daniel.snider87@gmail.com',
+	password: '12312313',
+	postal_code: '10001'
+	})
+
+u2 = User.create({
+	email: 'sol@gmail.com',
+	password: '123123123',
+	postal_code: '10001'
+	})
+
+u3 = User.create({
+	email: 'user@email.com',
+	password: '123123',
+	postal_code: '97217'
+	})
+
+u3.comedians = [c1,c2,c3,c5]
+u2.comedians = [c3,c4]
+u1.comedians = [c1,c2,c3,c4]
+u2.save
+u1.save
+
+# e1 = Event.create({
+# 	date: "2015-21-03",
+# 	time: "12:00",
+# 	venue: "MSG",
+# 	price: 45.00,
+# 	postal_code: '10001',
+# 	comedian_id: c3.id
+# 	})
+
+
+# e2 = Event.create({
+# 	date: "2015-22-03",
+# 	time: "18:00",
+# 	venue: "Best Buy Theater",
+# 	price: 60.00,
+# 	postal_code: '10001',
+# 	comedian_id: c3.id
+# 	})
+
+# Event.create({
+# 	date: "2015-22-07",
+# 	time: "7:00",
+# 	venue: "Wells Fargo Center for the Art",
+# 	price: 119.00,
+# 	postal_code: '10001',
+# 	comedian_id: c1.id
+# 	})
+
+# Event.create({
+# 	date: "2015-23-07",
+# 	time: "7:00",
+# 	venue: "Mountain Winery",
+# 	price: 111.00,
+# 	postal_code: '10001',
+# 	comedian_id: c1.id
+# 	})
+
+# Event.create({
+# 	date: "2015-18-04",
+# 	time: "8:00",
+# 	venue: "Ryman Auditorium",
+# 	price: 52.00,
+# 	postal_code: '10001',
+# 	comedian_id: c4.id
+# 	})
+
+# Event.create({
+# 	date: "2015-24-04",
+# 	time: "10:00",
+# 	venue: "Terry Fator Theatre at Mirage Hotel and Casino",
+# 	price: 143.00,
+# 	postal_code: '10001',
+# 	comedian_id: c4.id
+# 	})
+
+# Event.create({
+# 	date: "2015-09-06",
+# 	time: "7:00",
+# 	venue: "Collins Center for the Arts",
+# 	price: 93.00,
+# 	postal_code: '10001',
+# 	comedian_id: c4.id
+# 	})
+
+# Event.create({
+# 	date: "2015-13-06",
+# 	time: "7:00",
+# 	venue: "Merrill Auditorium",
+# 	price: 106.00,
+# 	postal_code: '10001',
+# 	comedian_id: c3.id
+# 	})
 
 # Event.create({
 # 	date: "2015-25-04",
@@ -181,124 +288,3 @@ Comedian.create({
 # 	})
 
 
-
-c4 = Comedian.create({
-	name: 'John Oliver',
-	image: 'http://i.imgur.com/jarObAa.jpg',
-	youtube_url: 'https://www.youtube.com/embed/DeQqe0oj5Ls'
-	})
-
-c2 = Comedian.create({
-	name: 'Hannibal Burress',
-	image: 'http://i.imgur.com/l4s9Or7.jpg',
-	youtube_url: 'https://www.youtube.com/embed/BklmMSEYRgk'
-	})
-
-c3 = Comedian.create({
-	name: 'Dave Chappelle',
-	image: 'http://i.imgur.com/w2hyfFe.jpg',
-	youtube_url: 'https://www.youtube.com/embed/LLWlBgj0uOc'
-	})
-
-c1 = Comedian.create({
-	name: 'Amy Schumer',
-	image: 'http://i.imgur.com/VoBG977.jpg',
-	youtube_url: 'https://www.youtube.com/embed/YEXmu89_E8o'
-	})
-
-u1 = User.create({
-	email: 'daniel.snider87@gmail.com',
-	password: '12312313',
-	postal_code: '10001'
-	})
-
-u2 = User.create({
-	email: 'sol@gmail.com',
-	password: '123123123',
-	postal_code: '10001'
-	})
-
-u3 = User.create({
-	email: 'register1020@gmail.com',
-	password: '123123',
-	postal_code: '97217'
-	})
-
-u3.comedians = [c1,c2,c3]
-u2.comedians = [c3,c4]
-u1.comedians = [c1,c2,c3,c4]
-u2.save
-u1.save
-
-# e1 = Event.create({
-# 	date: "2015-21-03",
-# 	time: "12:00",
-# 	venue: "MSG",
-# 	price: 45.00,
-# 	postal_code: '10001',
-# 	comedian_id: c3.id
-# 	})
-
-
-# e2 = Event.create({
-# 	date: "2015-22-03",
-# 	time: "18:00",
-# 	venue: "Best Buy Theater",
-# 	price: 60.00,
-# 	postal_code: '10001',
-# 	comedian_id: c3.id
-# 	})
-
-# Event.create({
-# 	date: "2015-22-07",
-# 	time: "7:00",
-# 	venue: "Wells Fargo Center for the Art",
-# 	price: 119.00,
-# 	postal_code: '10001',
-# 	comedian_id: c1.id
-# 	})
-
-# Event.create({
-# 	date: "2015-23-07",
-# 	time: "7:00",
-# 	venue: "Mountain Winery",
-# 	price: 111.00,
-# 	postal_code: '10001',
-# 	comedian_id: c1.id
-# 	})
-
-# Event.create({
-# 	date: "2015-18-04",
-# 	time: "8:00",
-# 	venue: "Ryman Auditorium",
-# 	price: 52.00,
-# 	postal_code: '10001',
-# 	comedian_id: c4.id
-# 	})
-
-# Event.create({
-# 	date: "2015-24-04",
-# 	time: "10:00",
-# 	venue: "Terry Fator Theatre at Mirage Hotel and Casino",
-# 	price: 143.00,
-# 	postal_code: '10001',
-# 	comedian_id: c4.id
-# 	})
-
-# Event.create({
-# 	date: "2015-09-06",
-# 	time: "7:00",
-# 	venue: "Collins Center for the Arts",
-# 	price: 93.00,
-# 	postal_code: '10001',
-# 	comedian_id: c4.id
-# 	})
-
-# Event.create({
-# 	date: "2015-13-06",
-# 	time: "7:00",
-# 	venue: "Merrill Auditorium",
-# 	price: 106.00,
-# 	postal_code: '10001',
-# 	comedian_id: c3.id
-# 	})

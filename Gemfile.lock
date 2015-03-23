@@ -196,7 +196,6 @@ GEM
       rack (>= 1.0)
     whenever (0.9.4)
       chronic (>= 0.6.3)
-    zip-codes (0.2.0)
 
 PLATFORMS
   ruby
@@ -223,4 +222,3 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   whenever
-  zip-codes

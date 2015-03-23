@@ -10,12 +10,12 @@
 @import"font-awesome";
 
 nav.nav-wrapper {
-    background-color: #34D7E2;
+    background-color: #FDC000 !important;
 }
 
 body {
 	color: #232838;
-	background-color: #F9FCFC;
+	background-color: #F4F7F5 !important;
 }
 .brand-logo {
 	font-weight: 600;
@@ -131,6 +131,10 @@ iframe {
     margin-top: -8px;
     cursor: pointer;
     font-size: 32px;
+        margin: -277px 1px 0 0;
+    -webkit-box-shadow: 0 8px 17px 0 rgba(255, 255, 255, .7), 0 6px 20px 0 rgba(255, 255, 255, .6);
+  -moz-box-shadow: 0 8px 17px 0 rgba(255, 255, 255, .7), 0 6px 20px 0 rgba(255, 255, 255, .6);
+  box-shadow: 0 8px 17px 0 rgba(255, 255, 255, .7), 0 6px 20px 0 rgba(255, 255, 255, .6); 
 }
 .index-follow:active {
     margin-bottom: -2px;
