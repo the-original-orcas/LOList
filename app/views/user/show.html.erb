@@ -11,8 +11,12 @@
         <div class='col s3'>
             <img src='<%= comedian.image %>' class="col s3 comedian-index">
         </div>
-        <h4 class = "comedian-name"><%= comedian.name  %>
-        </h4>
+        <% if @user_events.where(comedian_id: comedian.id) != nil %>
+            <h4 class = "comedian-name"><%= comedian.name %> @ <%= @user_events.where(comedian_id: comedian.id).first %>
+            </h4>
+        <% else %>
+            <h4 class = "comedian-name"><%= comedian.name %>
+        <% end %>
         <div class="card-image waves-effect waves-block waves-light">
         </div>
         <div class="card-content">
@@ -26,7 +30,11 @@
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
             <img class = 'insideDivImg' src='<%= comedian.image %>'>
+            
             <p class="grey-text text-darken-4">Upcoming events:</p>
+            <% @user_events.where(comedian_id: comedian.id).each do |event| %>
+            <p><%= event.venue %> - <%= event.date %>. <%= event.city %>, <%= event.state_code %></p>
+            <% end %>
             <a class='dropdown-button btn' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
             <ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
     <% @events.each do |event| %>
