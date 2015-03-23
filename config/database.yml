@@ -1,11 +1,11 @@
-development:
-  adapter: postgresql
-  encoding: unicode
-  database: <%= ENV['PG_ORCAS_DB'] %>
-  pool: 5
-  timeout: 5000
-  username: <%= ENV['PG_USER'] %>
-  password: <%= ENV['PG_PW'] %>
+# development:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: <%= ENV['PG_ORCAS_DB'] %>
+#   pool: 5
+#   timeout: 5000
+#   username: <%= ENV['PG_USER'] %>
+#   password: <%= ENV['PG_PW'] %>
 
 production:
   adapter: postgresql
@@ -16,12 +16,12 @@ production:
   username: <%= ENV['PG_USER'] %>
   password: <%= ENV['PG_PW'] %>
 
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: <%= ENV['PG_ORCAS_TEST'] %>
-  pool: 5
-  timeout: 5000
-  username: <%= ENV['PG_USER'] %>
-  password: <%= ENV['PG_PW'] %>
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: <%= ENV['PG_ORCAS_TEST'] %>
+#   pool: 5
+#   timeout: 5000
+#   username: <%= ENV['PG_USER'] %>
+#   password: <%= ENV['PG_PW'] %>
 
