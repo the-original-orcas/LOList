@@ -32,30 +32,21 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label "Email subscription:" %> <br />
+    <%= f.check_box :subscribed, {:checked => !resource.subscribed}, 0, 1 %> <br />
+  </div>
+
+
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 <% end %>
-
-<div class="section">
-<h5>Edit my email subscription</h5>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.hidden_field :subscribed, value: false  %>
-  <div class="actions">
-    <%= f.submit "Cancel my subscription" %>
-  </div>
-  <% end %>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.hidden_field :subscribed, value: true  %>
-  <div class="actions">
-    <%= f.submit "Add me to email list" %>
-  </div>
-  <% end %>
 </div>
-</div>
+
 <div class='container center-align'>
-<%= link_to "Back", :back, class: "waves-effect waves-light purple lighten-2 btn" %>
+<%= link_to "/", :back, class: "waves-effect waves-light purple lighten-2 btn" %>
 </div>
 
 
