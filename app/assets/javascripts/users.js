@@ -1,13 +1,11 @@
-$(document).ready(function() {
+
     $(function() {
 
-        var showDate = $('#date').val();
-    var clock = document.getElementById("countdown-holder"),
-        targetDate = new Date(showDate);
-    clock.innerHTML = countdown(targetDate).toString();
-    setInterval(function() {
-        clock.innerHTML = countdown(targetDate).toString();
-    }, 1000);
+        $('#lean-overlay').unbind('click').bind('click', function(event) {
+            player.stopVideo();
+            player.clearVideo();
+        })
+        
         // ON Hover video functionality - on pause it resets timer to 0 -- also testing display to none
         // $(".thumbnail").hover(function() {
         //     $(this).children("video")[0].play();
@@ -69,4 +67,3 @@ $(document).ready(function() {
             });
         });
     });
-});
