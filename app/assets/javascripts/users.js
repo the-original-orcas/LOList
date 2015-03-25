@@ -1,11 +1,5 @@
-
+$(document).ready(function() {
     $(function() {
-
-        $('#lean-overlay').unbind('click').bind('click', function(event) {
-            player.stopVideo();
-            player.clearVideo();
-        })
-        
         // ON Hover video functionality - on pause it resets timer to 0 -- also testing display to none
         // $(".thumbnail").hover(function() {
         //     $(this).children("video")[0].play();
@@ -67,3 +61,4 @@
             });
         });
     });
+});
