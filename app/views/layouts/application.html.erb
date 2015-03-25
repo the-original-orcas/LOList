@@ -10,7 +10,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/<%= materialize_version %>/js/materialize.min.js"></script>
     <%= csrf_meta_tags %>
   </head>
-    <body class = "grey lighten-4">
+    <body class = "<%= controller_name %> <%= action_name %> grey lighten-4">
       <div class="navbar-fixed">
         <nav class = "yellow darken-2">
           <div class="nav-wrapper z-depth-2">
