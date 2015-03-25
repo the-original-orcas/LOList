@@ -1,3 +1,12 @@
 // Place all the styles related to the Comedian controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comedian {
+	.unfave {display: none;}
+}
+
+.comedian.faved {
+	.fave { display: none;}
+	.unfave { display: inline-block;}
+}

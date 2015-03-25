@@ -14,11 +14,16 @@ Rails.application.routes.draw do
     root to: 'landing#index'
   end
 
-  
+
 
   resources :event
-  resources :comedian
+  resources :comedian 
+
 end
+
+# do
+#     resource :fave, only: %w(update destroy)
+#   end
 
 # authenticated :user do
 #   root to: "user#show", :as => :authenticated_root
