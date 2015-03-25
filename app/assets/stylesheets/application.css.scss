@@ -5,18 +5,14 @@
 
 */
 
-@import"materialize";
 @import"font-awesome-sprockets";
 @import"font-awesome";
-
-nav.nav-wrapper {
-    background-color: #34D7E2;
-}
 
 body {
 	color: #232838;
 	background-color: #F9FCFC;
 }
+
 .brand-logo {
 	font-weight: 600;
 }
@@ -80,16 +76,6 @@ body {
 
 .imgIcon {
     height: 20%;
-}
-
-ul.hmenu {
-    list-style: none;
-    margin: 0 0 2em;
-    padding: 0;
-}
-
-ul.hmenu li {
-    display: inline;
 }
 
 .videoWrapper {

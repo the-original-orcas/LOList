@@ -13,9 +13,9 @@
 <% vidTag = comedian.name + ".mp4"  %>
 <div class='col s12 m4'>
 	<div id='comedian-<%= comedian.id %>' class='card small z-depth-2 follow'>
-		<div class='card-image thumbnail' style="background-image:  url(<%=comedian.image%>)">
+		<div class='card-image thumbnail' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" >
 		
-		<!-- <%= video_tag(vidTag, 
+		<!-- <%= video_tag(vidTag,
 		# controls: true 
 		) %> -->
 

@@ -11,14 +11,14 @@
     <body>
       <div class="navbar-fixed">
         <nav>
-          <div class="nav-wrapper teal lighten-2 fixed z-depth-2">
-            <a href="#!" class="brand-logo center"><% if user_signed_in? %>(MY) <% end %>LOList</a>
+          <div class="nav-wrapper teal fixed z-depth-2">
+            <a href="#!" class="brand-logo center "><div class="logocust"><% if user_signed_in? %>my <% end %>LOList</div></a>
               <ul class="right">
                 <li>
                 <!-- Modal Trigger -->
                 <% if !current_user %>
                 <div class="valign-wrapper">
-                  <a id="login-button" class="modal-trigger valign" href="#modal1" style="margin-top: 2px;">Login</a>
+                  <a id="login-button" class="modal-trigger valign" href="#modal1" style="margin-top: 2px;">Sign in</a>
                 </div>
                 <% end %>
                 <% if user_signed_in? %>
@@ -28,11 +28,11 @@
                     content_tag(
                       :i,
                       nil, 
-                      class: 'mdi-action-settings small'
+                      class: 'mdi-action-settings tiny'
                     ), 
                     edit_user_registration_path,
                     style:
-                      "color:#fff" 
+                      "color:#fff"
                   ) 
                 %>
                 </li>
@@ -40,9 +40,8 @@
 
                 <%= link_to(
                     content_tag(
-                      :p,
-                      nil, 
-                      class: 'fa fa-sign-out'
+                      :li,
+                      "Sign out"
                     ), 
                     destroy_user_session_path,
                     method: :delete,

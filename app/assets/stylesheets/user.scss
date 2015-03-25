@@ -4,24 +4,37 @@
 .b {
 	border-color: black thin solid;
 }
+
 .c {
 	border-color: orange thin solid;
 }
+
 .d {
 	border-color: green thin solid;
 }
+
 .e {
 	border-color: blue thin solid;
 }
-
 
 .fa-youtube-play {
 	margin: -33px 8px 0 0;
 }
 
-.index-follow {
-	margin: -277px 1px 0 0;
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.favImg {
+        padding: 10px;
+}
+
+.index-follow {
+
+}
+
 
 .hover { 
 	background-color: white;
@@ -37,8 +50,9 @@ i.fav {
 
 i.follow {
 	color: black;
+	 flex: 50%;
+    text-align: right;
 }
-
 
 .following > i {
 	color: goldenrod;
@@ -104,6 +118,7 @@ div.card-action {
 
 .comedian-index {
 	width: 240px;
+	margin: auto;
 }
 
 .comedian-name {

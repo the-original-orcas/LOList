@@ -3,127 +3,94 @@
     <div id='user-<%=@user.id%>'>
     </div>
 </div>
-
 <% @faves.each do |comedian| %>
-
-
 <!-- <div class="a">
-    <div class="b">
-        <div class="c">
-            <div class="d">
-                <div class="e"></div>
-            </div>
+        <div class="b">
+                <div class="c">
+                        <div class="d">
+                                <div class="e"></div>
+                        </div>
+                </div>
         </div>
-    </div>
 </div> -->
-
 <div class='col s12'>
     <div class="card faveComs">
-        <div class="col s3">
-
-            <img src='<%= comedian.image %>' class="col s3 comedian-index">
-
-            </div>
-
-        <div class="col s9">
-        <% if @user_events.where(comedian_id: comedian.id) != nil %>
-            <h4 class = "flow-text"><%= comedian.name %> 
-            <% if comedian.events.include?(@latest) %>@ <%= @latest.venue  %></h4>    
+        <img src='<%= comedian.image %>' class="col s3 comedian-index">
+        <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars right"></i></span>
+        <div class="col s10">
+            <% if @user_events.where(comedian_id: comedian.id) != nil %>
+            <h4 class = "flow-text"><%= comedian.name %>
+            <% if comedian.events.include?(@latest) %>@ <%= @latest.venue  %>
+            </h4>
             <h4 class = "flow-text grey-text text-darken-4 right" id="countdown-holder"><%= @latest.datetime_local  %></h4>
             <h5 class="flow-text grey-text text-darken-4 right">Tickets left: <%= @latest.ticket_count  %></h5>
-
             <a class = "btn right" href="<%= @latest.url %>">Buy your ticket here!</a>
             <% end  %>
-        <% else %>
+            <% else %>
             <h4 class = "comedian-name"><%= comedian.name %>
-        <% end %>
-        </div>
-        <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4 right">Show info<i class="mdi-navigation-more-vert right"></i></span>
-            
-        </div>
-        <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
-            <img class = 'insideDivImg' src='<%= comedian.image %>'>
-            <% if @user.comedians.include?(comedian) %>
-            <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars right"></i></span>
-            <% else  %>
-            <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="mdi-action-stars right"></i></span>
-            <% end  %>
-            <% if @user_events.where(comedian_id: comedian.id).length >= 2 %>
-            
+            <% end %>
+            <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4 right">Show info<i class="mdi-navigation-more-vert right"></i></span>
 
-            <a class='dropdown-button btn-flat left' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
-
-<ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
-                <% @user_events.each do  |event| %>
-                <% if event.comedian_id == comedian.id  %>
-                <!-- Modal Trigger -->
-                
-            
-                        <li class="grey-text text-darken-4"> <%= event.datetime_local.to_time.strftime('%B %e at %l:%M %p')  %> </li>
-                        <li class="grey-text text-darken-4"><%= event.venue  %></li>
-                        <li class="grey-text text-darken-4"><%= event.address  %> </li>
-                        <li class="divider"></li>
-                        
-                        <% end  %>
-                    <% end  %>
-            </ul>
-            <% end  %>
-
-
-            <i class="fa fa-youtube-play large fa-2x grey-text text-darken-3 left modal-trigger" href="#modal<%=comedian.id %>"></i>
-            
-        </div>
-
-
-
-</div>
-<!-- Modal Structure -->
-  <div id="modal<%= comedian.id %>" class="modal">
-    <div class="modal-content">
-        <div class="video-container">
-            <iframe width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-  </div>
-<% end %>
-<div class="divider"></div>
-<h5 class = 'center-align'>See who else makes you LOL...</h5>
-<div class="divider"></div>
-<div class="row">
-    <% @nonfaves.each do |comedian| %>
-    <div class='col s12 m4'>
-        <div class='card small z-depth-2'>
-            <div class='card-image'>
-                <img src=<%= comedian.image %>>
-
-                <% if @user.comedians.include?(comedian) %>
-                <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star-o right"></i></span>
-                <% else  %>
-                <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="fav fa fa-star-o right"></i></span>
-                <% end  %>
-                <span class='card-title grey-text text-darken-3 bold'> <%= comedian.name %> </span>
             </div>
-            <!-- Modal Trigger -->
-            <a class="fa fa-youtube-play fa-2x grey-text text-darken-3 right modal-trigger" href="#modal<%=comedian.id %>"></a>
-
-            <!-- <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i> -->
-            <i class=""></i>
             <div class="card-reveal">
-                <span class="card-title grey-text text-darken-3"><%=comedian.name%> <i class="mdi-navigation-close right"></i></span>
+                <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
+                <img class = 'insideDivImg' src='<%= comedian.image %>'>
+                <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars right"></i></span>
+                <% if @user_events.where(comedian_id: comedian.id).length >= 2 %>
+
+                <a class='dropdown-button btn-flat left' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
+                <ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
+                    <% @user_events.each do  |event| %>
+                    <% if event.comedian_id == comedian.id  %>
+                    <!-- Modal Trigger -->
+                    <li class="grey-text text-darken-4"> <%= event.datetime_local.to_time.strftime('%B %e at %l:%M %p')  %> </li>
+                    <li class="grey-text text-darken-4"><%= event.venue  %></li>
+                    <li class="grey-text text-darken-4"><%= event.address  %> </li>
+                    <li class="divider"></li>
+                    <% end  %>
+                    <% end  %>
+                </ul>
+                <% end  %>
+                <i class="fa fa-youtube-play large fa-2x grey-text text-darken-3 left modal-trigger col s2" href="#modal<%=comedian.id %>"></i>
             </div>
         </div>
     </div>
-
-
-  <!-- Modal Structure -->
-  <div id="modal<%= comedian.id %>" class="modal">
-    <div class="modal-content">
-        <div class="video-container">
-            <iframe width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
+    <!-- Modal Structure -->
+    <div id="modal<%= comedian.id %>" class="modal">
+        <div class="modal-content">
+            <div class="video-container">
+                <iframe width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
-  </div>
     <% end %>
-</div>
+    <div class="divider"></div>
+    <h5 class = 'center-align'>See who else makes you LOL...</h5>
+    <div class="divider"></div>
+    <div class="row">
+        <% @nonfaves.each do |comedian| %>
+        <div class='col s12 m4'>
+            <div class='card small z-depth-2'>
+                <div class='card-image thumbnail' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" >
+                    
+                    <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="fav fa fa-star-o right"></i></span>
+                </div>
+                <!-- Modal Trigger -->
+                <a class="fa fa-youtube-play fa-2x grey-text text-darken-3 right modal-trigger" href="#modal<%=comedian.id %>"></a>
+                <!-- <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i> -->
+                <i class=""></i>
+<span class='card-title grey-text text-darken-4'> <%= comedian.name %> </span>
+                
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal<%= comedian.id %>" class="modal">
+            <div class="modal-content">
+                <div class="video-container">
+                    <iframe width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
