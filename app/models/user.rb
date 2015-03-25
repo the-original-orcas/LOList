@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
       all_comedians << HTTParty.get('http://api.seatgeek.com/2/events?postal_code='+zip+'&datetime_utc.gt='+Date.today.to_formatted_s+'&datetime_utc.lte='+Date.today.months_since(6)+'&performers.slug='+comedian.downcase.gsub(" ","-"))
 
       all_comedians.each do |performer|
-
+      	
         performer["events"].each do |event|
 
           existing_event = Event.find_or_initialize_by(id: :seatgeek_id)

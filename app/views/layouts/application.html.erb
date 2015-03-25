@@ -2,21 +2,25 @@
 <html>
   <head>
     <title>LOList</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/<%= materialize_version %>/css/materialize.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/<%= fa_version %>/css/font-awesome.min.css">
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/<%= materialize_version %>/js/materialize.min.js"></script>
     <%= csrf_meta_tags %>
   </head>
-    <body>
+    <body class = "<%= controller_name %> <%= action_name %> grey lighten-4">
       <div class="navbar-fixed">
-        <nav>
-          <div class="nav-wrapper teal lighten-2 fixed z-depth-2">
-            <a href="#!" class="brand-logo center"><% if user_signed_in? %>(MY) <% end %>LOList</a>
+        <nav class = "yellow darken-2">
+          <div class="nav-wrapper z-depth-2">
+            <a href="/" class="brand-logo center "><div class="logocust"><% if user_signed_in? %><%= image_tag "My_LOList_Logo_v2.png", {style: "margin-top: 21px;", height: 57}  %> <% else %><%= image_tag "LOList_Logo_v2.png", {style: "margin-top: 21px;", height: 57}  %><% end  %></div></a>
               <ul class="right">
                 <li>
                 <!-- Modal Trigger -->
                 <% if !current_user %>
                 <div class="valign-wrapper">
-                  <a id="login-button" class="modal-trigger valign" href="#modal1" style="margin-top: 2px;">Login</a>
+                  <a id="login-button" class="modal-trigger valign" href="#modal1" style="margin-top: 2px;">Sign in</a>
                 </div>
                 <% end %>
                 <% if user_signed_in? %>
@@ -26,11 +30,11 @@
                     content_tag(
                       :i,
                       nil, 
-                      class: 'mdi-action-settings small'
+                      class: 'mdi-action-settings tiny'
                     ), 
                     edit_user_registration_path,
                     style:
-                      "color:#fff" 
+                      "color:#fff"
                   ) 
                 %>
                 </li>
@@ -38,9 +42,8 @@
 
                 <%= link_to(
                     content_tag(
-                      :p,
-                      nil, 
-                      class: 'fa fa-sign-out'
+                      :li,
+                      "Sign out"
                     ), 
                     destroy_user_session_path,
                     method: :delete,
@@ -48,23 +51,9 @@
                       "color:#fff" 
                   ) 
                 %>
-                </li>	
-                <% else %>
-                <!-- Sign up if not logged in button -->
-                <li>
-                <%= link_to(
-                  content_tag(
-                    :i,
-                    nil, 
-                    class: 'mdi-action-settings small'
-                  ), 
-                  new_user_registration_path,
-                  style:
-                    "color:#fff" 
-                  ) 
-                %>
                 </li>
-                <% end %>
+                <% end  %>
+                
             </ul>
           </div>
         </nav>
@@ -75,7 +64,7 @@
       <%= yield %>
 
       </div>
-
+    
     </body>
 
 </html>

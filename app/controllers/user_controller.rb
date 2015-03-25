@@ -25,17 +25,19 @@ class UserController < ApplicationController
     @nonfaves = @comedians - @faves
     events = Event.joins(:comedians)
     
-    @user_events = events.near(zip, 100)
-    
+    @user_events = events.near(zip, 50)
     if @user_events.length >= 1
     @user_events.order('datetime_local')
     @latest = @user_events.order('datetime_local').first # what I meant about assigning variable for single event then sending to view
     end
 
+    if @latest != nil
+    @countdown_date = @latest.datetime_local
+    end
+
     if @user.comedians.count < 1 # NEED TO FIX THIS LOGIC - TRIED after_sign_up TRIED sign_in_count == 1
       redirect_to '/user/'+current_user.id.to_s+'/edit'
     end
-
   end
 
   def update

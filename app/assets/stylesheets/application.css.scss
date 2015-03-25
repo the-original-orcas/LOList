@@ -5,20 +5,11 @@
 
 */
 
-@import"materialize";
-@import"font-awesome-sprockets";
-@import"font-awesome";
 
-nav.nav-wrapper {
-    background-color: #FDC000 !important;
-}
 
-body {
-	color: #232838;
-	background-color: #F4F7F5 !important;
-}
+
 .brand-logo {
-	font-weight: 600;
+        font-weight: 600;
 }
 .center-block {
     display: block;
@@ -27,8 +18,8 @@ body {
 }
 
 .card, .faveComs {
-	height: 30%;
-	width:100%;
+        height: 30%;
+        width:100%;
 
 }
 
@@ -82,16 +73,6 @@ body {
     height: 20%;
 }
 
-ul.hmenu {
-    list-style: none;
-    margin: 0 0 2em;
-    padding: 0;
-}
-
-ul.hmenu li {
-    display: inline;
-}
-
 .videoWrapper {
     position: relative;
     padding-bottom: 56.25%;
@@ -105,41 +86,23 @@ ul.hmenu li {
     width: 100%;
     height: 100%;
 }
-iframe {
-    frameborder: "0";
-}
+
 .mdi-action-settings.small {
     float: right;
     font-size: 38px;
     margin-right: 6px;
 }
-.follow {
+
+.follow, .index-follow {
     transition: color 0.5s ease;
     float: right;
     margin-top: -8px;
     cursor: pointer;
     font-size: 32px;
 }
-.follow:active {
-    margin-bottom: -2px;
-}
 
 
-.index-follow {
-    transition: color 0.5s ease;
-    float: right;
-    margin-top: -8px;
-    cursor: pointer;
-    font-size: 32px;
-        margin: -277px 1px 0 0;
-    -webkit-box-shadow: 0 8px 17px 0 rgba(255, 255, 255, .7), 0 6px 20px 0 rgba(255, 255, 255, .6);
-  -moz-box-shadow: 0 8px 17px 0 rgba(255, 255, 255, .7), 0 6px 20px 0 rgba(255, 255, 255, .6);
-  box-shadow: 0 8px 17px 0 rgba(255, 255, 255, .7), 0 6px 20px 0 rgba(255, 255, 255, .6); 
-}
 .index-follow:active {
     margin-bottom: -2px;
 }
 
-.fa.fa-question-circle.fa-2x {
-    cursor: pointer;
-}

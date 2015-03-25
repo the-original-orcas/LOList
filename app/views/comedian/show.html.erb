@@ -1,0 +1,7 @@
+<%= div_for(comedian, class: comedian_css(comedian)) do %> 
+
+  <%= toggle_button_to 'icon-star', 'Fave', comedian_fave_path(comedian),
+       on: 'fave btn',
+       off: 'unfave btn btn-primary' %> 
+
+<% end %> 

@@ -1,15 +1,6 @@
 class LandingController < ApplicationController
-
   def index
-
     @user = User.new
-  	@fbapi = ENV["FB_API"]
-
+    @fbapi = ENV['FB_API']
   end
-  	
-
 end
-
-
-
-

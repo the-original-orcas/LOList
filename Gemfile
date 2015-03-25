@@ -7,9 +7,9 @@ gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 #font awesome icons
-gem 'font-awesome-sass'
+# gem 'font-awesome-sass', '~> 4.3.0'
 # materialize sass
-gem 'materialize-sass'
+# gem 'materialize-sass'  # trying CDN for speed
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'responders'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

@@ -4,24 +4,29 @@
 <p>By selecting a comedian, you will begin to receive email notifications ONLY associated with the
 	artists you are following.</p>
 <br>
-<%= link_to "I'm Ready!", user_path, class: "waves-effect waves-light green btn" %>
-</div>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+      <%= link_to "I'm Ready!", user_path, class: "waves-effect waves-light yellow darken-2 btn" %></i>
+    </a>
+  </div>
 
+
+</div>
+<div class="divider"></div>
 <div class='row'>
 
 <% @comedians.each do |comedian| %>
 <% vidTag = comedian.name + ".mp4"  %>
 <div class='col s12 m4'>
 	<div id='comedian-<%= comedian.id %>' class='card small z-depth-2 follow'>
-		<div class='card-image thumbnail' style="background-image:  url(<%=comedian.image%>)">
+		<div class='card-image thumbnail' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" >
 		
-		<!-- <%= video_tag(vidTag, 
+		<!-- <%= video_tag(vidTag,
 		# controls: true 
 		) %> -->
 
 			<span class='card-title grey-text text-darken-4'> <%= comedian.name %> </span>
 				<% if @user.comedians.include?(comedian) %>
-					<span class='following'><i class="fav fa fa-star-o right"></i></span>
+					<span class='following'><i class="fav fa fa-star right"></i></span>
 		    <% else  %>
 		      <span><i class="fav fa fa-star-o right"></i></span>
 		    <% end  %>

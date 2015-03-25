@@ -2,18 +2,27 @@
 	margin: -33px 8px 0 0;
 }
 
-.favImg {
-	padding: 10px;
-}
-
 .center-block {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.index-follow {
+.favImg {
+        padding: 10px;
+}
 
+i.index-follow {
+		color: black;
+        flex: 50%;
+    text-align: right;
+    
+}
+
+.index-following > i {
+        content: "\f005";
+        color: #FABF3F;
+        
 }
 
 .hover { 
@@ -25,27 +34,36 @@
 i.fav {
 	border-radius:100%;
 	margin: 15px 6px 0 0;
+	z-index: 100;
 
 }
 
 i.follow {
-	color: black;
-	flex: 50%;
+        color: black;
+        flex: 50%;
     text-align: right;
+    background: rgba(255,255,255,.6);
 }
 
 
 .following > i {
-	color: goldenrod;
+        color: #FABF3F;
 }
+
+.card.thumbnail{
+	height: 200px;
+	width: 200px;
+	margin: 10px 0 10px 10px;
+	}
 
 .card.small{
 	height: 260px;
+	width: 260px;
 
 	.card-image {
 		height: 260px;
 		background-size:100%;
-		cursor: pointer;
+
 
 		.interaction-buttons {
 			margin-top:0px;
@@ -69,6 +87,7 @@ i.follow {
 
 .fa.fa-youtube-play {
 	color: #D12122 !important;
+	cursor: pointer;
 }
 
 .card.card-reveal {
@@ -78,22 +97,11 @@ i.follow {
 div.card-action {
   height:75px;
 
-    .fa.fa-youtube-play.fa-2x {
-    	cursor:pointer;
-    }
-
 		.up-arrow {
 		  height: 30px;
 		  margin: -22px;
 			opacity: 60%;
 
-				#chevron-up {
-					height: 80%;
-					width:10%;
-					margin-left: 50px;
-		  		margin-top: 9px;
-		  		cursor:pointer;
-				}
 		}
 }	
 
