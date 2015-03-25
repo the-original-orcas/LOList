@@ -4,9 +4,14 @@
 <p>By selecting a comedian, you will begin to receive email notifications ONLY associated with the
 	artists you are following.</p>
 <br>
-<%= link_to "I'm Ready!", user_path, class: "waves-effect waves-light green btn" %>
-</div>
+<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+      <%= link_to "I'm Ready!", user_path, class: "waves-effect waves-light yellow darken-2 btn" %></i>
+    </a>
+  </div>
 
+
+</div>
+<div class="divider"></div>
 <div class='row'>
 
 <% @comedians.each do |comedian| %>

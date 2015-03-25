@@ -22,7 +22,7 @@
             <h5 class = "flow-text grey-text text-darken-4" id="countdown-holder"></h5><input type="hidden" id="date" value="<%= @latest.datetime_local  %>" >
             <div class="right">
                 <p class="flow-text grey-text text-darken-4">Tickets left: <%= @latest.ticket_count  %></p>
-                <a class = "btn" href="<%= @latest.url %>">Buy your ticket here!</a>
+                <a class = "btn yellow darken-2 white-text" href="<%= @latest.url %>">Buy your ticket here!</a>
             </div>
             
             <% end  %>
