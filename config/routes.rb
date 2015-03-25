@@ -7,11 +7,14 @@ Rails.application.routes.draw do
   authenticated :user do
     root to: 'user#show', as: :authenticated_root
     resources :user
+    get "/fave_comedian" => 'faves#from_comedians', as: 'fave_comedian'
   end
 
   unauthenticated do
     root to: 'landing#index'
   end
+
+  
 
   resources :event
   resources :comedian

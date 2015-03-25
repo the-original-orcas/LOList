@@ -1,5 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
-   clear_respond_to  
+   # clear_respond_to
+   # respond_to :json # TODO - convert login to AJAX
+
    def create
     super
     if @user.persisted?

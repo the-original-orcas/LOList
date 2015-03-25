@@ -1,20 +1,3 @@
-.a {
-	border-color: red thin solid;
-}
-.b {
-	border-color: black thin solid;
-}
-.c {
-	border-color: orange thin solid;
-}
-.d {
-	border-color: green thin solid;
-}
-
-.e {
-	border-color: blue thin solid;
-}
-
 .fa-youtube-play {
 	margin: -33px 8px 0 0;
 }
@@ -33,11 +16,12 @@ i.index-follow {
 		color: black;
         flex: 50%;
     text-align: right;
+    
 }
 
 .index-following > i {
         content: "\f005";
-        color: goldenrod;
+        color: #FABF3F;
         
 }
 
@@ -58,16 +42,23 @@ i.follow {
         color: black;
         flex: 50%;
     text-align: right;
+    background: rgba(255,255,255,.6);
 }
 
 
 .following > i {
-        color: goldenrod;
-        content: "\f005";
+        color: #FABF3F;
 }
+
+.card.thumbnail{
+	height: 200px;
+	width: 200px;
+	margin: 10px 0 10px 10px;
+	}
 
 .card.small{
 	height: 260px;
+	width: 260px;
 
 	.card-image {
 		height: 260px;

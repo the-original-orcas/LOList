@@ -3,34 +3,40 @@
     <div id='user-<%=@user.id%>'>
     </div>
 </div>
+<h4 class="flow-text">Thanks for signing up! We'll email you as soon as your favorite comedians are performing near you! Meanwhile, check out some more funny acts below!</h4>
+<%= render partial: 'faves', locals: { faves: @faves }  %>
+
 <% @faves.each do |comedian| %>
 <div class='col s12'>
-    <div class="card faveComs">
-        <img src='<%= comedian.image %>' class="col s3 comedian-index">
-        <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star-o right"></i></span>
+    <div class="card row faveComs">
+        
+        <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star right"></i></span>
+            <div class='card col thumbnail' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" >
+            </div>
+            <div class="col s9 card-content">
 
-            <div class="card-content">
             <% if @user_events.where(comedian_id: comedian.id) != nil %>
             <h4 class = "flow-text"><%= comedian.name %>
             <% if comedian.events.include?(@latest) %>@ <%= @latest.venue  %>
             </h4>
-            <h4 class = "flow-text grey-text text-darken-4 right" id="countdown-holder"><%= @latest.datetime_local  %></h4>
-            <h5 class="flow-text grey-text text-darken-4 right">Tickets left: <%= @latest.ticket_count  %></h5>
+            <h4 class = "flow-text grey-text text-darken-4 right" id="countdown-holder"></h4><input type="hidden" id="date"><%= @latest.datetime_local  %></input>
+            <p class="flow-text grey-text text-darken-4 right">Tickets left: <%= @latest.ticket_count  %></p>
             <a class = "btn right" href="<%= @latest.url %>">Buy your ticket here!</a>
+            
             <% end  %>
             <% else %>
-            <h4 class = "comedian-name"><%= comedian.name %>
+            <h4 class = "comedian-name"><%= comedian.name %></h4>
             <% end %>
-            
             </div>
+            
             <div class="card-action">
-                <span class="card-title activator grey-text text-darken-4 right">Show info<i class="mdi-navigation-more-vert right"></i></span>
+                <span class="card-title activator grey-text text-darken-4 right">Click for more info<i class="mdi-navigation-more-vert right"></i></span>
             
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
-                <img class = 'insideDivImg' src='<%= comedian.image %>'>
-                <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="mdi-action-stars right"></i></span>
+                <div class='card' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" ></div>
+                <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star right"></i></span>
                 <% if @user_events.where(comedian_id: comedian.id).length >= 2 %>
 
                 <a class='dropdown-button btn-flat left' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
@@ -46,7 +52,7 @@
                     <% end  %>
                 </ul>
                 <% end  %>
-                <i class="fa fa-youtube-play large fa-2x grey-text text-darken-3 left modal-trigger col s2" href="#modal<%=comedian.id %>"></i>
+                <i class="fa fa-youtube-play large fa-2x grey-text text-darken-3 right modal-trigger col s2" href="#modal<%=comedian.id %>"></i>
             </div>
 
     </div>
