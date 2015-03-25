@@ -1,6 +1,13 @@
+
 <!-- <div id="landing-banner" class="container">
     <div class = "center-align">
         <p>No Mo' FOMO! Don't ever miss out when your favorite comedian comes to town. Sign up now and receive an email notification telling you when the next big show is.</p>
+
+<div id="landing-banner" class="container-fluid jumbotron">
+    <div class = " center-align">
+        <h4 class = "">No Mo' FOMO!</h4> 
+        <p class = "">Don't ever miss out when your favorite comedian comes to town.</p><p>Sign up now and receive an email notification telling you when the next big show is.</p>
+
     </div>
 </div> -->
 
@@ -33,7 +40,7 @@
 <!-- sign up -->
 <div class="container">
     <div class="center-align">
-        <a class="btn-social btn-large btn-icon  btn-facebook" href = '/users/auth/facebook/'>
+        <a class="btn-social btn-large btn-icon btn-facebook" href = '/users/auth/facebook/'>
         <i class="fa fa-facebook left"></i>
         Connect with Facebook
         </a>
@@ -57,7 +64,7 @@
             <input type="text" name="user[postal_code]" placeholder="Zipcode to filter results!"></input>
         </div>
         <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
-        <button class="center-block waves-effect waves-light yellow darken-2 btn" type="submit" name="action">Sign Up</button>
+        <button class="center-block waves-effect waves-light yellow black-text darken-2 btn" type="submit" name="action">Sign Up</button>
     </form>
 </div>
 <!-- Modal Structure -->

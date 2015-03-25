@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require countdown.min.js
-//= require turbolinks
 //= require jquery-readyselector
+//= require turbolinks
 //= require_tree .
 
 // $(".button-collapse").sideNav();    

@@ -3,13 +3,12 @@
     <div id='user-<%=@user.id%>'>
     </div>
 </div>
-<h4 class="flow-text">Thanks for signing up! We'll email you as soon as your favorite comedians are performing near you! Meanwhile, check out some more funny acts below!</h4>
+<h4 class="flow-text center-align">Thanks for signing up! We'll email you as soon as your favorite comedians are performing near you! Meanwhile, check out some more funny acts below!</h4>
 <%= render partial: 'faves', locals: { faves: @faves }  %>
 
 <% @faves.each do |comedian| %>
 <div class='col s12'>
     <div class="card row faveComs">
-        
         <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star right"></i></span>
             <div class='card col thumbnail' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" >
             </div>
@@ -63,7 +62,7 @@
     <div id="modal<%= comedian.id %>" class="modal">
         <div class="modal-content">
             <div class="video-container">
-                <iframe width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="349" src="<%=comedian.youtube_url%>enablejsapi=1" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -99,5 +98,4 @@
         </div>
         <% end %>
     </div>
-
 
