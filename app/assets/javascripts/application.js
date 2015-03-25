@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require materialize-sprockets
+//= require countdown.min.js
 //= require turbolinks
 //= require_tree .
 

@@ -1,10 +1,9 @@
 source 'https://rubygems.org'
+ruby '2.1.4'
 
 gem 'rails', '4.2.0'
-
 # Postgres database
 gem 'pg'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 #font awesome icons
@@ -29,16 +28,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # geocoder gem to translate IP address to location info
 gem 'geocoder'
-gem 'zip-codes'
-
-# LOGINS & SECURE PW
-# Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+# gem 'zip-codes'
 
 # Authentication related gems
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'rails_12factor', group: :production
 
@@ -46,8 +42,9 @@ gem 'pry-rails'
 gem 'spring'
 
 gem 'whenever', :require => false
-
 gem "httparty"  
+
+#  Deployment - DO
 gem "unicorn"
 
 # group :development, :test do

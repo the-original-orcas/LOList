@@ -3,36 +3,66 @@
         <p>No Mo' FOMO! Don't ever miss out when your favorite comedian comes to town. Sign up now and receive an email notification telling you when the next big show is.</p>
     </div>
 </div>
-
 <!-- sign up -->
 <div class="container">
-	<div class="center-align">
-		<a class="btn-social btn-large btn-icon  btn-facebook" href = '/users/auth/facebook/'>
-			<i class="fa fa-facebook left"></i>
-				Connect with Facebook
-		</a>
-	</div>
-	<div class="divider"></div>
+    <div class="center-align">
+        <a class="btn-social btn-large btn-icon  btn-facebook" href = '/users/auth/facebook/'>
+        <i class="fa fa-facebook left"></i>
+        Connect with Facebook
+        </a>
+    </div>
+    <div class="divider"></div>
 </div><div class="row">
-    <div class="col s6">
-        <p class="center-align">New user?</p><h5 class = "center-align">Sign Up</h5>
+<div class="col s6">
+    <p class="center-align">New user?</p><h5 class = "center-align">Sign Up</h5>
+    <form action="/users" method="POST">
+        <div class="input-field col s12">
+            <input type = "email" class = "validate" type="text" name="user[email]" placeholder="Email"></input>
+        </div>
+        <div class="input-field col s12">
+            <input type="password" class = "validate" name="user[password]" placeholder="Password"></input>
+        </div>
+        <div class="input-field col s12">
+            <input type="password" class = "validate" name="user[password_confirmation]" placeholder="Confirm Password"></input>
+        </div>
+        <div class="input-field col s12">
+            <input type="text" name="user[postal_code]" placeholder="Zipcode to filter results!"></input>
+        </div>
+        <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
+        <button class="center-block waves-effect waves-light indigo lighten-2 btn" type="submit" name="action">Sign Up</button>
+    </form>
+</div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal sign-in">
+    <div class="modal-content">
+        <h4 class="center-align grey-text text-darken-4">Sign in</h4>
+        <div class="divider"></div><br>
+        <div class="center-align">
+            <a class="btn-social btn-large btn-icon  btn-facebook" href = '/users/auth/facebook/'>
+            <i class="fa fa-facebook left"></i>
+            Connect with Facebook
+            </a>
+        </div>
 
-        <form action="/users" method="POST">
-            <div class="input-field col s12">
-                <input type = "email" class = "validate" type="text" name="user[email]" placeholder="Email"></input>
+        <div class="center-align"><div class="divider-or center-block">Or</div></div>
+
+        <form action="/users/sign_in" method="POST">
+            <!-- <p class="center-align">Existing user?</p><h5 class='center-align'>Login</h5> -->
+            <div class="input-field col s12 grey-text text-darken-4">
+                <input type="text" name="user[email]" placeholder="Email"></input>
             </div>
-            <div class="input-field col s12">
-                <input type="password" class = "validate" name="user[password]" placeholder="Password"></input>
-            </div>
-            <div class="input-field col s12">
-                <input type="password" class = "validate" name="user[password_confirmation]" placeholder="Confirm Password"></input>
-            </div>
-            <div class="input-field col s12">
-                <input type="text" name="user[postal_code]" placeholder="Zipcode to filter results!"></input>
+            <div class="input-field col s12 grey-text text-darken-4">
+                <input type="password" name="user[password]" placeholder="Password"></input>
             </div>
             <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
-            <button class="center-block waves-effect waves-light indigo lighten-2 btn" type="submit" name="action">Sign Up</button>
+
+
+
+            <div class="modal-footer">
+                <div class="center-align">
+                <button class="center-block waves-effect waves-light indigo lighten-2 btn" type="submit" name="action">Login with Email</button>
+                </div>
+            </div>
         </form>
     </div>
-
-
+</div>
