@@ -5,16 +5,12 @@
 
 */
 
+
 @import"font-awesome-sprockets";
 @import"font-awesome";
 
-body {
-	color: #232838;
-	background-color: #F9FCFC;
-}
-
 .brand-logo {
-	font-weight: 600;
+        font-weight: 600;
 }
 .center-block {
     display: block;
@@ -23,8 +19,8 @@ body {
 }
 
 .card, .faveComs {
-	height: 30%;
-	width:100%;
+        height: 30%;
+        width:100%;
 
 }
 
@@ -91,37 +87,23 @@ body {
     width: 100%;
     height: 100%;
 }
-iframe {
-    frameborder: "0";
-}
+
 .mdi-action-settings.small {
     float: right;
     font-size: 38px;
     margin-right: 6px;
 }
-.follow {
+
+.follow, .index-follow {
     transition: color 0.5s ease;
     float: right;
     margin-top: -8px;
     cursor: pointer;
     font-size: 32px;
 }
-.follow:active {
-    margin-bottom: -2px;
-}
 
 
-.index-follow {
-    transition: color 0.5s ease;
-    float: right;
-    margin-top: -8px;
-    cursor: pointer;
-    font-size: 32px;
-}
 .index-follow:active {
     margin-bottom: -2px;
 }
 
-.fa.fa-question-circle.fa-2x {
-    cursor: pointer;
-}

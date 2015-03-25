@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+   clear_respond_to  
    def create
     super
     if @user.persisted?

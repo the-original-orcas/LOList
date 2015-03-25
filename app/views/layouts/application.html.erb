@@ -4,15 +4,17 @@
     <title>LOList</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/<%= materialize_version %>/css/materialize.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/<%= fa_version %>/css/font-awesome.min.css">
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/<%= materialize_version %>/js/materialize.min.js"></script>
     <%= csrf_meta_tags %>
   </head>
-    <body>
+    <body class = "grey lighten-4">
       <div class="navbar-fixed">
-        <nav>
-          <div class="nav-wrapper teal fixed z-depth-2">
-            <a href="#!" class="brand-logo center "><div class="logocust"><% if user_signed_in? %>my <% end %>LOList</div></a>
+        <nav class = "yellow darken-2">
+          <div class="nav-wrapper z-depth-2">
+            <a href="/" class="brand-logo center "><div class="logocust"><% if user_signed_in? %><%= image_tag "My_LOList_Logo_v2.png", {style: "margin-top: 21px;", height: 57}  %> <% else %><%= image_tag "LOList_Logo_v2.png", {style: "margin-top: 21px;", height: 57}  %><% end  %></div></a>
               <ul class="right">
                 <li>
                 <!-- Modal Trigger -->
@@ -49,23 +51,9 @@
                       "color:#fff" 
                   ) 
                 %>
-                </li>	
-                <% else %>
-                <!-- Sign up if not logged in button -->
-                <li>
-                <%= link_to(
-                  content_tag(
-                    :i,
-                    nil, 
-                    class: 'mdi-action-settings small'
-                  ), 
-                  new_user_registration_path,
-                  style:
-                    "color:#fff" 
-                  ) 
-                %>
                 </li>
-                <% end %>
+                <% end  %>
+                
             </ul>
           </div>
         </nav>
@@ -76,7 +64,7 @@
       <%= yield %>
 
       </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/<%= materialize_version %>/js/materialize.min.js"></script>
+    
     </body>
 
 </html>

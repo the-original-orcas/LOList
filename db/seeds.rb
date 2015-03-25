@@ -19,7 +19,7 @@ Comedian.create({
 Comedian.create({
 	name: 'Daniel Tosh',
 	image: 'http://i.imgur.com/Qsmfugv.jpg',
-	youtube_url: 'https://www.youtube.com/embed/N-i9GXbptog'
+	youtube_url: 'https://www.youtube.com/embed/W2zTQwWaPps'
 	})
 
 Comedian.create({
@@ -43,7 +43,7 @@ Comedian.create({
 c5 = Comedian.create({
 	name: 'Jim Gaffigan',
 	image: 'http://i.imgur.com/MznojsG.jpg',
-	youtube_url: 'https://www.youtube.com/embed/W2zTQwWaPps'
+	youtube_url: 'https://www.youtube.com/embed/N-i9GXbptog'
 	})
 
 c4 = Comedian.create({

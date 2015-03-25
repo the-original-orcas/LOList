@@ -1,12 +1,5 @@
 $(document).ready(function() {
     $(function() {
-        console.log('inside function');
-        var dateToCountdown = document.getElementById("countdown-holder")
-        , targetDate = dateToCountdown.value; 
-        dateToCountdown.innerHTML = countdown(targetDate).toString();
-        setInterval(function(){
-        dateToCountdown.innerHTML = countdown(targetDate).toString();
-        }, 1000);
 
         // ON Hover video functionality - on pause it resets timer to 0 -- also testing display to none
         // $(".thumbnail").hover(function() {
