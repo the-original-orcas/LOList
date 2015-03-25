@@ -16,12 +16,14 @@
             <div class="col s9 card-content">
 
             <% if @user_events.where(comedian_id: comedian.id) != nil %>
-            <h4 class = "flow-text"><%= comedian.name %>
+            <h4 class = "grey-text text-darken-4"><%= comedian.name %>
             <% if comedian.events.include?(@latest) %>@ <%= @latest.venue  %>
             </h4>
-            <h4 class = "flow-text grey-text text-darken-4 right" id="countdown-holder"></h4><input type="hidden" id="date"><%= @latest.datetime_local  %></input>
-            <p class="flow-text grey-text text-darken-4 right">Tickets left: <%= @latest.ticket_count  %></p>
-            <a class = "btn right" href="<%= @latest.url %>">Buy your ticket here!</a>
+            <h5 class = "flow-text grey-text text-darken-4" id="countdown-holder"></h5><input type="hidden" id="date" value="<%= @latest.datetime_local  %>" >
+            <div class="right">
+                <p class="flow-text grey-text text-darken-4">Tickets left: <%= @latest.ticket_count  %></p>
+                <a class = "btn" href="<%= @latest.url %>">Buy your ticket here!</a>
+            </div>
             
             <% end  %>
             <% else %>
