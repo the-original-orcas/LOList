@@ -1,3 +1,8 @@
+body {
+    font-family: 'Comfortaa', cursive;
+}
+
+
 .hvr-fade {
 
   vertical-align: middle;
@@ -98,7 +103,8 @@ i.follow {
 			position:absolute;
 			width:100%;
 			background: rgba(255,255,255,.6);
-			padding: 0 0 0 38px;
+			padding: 0 0 0 10px;
+			font-family: 'Roboto';
 		}
 
 	}
@@ -133,4 +139,6 @@ div.card-action {
 	margin: -100px 0 0 229px;
 }
 
-
+h4 {
+  font-family: 'Roboto';
+}

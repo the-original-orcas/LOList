@@ -1,4 +1,3 @@
-<%= render 'shared/navtop'  %>  
 <div>
     <h3 id='find-me'></h3>
     <div id='user-<%=@user.id%>'></div>
@@ -67,7 +66,7 @@
     <div class="divider"></div>
     <h5 class = 'center-align'>See who else makes you LOL...</h5>
     <div class="divider"></div>
-    <div class="row center-block">
+    <div class="row">
         <% @nonfaves.each do |comedian| %>
         <div id="nonfave" class='col s12 m4'>
             <div class=' card small z-depth-2'>
@@ -76,7 +75,7 @@
                     <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="hvr-icon-pulse fav fa fa-star-o right"></i></span>
                 </div>
                 <!-- Modal Trigger -->
-                <a class="fa fa-youtube-play fa-2x grey-text text-darken-3 right modal-trigger" href="#modal<%=comedian.id %>"></a>
+                <a class="fa fa-youtube-play fa-2x grey-text text-darken-3 right modal-trigger showTube" href="#modal<%=comedian.id %>"></a>
                 <!-- <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i> -->
                 <i class=""></i>                
             </div>
