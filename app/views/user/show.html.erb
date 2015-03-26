@@ -1,8 +1,8 @@
-<div class="container center-align">
+<div>
     <h3 id='find-me'></h3>
-    <div id='user-<%=@user.id%>'>
-    </div>
+    <div id='user-<%=@user.id%>'></div>
 </div>
+<div class="container">
 <h4 class="flow-text center-align">Thanks for signing up! We'll email you as soon as your favorite comedians are performing near you! Meanwhile, check out some more funny acts below!</h4>
 <%= render partial: 'faves', locals: { faves: @faves }  %>
 
@@ -78,14 +78,10 @@
                 <span class='card-title grey-text text-darken-4'> <%= comedian.name %> </span>    
                     <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="fav fa fa-star-o right"></i></span>
                 </div>
-
                 <!-- Modal Trigger -->
                 <a class="fa fa-youtube-play fa-2x grey-text text-darken-3 right modal-trigger" href="#modal<%=comedian.id %>"></a>
                 <!-- <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i> -->
-                <i class=""></i>
-
-
-                
+                <i class=""></i>                
             </div>
         </div>
         <!-- Modal Structure -->
@@ -98,4 +94,4 @@
         </div>
         <% end %>
     </div>
-
+</div>
