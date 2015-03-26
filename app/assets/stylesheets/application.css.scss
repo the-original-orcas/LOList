@@ -1,9 +1,9 @@
 /*
+*= require bootstrap
+*= require devise_bootstrap_views
 *= require_self
 *= require_tree .
 */
-
-
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
