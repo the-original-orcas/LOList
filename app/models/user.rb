@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :recoverable, :lockable, :timeoutable and :validatable
   devise :database_authenticatable, :registerable,
-    :rememberable, :trackable, :omniauthable
+    :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :comedians_users
   has_many :comedians, through: :comedians_users
@@ -19,6 +19,15 @@ class User < ActiveRecord::Base
   def unfollowComedian(current_user)
     comedian = Comedian.find(comedian_id)
     self.comedians.where(comedian_id)
+  end
+
+  def self.from_omniauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+      end
   end
 
   def updateDb(current_user, zip)
@@ -45,25 +54,3 @@ class User < ActiveRecord::Base
     end
   end
 end
-
-
-# def newEvent
-
-#   Comedian.all.each do |comedian|
-#     all_comedians = []
-#     all_comedians << HTTParty.get('http://api.seatgeek.com/2/events?performers.slug='+comedian.name.downcase.gsub(" ","-"))
-
-#     all_comedians.each do |c|
-
-#       c["events"].each do |event|
-
-#         Event.create({date: event["datetime_local"].split("T")[0], time: event["datetime_local"].split("T")[1], venue: event["venue"]["name"], price: event["stats"]["lowest_price"], city: event["venue"]["city"], state_code: event["venue"]["state"], postal_code: event["venue"]["postal_code"], seatgeek_id: event["id"], comedian_id: comedian.id})
-#       end
-#     end
-#   end
-# end
-#   end
-# end
-
-# existing_event = Event.find_or_initialize_by(seatgeek_id: event_params[:seatgeek_id])
-#         if event.id != existing_event.seatgeek_id
