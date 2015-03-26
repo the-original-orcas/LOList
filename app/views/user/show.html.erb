@@ -36,7 +36,7 @@
             </div>
             <div class="card-reveal">
                 <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
-                <div class='card' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" ></div>
+                
                 <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star right"></i></span>
                 
                 <% if @user_events.where(comedian_id: comedian.id).length >= 2 %>
