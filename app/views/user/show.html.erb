@@ -1,3 +1,4 @@
+<%= render 'shared/navtop'  %>  
 <div>
     <h3 id='find-me'></h3>
     <div id='user-<%=@user.id%>'></div>
@@ -10,35 +11,18 @@
 <div class='col s12'>
     <div class="card row faveComs">
         <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star right"></i></span>
-            <div class='card col thumbnail' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" >
-            </div>
-            <div class="col s9 card-content">
+
+            <div class='card col thumbnail' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" ></div>
+            
+
+            <div class="row col s9 card-content">
 
             <% if @user_events.where(comedian_id: comedian.id) != nil %>
-            <h4 class = "grey-text text-darken-4"><%= comedian.name %>
-            <% if comedian.events.include?(@latest) %>@ <%= @latest.venue  %>
-            </h4>
+            <h4 class = "grey-text text-darken-4"><%= comedian.name %></h4>
+            <% if comedian.events.include?(@latest) %><h5>@ <%= @latest.venue  %></h5>
+            
             <h5 class = "flow-text grey-text text-darken-4" id="countdown-holder"></h5><input type="hidden" id="date" value="<%= @latest.datetime_local  %>" >
-            <div class="right">
-                <p class="flow-text grey-text text-darken-4">Tickets left: <%= @latest.ticket_count  %></p>
-                <a class = "btn yellow darken-2 white-text" href="<%= @latest.url %>">Buy your ticket here!</a>
-            </div>
             
-            <% end  %>
-            <% else %>
-            <h4 class = "comedian-name"><%= comedian.name %></h4>
-            <% end %>
-            </div>
-            
-            <div class="card-action">
-                <span class="card-title activator grey-text text-darken-4 right">Click for more info<i class="mdi-navigation-more-vert right"></i></span>
-            
-            </div>
-            <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4"><%= comedian.name %><i class="mdi-navigation-close right"></i></span>
-                
-                <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star right"></i></span>
-                
                 <% if @user_events.where(comedian_id: comedian.id).length >= 2 %>
 
                 <a class='dropdown-button btn-flat left' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
@@ -54,9 +38,22 @@
                     <% end  %>
                 </ul>
                 <% end  %>
-                <i class="fa fa-youtube-play large fa-2x grey-text text-darken-3 right modal-trigger col s2" href="#modal<%=comedian.id %>"></i>
+                <br>
+                
+                <div class="right">
+                <p class="flow-text grey-text text-darken-4">Tickets left:</p> <p class="red-text darken-2"><%= @latest.ticket_count  %></p>
+                <a class = "btn yellow darken-2 white-text" href="<%= @latest.url %>">Buy your ticket here!</a>
+            </div>
+            
+            <% end  %>
+
+            
+            <% end %>
+            <br>
+            <i class="fa fa-youtube-play medium fa-2x grey-text text-darken-3 modal-trigger col s2" href="#modal<%=comedian.id %>"></i>
             </div>
 
+    </div>
     </div>
     <!-- Modal Structure -->
     <div id="modal<%= comedian.id %>" class="modal">
@@ -70,12 +67,12 @@
     <div class="divider"></div>
     <h5 class = 'center-align'>See who else makes you LOL...</h5>
     <div class="divider"></div>
-    <div class="row">
+    <div class="row center-block">
         <% @nonfaves.each do |comedian| %>
-        <div class='col s12 m4'>
-            <div class='card small z-depth-2'>
+        <div id="nonfave" class='col s12 m4'>
+            <div class=' card small z-depth-2'>
                 <div class='card-image thumbnail hvr-fade' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" >
-                <span class='card-title grey-text text-darken-4'> <%= comedian.name %> </span>    
+                <span class='left-align card-title grey-text text-darken-4'> <%= comedian.name %> </span>    
                     <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="hvr-icon-pulse fav fa fa-star-o right"></i></span>
                 </div>
                 <!-- Modal Trigger -->

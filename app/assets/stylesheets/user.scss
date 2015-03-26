@@ -81,7 +81,8 @@ i.follow {
 .card.small{
 	height: 260px;
 	width: 260px;
-
+	margin: 20px;
+	
 	.card-image {
 		height: 260px;
 		background-size:100%;
@@ -100,10 +101,6 @@ i.follow {
 			padding: 0 0 0 38px;
 		}
 
-		.card-title.teal-text.text-darken-2.bold {
-			margin-top: 1px;
-			
-		}	
 	}
 }
 

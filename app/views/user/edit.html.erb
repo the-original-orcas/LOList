@@ -1,13 +1,15 @@
+<%= render 'shared/navtop'  %>  
 <div class="container">
-<div class="container center-align">
+<div class="container-fluid center-align">
 
 <h4>Select at least three comedians to get started.</h4>
 <p>By selecting a comedian, you will begin to receive email notifications ONLY associated with the
 	artists you are following.</p>
-<br></div>
+<br>
 
 <div class="divider"></div>
-	<div class='row'>
+<br>
+	<div class="row">
 	<% @comedians.each do |comedian| %>
 	<% vidTag = comedian.name + ".mp4"  %>
 	<div class='col s12 m4'>
@@ -25,9 +27,8 @@
 	</div>
 	<% end %>
 	</div>
+	</div>
 	<div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
       <%= link_to "Submit", user_path, class: "waves-effect waves-light yellow black-text darken-2 btn" %>
   	</div>
-</div>
-</div>
 </div>
