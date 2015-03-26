@@ -74,9 +74,9 @@
         <% @nonfaves.each do |comedian| %>
         <div class='col s12 m4'>
             <div class='card small z-depth-2'>
-                <div class='card-image thumbnail' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" >
+                <div class='card-image thumbnail hvr-fade' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" >
                 <span class='card-title grey-text text-darken-4'> <%= comedian.name %> </span>    
-                    <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="fav fa fa-star-o right"></i></span>
+                    <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="hvr-icon-pulse fav fa fa-star-o right"></i></span>
                 </div>
                 <!-- Modal Trigger -->
                 <a class="fa fa-youtube-play fa-2x grey-text text-darken-3 right modal-trigger" href="#modal<%=comedian.id %>"></a>
