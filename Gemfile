@@ -21,6 +21,7 @@ gem 'geocoder'
 
 # Authentication related gems
 gem 'devise'
+gem 'devise-bootstrap-views'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'bcrypt', '~> 3.1.7'

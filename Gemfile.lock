@@ -62,6 +62,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise-bootstrap-views (0.0.4)
     erubis (2.7.0)
     execjs (2.4.0)
     faraday (0.9.1)
@@ -208,6 +209,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   devise
+  devise-bootstrap-views
   geocoder
   httparty
   jbuilder (~> 2.0)
