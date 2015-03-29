@@ -73,19 +73,25 @@ c1 = Comedian.create({
 u1 = User.create({
 	email: 'daniel.snider87@gmail.com',
 	password: '12312313',
-	postal_code: '10001'
+	postal_code: '10001',
+	state: 'New York',
+	city: 'Brooklyn'
 	})
 
 u2 = User.create({
 	email: 'sol@gmail.com',
 	password: '123123123',
-	postal_code: '10001'
+	postal_code: '10001',
+	state: 'New York',
+	city: 'Brooklyn'
 	})
 
 u3 = User.create({
 	email: 'user@email.com',
 	password: '123123',
-	postal_code: '97217'
+	postal_code: '97217',
+	state: 'Oregon',
+	city: 'Portland'
 	})
 
 u3.comedians = [c1,c2,c3,c5]

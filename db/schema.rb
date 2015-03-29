@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 20150323080552) do
     t.boolean  "subscribed",             default: true
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "state"
+    t.string   "city"
   end
 
   add_index "users", ["comedian_id"], name: "index_users_on_comedian_id", using: :btree
