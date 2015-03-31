@@ -40,6 +40,7 @@ gem "unicorn"
 
 # group :development, :test do
   # gem 'pry-rails'
+  gem 'rails-erd'
   # gem 'better_errors'
   # gem 'binding_of_caller'
   # gem 'spring'
