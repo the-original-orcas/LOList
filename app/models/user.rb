@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
 
+  has_one :identity, dependent: :destroy
   has_many :comedians_users
   has_many :comedians, through: :comedians_users
 
