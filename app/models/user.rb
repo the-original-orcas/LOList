@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
         user.uid = auth.uid
         user.email = auth.info.email
         user.location = auth.info.location
-        location  = auth.info.location.gsub(/ /, '').split(/,/)
+        location  = auth.info.user_location.gsub(/ /, '').split(/,/)
         user.state = location[1]
         user.city = location[0]
         user.image = auth.info.image
