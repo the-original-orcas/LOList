@@ -18,7 +18,7 @@
 
             <% if @user_events.where(comedian_id: comedian.id) != nil %>
             <h4 class = "grey-text text-darken-4"><%= comedian.name %></h4>
-            <% if comedian.events.include?(@latest) %><h5>@ <%= @latest.venue  %></h5>
+            <% if comedian.events.include?(@latest) %><h5>@ <%= @latest.venue  %> on <%= @latest.datetime_local.to_time.strftime('%B %e')  %></h5>
             
             <h5 class = "flow-text grey-text text-darken-4" id="countdown-holder"></h5><input type="hidden" id="date" value="<%= @latest.datetime_local  %>" >
             

@@ -15,7 +15,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def generic_callback( provider )
     @identity = Identity.find_for_oauth env["omniauth.auth"]
-    binding.pry
     @user = @identity.user || current_user
     if @user.nil?
       @user = User.create( email: @identity.email || "") #, image: @identity.image || ""
@@ -23,7 +22,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
 
     if @user.location.blank? && @identity.location
-      binding.pry
       @user.update_attribute( :location, @identity.location)
     end
 
