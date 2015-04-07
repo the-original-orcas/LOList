@@ -25,7 +25,6 @@ gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem "koala"
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'rails_12factor', group: :production
