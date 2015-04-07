@@ -4,13 +4,41 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :rememberable, :trackable, :omniauthable, :omniauth_providers => [:facebook]
 
-  has_one :identity, dependent: :destroy
+  has_many :identities, dependent: :destroy
   has_many :comedians_users
   has_many :comedians, through: :comedians_users
 
   geocoded_by :current_sign_in_ip   # can also be an IP address
   reverse_geocoded_by :latitude, :longitude
   after_validation :geocode, :reverse_geocode, :if => :current_sign_in_ip_changed? # auto-fetch coordinates
+
+  def twitter
+    identities.where( :provider => "twitter" ).first
+  end
+
+  def twitter_client
+    @twitter_client ||= Twitter.client( access_token: twitter.accesstoken )
+  end
+
+  def facebook
+    identities.where( :provider => "facebook" ).first
+  end
+
+  def facebook_client
+    @facebook_client ||= Facebook.client( access_token: facebook.accesstoken )
+  end
+
+  def google_oauth2
+    identities.where( :provider => "google_oauth2" ).first
+  end
+
+  def google_oauth2_client
+    if !@google_oauth2_client
+      @google_oauth2_client = Google::APIClient.new(:application_name => 'LOList', :application_version => "1.0.0" )
+      @google_oauth2_client.authorization.update_token!({:access_token => google_oauth2.accesstoken, :refresh_token => google_oauth2.refreshtoken})
+    end
+    @google_oauth2_client
+  end
 
   def followComedian(current_user)
     comedian = Comedian.find(comedian_id)
