@@ -70,6 +70,9 @@ ActiveRecord::Schema.define(version: 20150406221824) do
     t.string   "email"
     t.string   "image"
     t.string   "urls"
+    t.string   "location"
+    t.string   "state"
+    t.string   "city"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

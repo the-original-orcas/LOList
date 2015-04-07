@@ -56,9 +56,8 @@ class User < ActiveRecord::Base
         user.uid = auth.uid
         user.email = auth.info.email
         user.location = auth.info.location
-        location  = auth.info.user_location.gsub(/ /, '').split(/,/)
-        user.state = location[1]
-        user.city = location[0]
+        # user.state = auth.info.state
+        # user.city = auth.info.city
         user.image = auth.info.image
         user.password = Devise.friendly_token[0,20]
       end

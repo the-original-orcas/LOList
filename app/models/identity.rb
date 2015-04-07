@@ -11,9 +11,10 @@ class Identity < ActiveRecord::Base
     identity.name = auth.info.name
     identity.email = auth.info.email
     identity.image = auth.info.image
-    identity.location = auth.info.location.gsub(/ /, '').split(/,/)
-    # identity.state = location[1]
-    # identity.city = location[0]
+    identity.location = auth.info.location
+    location = identity.location.gsub(/ /, '').split(/,/)
+    identity.state = location[1]
+    identity.city = location[0]
     identity.urls = (auth.info.urls || "").to_json
     identity.save
     identity

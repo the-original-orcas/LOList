@@ -2,6 +2,7 @@ class UserController < ApplicationController
   before_filter :allow_cors ## NEED TO ADD AUTH TOKEN TO JSON REQUESTS
   prepend_before_filter :require_no_authentication, :only => [ :new, :create, :cancel ]
   prepend_before_filter :authenticate_user!, :only => [:edit, :update, :destroy, :show]
+  
   def new
     @user = User.new
   end
@@ -18,21 +19,27 @@ class UserController < ApplicationController
   def show
     zip = current_user.postal_code
     # current_user.populateDb(current_user, zip)
+
     @user = current_user
     userId = @user.id
     @faves = @user.comedians
     @comedians = Comedian.all
     @nonfaves = @comedians - @faves
     events = Event.joins(:comedians)
-    
-    @user_events = events.near(zip, 50)
+
+    if zip != nil
+      @user_events = events.near(zip, 300)
+    else
+      @user_events = events.near(current_user.city, 300)
+    end
+
     if @user_events.length >= 1
-    @user_events.order('datetime_local')
-    @latest = @user_events.order('datetime_local').first # what I meant about assigning variable for single event then sending to view
+      @user_events.order('datetime_local')
+      @latest = @user_events.order('datetime_local').first # what I meant about assigning variable for single event then sending to view
     end
 
     if @latest != nil
-    @countdown_date = @latest.datetime_local
+      @countdown_date = @latest.datetime_local
     end
 
     if @user.comedians.count < 1 # NEED TO FIX THIS LOGIC - TRIED after_sign_up TRIED sign_in_count == 1

@@ -10,6 +10,9 @@ class CreateIdentities < ActiveRecord::Migration
       t.string :email
       t.string :image
       t.string :urls
+      t.string :location
+      t.string :state
+      t.string :city
 
       t.timestamps null: false
     end
