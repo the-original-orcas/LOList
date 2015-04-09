@@ -1,0 +1,8 @@
+.comedian {
+	.unfave {display: none;}
+}
+
+.comedian.faved {
+	.fave { display: none;}
+	.unfave { display: inline-block;}
+}

@@ -1,7 +1,3 @@
-body {
-    font-family: 'Comfortaa', cursive;
-}
-
 
 .hvr-fade {
 
@@ -141,4 +137,16 @@ div.card-action {
 
 h4 {
   font-family: 'Roboto';
+}
+
+.follow, .index-follow {
+    transition: color 0.5s ease;
+    float: right;
+    margin-top: -8px;
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.index-follow:active {
+    margin-bottom: -2px;
 }
