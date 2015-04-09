@@ -3,27 +3,22 @@
     <div id='user-<%=@user.id%>'></div>
 </div>
 <div class="container">
-<h4 class="flow-text center-align">Thanks for signing up! We'll email you as soon as your favorite comedians are performing near you! Meanwhile, check out some more funny acts below!</h4>
-<%= render partial: 'faves', locals: { faves: @faves }  %>
-
-<% @faves.each do |comedian| %>
-<div class='col s12'>
-    <div class="card row faveComs">
-        <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star right"></i></span>
-
+    <h4 class="flow-text center-align">Thanks for signing up! We'll email you as soon as your favorite comedians are performing near you! Meanwhile, check out some more funny acts below!</h4>
+    <%= render partial: 'faves', locals: { faves: @faves }  %>
+    <% @faves.each do |comedian| %>
+    <div class='col s12'>
+        <div class="card row faveComs">
+            <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star right"></i></span>
             <div class='card col thumbnail' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" ></div>
-            
 
             <div class="row col s9 card-content">
+                <% if @user_events.where(comedian_id: comedian.id) != nil %>
+                <h4 class = "grey-text text-darken-4"><%= comedian.name %></h4>
+                <% if comedian.events.include?(@latest) %><h5>@ <%= @latest.venue  %> on <%= @latest.datetime_local.to_time.strftime('%B %e')  %></h5>
 
-            <% if @user_events.where(comedian_id: comedian.id) != nil %>
-            <h4 class = "grey-text text-darken-4"><%= comedian.name %></h4>
-            <% if comedian.events.include?(@latest) %><h5>@ <%= @latest.venue  %> on <%= @latest.datetime_local.to_time.strftime('%B %e')  %></h5>
-            
-            <h5 class = "flow-text grey-text text-darken-4" id="countdown-holder"></h5><input type="hidden" id="date" value="<%= @latest.datetime_local  %>" >
-            
+                <h5 class = "flow-text grey-text text-darken-4" id="countdown-holder"></h5><input type="hidden" id="date" value="<%= @latest.datetime_local  %>" >
+
                 <% if @user_events.where(comedian_id: comedian.id).length >= 2 %>
-
                 <a class='dropdown-button btn-flat left' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
                 <ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
                     <% @user_events.each do  |event| %>
@@ -38,27 +33,25 @@
                 </ul>
                 <% end  %>
                 <br>
-                
+
                 <div class="right">
-                <p class="flow-text grey-text text-darken-4">Tickets left:</p> <p class="red-text darken-2"><%= @latest.ticket_count  %></p>
-                <a class = "btn yellow darken-2 white-text" href="<%= @latest.url %>">Buy your ticket here!</a>
-            </div>
-            
-            <% end  %>
+                    <p class="flow-text grey-text text-darken-4">Tickets left:</p> <p class="red-text darken-2"><%= @latest.ticket_count  %></p>
+                    <a class = "btn yellow darken-2 white-text" href="<%= @latest.url %>">Buy your ticket here!</a>
+                </div>
 
-            
-            <% end %>
-            <br>
-            <i class="fa fa-youtube-play medium fa-2x grey-text text-darken-3 modal-trigger col s2" href="#modal<%=comedian.id %>"></i>
-            </div>
+                <% end  %>
 
-    </div>
+                <% end %>
+                <br>
+                <i class="fa fa-youtube-play medium fa-2x grey-text text-darken-3 modal-trigger col s2" href="#modal<%=comedian.id %>"></i>
+            </div>
+        </div>
     </div>
     <!-- Modal Structure -->
     <div id="modal<%= comedian.id %>" class="modal">
         <div class="modal-content">
             <div class="video-container">
-                <iframe width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
+                <iframe width="560" height="349" src="<%=comedian.youtube_url%>?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -71,20 +64,20 @@
         <div id="nonfave" class='col s12 m4'>
             <div class=' card small z-depth-2'>
                 <div class='card-image thumbnail hvr-fade' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" >
-                <span class='left-align card-title grey-text text-darken-4'> <%= comedian.name %> </span>    
+                    <span class='left-align card-title grey-text text-darken-4'> <%= comedian.name %> </span>
                     <span id='comedian-<%= comedian.id %>' class='index-follow'><i class="hvr-icon-pulse fav fa fa-star-o right"></i></span>
                 </div>
                 <!-- Modal Trigger -->
                 <a class="fa fa-youtube-play fa-2x grey-text text-darken-3 right modal-trigger showTube" href="#modal<%=comedian.id %>"></a>
                 <!-- <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i> -->
-                <i class=""></i>                
+                <i class=""></i>
             </div>
         </div>
         <!-- Modal Structure -->
         <div id="modal<%= comedian.id %>" class="modal">
             <div class="modal-content">
                 <div class="video-container">
-                    <iframe width="560" height="349" src="<%=comedian.youtube_url%>" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="560" height="349" src="<%=comedian.youtube_url%>?enablejsapi=1" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

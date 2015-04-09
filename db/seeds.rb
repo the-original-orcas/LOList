@@ -1,10 +1,4 @@
 Comedian.create({
-	name: 'Kevin Hart',
-	image: 'http://i.imgur.com/xqIX6J0.jpg',
-	youtube_url: 'https://www.youtube.com/embed/TTCgr3V_HhI'
-	})
-
-Comedian.create({
 	name: 'Louis CK',
 	image: 'http://i.imgur.com/Z0L6dGg.jpg',
 	youtube_url: 'https://www.youtube.com/embed/mQUr2RkjykU'
@@ -31,7 +25,7 @@ Comedian.create({
 Comedian.create({
 	name: 'Chelsea Peretti',
 	image: 'http://i.imgur.com/afGSrOk.jpg',
-	youtube_url: 'https://www.youtube.com/embed/fYXJYHAPT18'
+	youtube_url: 'https://www.youtube.com/embed/R_hxKZ4IcaI'
 	})
 
 Comedian.create({
@@ -70,35 +64,53 @@ c1 = Comedian.create({
 	youtube_url: 'https://www.youtube.com/embed/YEXmu89_E8o'
 	})
 
-u1 = User.create({
-	email: 'daniel.snider87@gmail.com',
-	password: '12312313',
-	postal_code: '10001',
-	state: 'New York',
-	city: 'Brooklyn'
-	})
+# Comedian.create({
+# 	name: 'Jerry Seinfeld',
+# 	image: 'http://i.imgur.com/aLUnohR.jpg',
+# 	youtube_url: 'https://www.youtube.com/embed/iBnwYxL5J-w'
+# 	})
 
-u2 = User.create({
-	email: 'sol@gmail.com',
-	password: '123123123',
-	postal_code: '10001',
-	state: 'New York',
-	city: 'Brooklyn'
-	})
+# Comedian.create({
+# 	name: 'Chris Tucker',
+# 	image: 'http://i.imgur.com/aLUnohR.jpg',
+# 	youtube_url: 'https://www.youtube.com/embed/N1RTSXx6DXw"'
+# 	})
 
-u3 = User.create({
-	email: 'user@email.com',
-	password: '123123',
-	postal_code: '97217',
-	state: 'Oregon',
-	city: 'Portland'
-	})
+# Comedian.create({
+# 	name: 'Tig Notaro',
+# 	image: 'http://i.imgur.com/xqIX6J0.jpg',
+# 	youtube_url: 'https://www.youtube.com/embed/WwFiFJn-v5w'
+# 	})
 
-u3.comedians = [c1,c2,c3,c5]
-u2.comedians = [c3,c4]
-u1.comedians = [c1,c2,c3,c4]
-u2.save
-u1.save
+# u1 = User.create({
+# 	email: 'daniel.snider87@gmail.com',
+# 	password: '12312313',
+# 	postal_code: '10001',
+# 	state: 'New York',
+# 	city: 'Brooklyn'
+# 	})
+
+# u2 = User.create({
+# 	email: 'sol@gmail.com',
+# 	password: '123123123',
+# 	postal_code: '10001',
+# 	state: 'New York',
+# 	city: 'Brooklyn'
+# 	})
+
+# u3 = User.create({
+# 	email: 'user@email.com',
+# 	password: '123123',
+# 	postal_code: '97217',
+# 	state: 'Oregon',
+# 	city: 'Portland'
+# 	})
+
+# u3.comedians = [c1,c2,c3,c5]
+# u2.comedians = [c3,c4]
+# u1.comedians = [c1,c2,c3,c4]
+# u2.save
+# u1.save
 
 # e1 = Event.create({
 # 	date: "2015-21-03",
