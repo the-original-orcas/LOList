@@ -25,7 +25,7 @@ Comedian.create({
 Comedian.create({
 	name: 'Chelsea Peretti',
 	image: 'http://i.imgur.com/afGSrOk.jpg',
-	youtube_url: 'https://www.youtube.com/embed/R_hxKZ4IcaI'
+	youtube_url: 'http://www.youtube.com/embed/R_hxKZ4IcaI'
 	})
 
 Comedian.create({
