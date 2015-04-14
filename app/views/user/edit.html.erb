@@ -11,7 +11,7 @@
 	<div class="row">
 	<% @comedians.each do |comedian| %>
 	<% vidTag = comedian.name + ".mp4"  %>
-	<div class='col s12 m4'>
+	<div class='col l4 m6'>
 		<div id='comedian-<%= comedian.id %>' class='card small z-depth-2 follow'>
 			<div class='card-image thumbnail hvr-fade' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" >
 
