@@ -18,9 +18,7 @@
                 <h5 class = "col l12 flow-text grey-text text-darken-4" id="countdown-holder"></h5><input type="hidden" id="date" value="<%= @latest.datetime_local  %>" >
 
             </div>
-            <ul>
-            <li class="divider"></li>
-            </ul>
+            
                 <% if @user_events.where(comedian_id: comedian.id).length >= 2 %>
 
                 <a class='col dropdown-button btn-flat left' href='' data-activates='dropdown<%= comedian.id  %>'>More dates</a>
@@ -31,7 +29,6 @@
                     <li class="grey-text text-darken-4"><%= event.venue  %></li>
                     <li class="grey-text text-darken-4"><%= event.address  %> </li>
                     
-                    <li class="divider"></li>
                     <% end  %>
                     <% end  %>
                 </ul>
