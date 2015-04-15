@@ -1,4 +1,22 @@
+
 <%= bootstrap_devise_error_messages! %>
+<section class="container">
+    <p class="alert"><%= devise_error_messages! %></p>
+    <div id='title-div' class="col-sm-offset-4 col-sm-4">
+        <div class="row" >
+            <a href="#loginModal" class="yellow darken-2 btn modal-trigger valign black-text">
+            Sign in
+            </a>
+            <a href="#signupModal" class="yellow darken-2 btn modal-trigger valign black-text">
+            Sign up
+            </a>
+            <a href="#editModal" class="yellow darken-2 btn modal-trigger valign black-text">
+            Edit preferences
+            </a>
+        </div>
+    </div>
+</section>
+
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -94,36 +112,32 @@
     </div>
 </div>
 <!-- SIGNUP FORM -->
-<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-            </div>
-            <div class="modal-body ">
-                <%= form_for(@user, url: registration_path(@user)) do |f| %>
-                <div class="form-group">
-                    <%= f.label "Email", class: "col-sm-2 control-label"%>
-                    <div class="col-sm-10">
-                        <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <%= f.label "Password", class: "col-sm-2 control-label"%>
-                    <div class="col-sm-10">
-                        <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <%= f.label "Password Confirmation", class: "col-sm-2 control-label"%>
-                    <div class="col-sm-10">
-                        <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class: "form-control" %>
-                    </div>
-                </div>
-                <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-default col-xs-offset-2" %>
-                <% end %>
-            </div>
+<div id="signupModal" class="modal sign-in">
+    <div class="modal-content modal-signup">
+        <h5 class="center-align grey-text text-darken-4">Sign up for LOList</h5>
+        <div class="divider"></div><br>
+        <div class="center-align">
+            <a class="btn-social btn-large btn-icon btn-facebook" href = '/users/auth/facebook/'>
+            <i class="fa fa-facebook left"></i>
+            Connect with Facebook
+            </a>
         </div>
+        <div class="center-align"><div class="divider-or center-block">Or</div></div>
+        <form action="/users" method="POST">
+            <div class="input-field col s12">
+                <input type = "email" class = "validate" type="text" name="user[email]" placeholder="Email"></input>
+            </div>
+            <div class="input-field col s12">
+                <input type="password" class = "validate" name="user[password]" placeholder="Min 6 character password"></input>
+            </div>
+            <div class="input-field col s12">
+                <input type="password" class = "validate" name="user[password_confirmation]" placeholder="Confirm Password"></input>
+            </div>
+            <div class="input-field col s12">
+                <input type="text" name="user[postal_code]" placeholder="Zipcode to filter results!"></input>
+            </div>
+            <input type="hidden" name="authenticity_token" value = "<%= form_authenticity_token()  %>">
+            <button class="center-block waves-effect waves-light yellow black-text darken-2 btn" type="submit" name="action">Get started!</button>
+        </form>
     </div>
 </div>

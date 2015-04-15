@@ -6,36 +6,43 @@
     <h4 class="flow-text center-align">Thanks for signing up! We'll email you as soon as your favorite comedians are performing near you! Meanwhile, check out some more funny acts below!</h4>
     <%= render partial: 'faves', locals: { faves: @faves }  %>
     <% @faves.each do |comedian| %>
-    <div class='col s12'>
+    <div class='col l12'>
         <div class="card row faveComs">
             <span id='comedian-<%= comedian.id %>' class='index-follow index-following'><i class="fav fa fa-star right"></i></span>
-            <div class='card col thumbnail' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" ></div>
+            <div class='card col thumbnail' style="background:  url(<%=comedian.image%>) no-repeat center center; background-size: cover" ><a class="fa fa-youtube-play fa-2x grey-text text-darken-3 right modal-trigger showTube z-depth-2" href="#modal<%=comedian.id %>"></a></div>
 
-            <div class="row col s9 card-content">
+            <div class="col l8 m8 s8 card-content">
                 <% if @user_events.where(comedian_id: comedian.id) != nil %>
                 <h4 class = "grey-text text-darken-4"><%= comedian.name %></h4>
                 <% if comedian.events.include?(@latest) %><h5>@ <%= @latest.venue  %> on <%= @latest.datetime_local.to_time.strftime('%B %e')  %></h5>
+                <h5 class = "col l12 flow-text grey-text text-darken-4" id="countdown-holder"></h5><input type="hidden" id="date" value="<%= @latest.datetime_local  %>" >
 
-                <h5 class = "flow-text grey-text text-darken-4" id="countdown-holder"></h5><input type="hidden" id="date" value="<%= @latest.datetime_local  %>" >
-
+            </div>
+            <ul>
+            <li class="divider"></li>
+            </ul>
                 <% if @user_events.where(comedian_id: comedian.id).length >= 2 %>
-                <a class='dropdown-button btn-flat left' href='' data-activates='dropdown<%= comedian.id  %>'>Additional dates</a>
+
+                <a class='col dropdown-button btn-flat left' href='' data-activates='dropdown<%= comedian.id  %>'>More dates</a>
                 <ul id='dropdown<%= comedian.id  %>' class='dropdown-content'>
                     <% @user_events.each do  |event| %>
                     <% if event.comedian_id == comedian.id  %>
-                    <!-- Modal Trigger -->
-                    <li class="grey-text text-darken-4"> <%= event.datetime_local.to_time.strftime('%B %e at %l:%M %p')  %> </li>
+                    <a class = "" href="<%= event.url %>"><li class="grey-text text-darken-4"><%= event.datetime_local.to_time.strftime('%B %e at %l:%M %p')  %> </li></a>
                     <li class="grey-text text-darken-4"><%= event.venue  %></li>
                     <li class="grey-text text-darken-4"><%= event.address  %> </li>
+                    
                     <li class="divider"></li>
                     <% end  %>
                     <% end  %>
                 </ul>
+
                 <% end  %>
                 <br>
 
-                <div class="right">
-                    <p class="flow-text grey-text text-darken-4">Tickets left:</p> <p class="red-text darken-2"><%= @latest.ticket_count  %></p>
+                
+
+                <div class="right col">
+                    <p class="flow-text grey-text text-darken-4">Tickets left: <span class="red-text darken-2"><%= @latest.ticket_count  %></span></p>
                     <a class = "btn yellow darken-2 white-text" href="<%= @latest.url %>">Buy your ticket here!</a>
                 </div>
 
@@ -43,9 +50,11 @@
 
                 <% end %>
                 <br>
-                <i class="fa fa-youtube-play medium fa-2x grey-text text-darken-3 modal-trigger col s2" href="#modal<%=comedian.id %>"></i>
+                <i class="fa fa-youtube-play medium fa-2x grey-text text-darken-3 modal-trigger col l2 m2 s2" href="#modal<%=comedian.id %>"></i>
+                
             </div>
-        </div>
+
+        
     </div>
     <!-- Modal Structure -->
     <div id="modal<%= comedian.id %>" class="modal">
@@ -69,8 +78,6 @@
                 </div>
                 <!-- Modal Trigger -->
                 <a class="fa fa-youtube-play fa-2x grey-text text-darken-3 right modal-trigger showTube" href="#modal<%=comedian.id %>"></a>
-                <!-- <i class="fa fa-youtube-play fa-2x activator grey-text text-darken-3 right"></i> -->
-                <i class=""></i>
             </div>
         </div>
         <!-- Modal Structure -->
